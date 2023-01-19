@@ -1,0 +1,379 @@
+body{
+
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+  .parteArriba li a:hover {
+    background: rgba(122, 122, 122, 0.753);
+  }
+  
+  .alinearder {
+    text-align: right;
+  }
+  
+  .alinearizq {
+  
+    float: left;
+  }
+  
+  .carousel-inner div img {
+    width: 1500px;
+    height: 350px;
+  }
+  
+  
+  .tarjeta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 65%;
+    margin: auto;
+    grid-gap: 10px;
+    padding: 20px 0;
+    overflow: hidden;
+    /* float: right; */
+  }
+  
+  
+  .tarjeta img {
+    width: 100%;
+    vertical-align: top;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s
+  }
+  
+  .agrandar {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .publicaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 25%;
+    margin: auto;
+    grid-gap: 10px;
+    padding: 20px 0;
+    overflow: hidden;
+    float: left;
+  }
+  
+  .publicaciones img {
+    width: 100%;
+    vertical-align: top;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s
+  }
+  
+  .bordeDiv {
+    border-top-width: 10px;
+    border-right-width: 1em;
+    border-bottom-width: thick;
+    border-left-width: thin;
+  }
+  /*BOTON ANIMADO*/
+  
+  
+  
+  .aDebtnAnimado {
+    /*el display hace q se pueda ver como una caja o bloque a ese "a"*/
+    display: block;
+    text-decoration: none;
+    margin: 5px;
+  }
+  
+  .button {
+    /*position relative para que no este por delante elm destello de luz*/
+    position: relative;
+    /*seleccion de colores a combinar*/
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    /*se puso size background para que la combinacion de colores
+    si no hay esto estara invisible el boton, se puso 400% para q no se vea chistoso*/
+    background-size: 400%;
+    /*redondear esquinas*/
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    /*acomodamos biencito el espaciado de arriba abajo*/
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;/*nose*/
+    text-transform: uppercase; /*poner mayuscula al texto*/
+    color: #FFFFFF;
+    font-size: 20px;/*tamanio d fuente*/
+  }
+  /*esto se encarga de hacer recorrer el color por todo el boton
+  en si es una especie de funcion*/
+  @keyframes tranposicion {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+  }
+  /* en el evento hover llamamos dicha funcion*/
+  .button:hover {
+    animation: tranposicion 8s linear infinite;
+    text-decoration: none;
+    /*animation: educatecnica 1s(velodidad de cambio de color) linear infinite;*/
+  }
+  /*este hace q alrededor del boton tenga un resplandor*/
+  .button:before {
+    content: ""; /*es para que se vea el resplandor*/
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    position: absolute; /*para q este por delante el resplandor o se pueda apreciar*/
+    /*escogiendo longitud de destellos*/
+    top: -5px;
+    right: -5px;
+    left: -5px;
+    bottom: -5px;
+    /*es para que no este por delante del texto y buton*/
+    z-index: -1;
+    border-radius: 40px;/*curveando*/
+    /*esto hace q una pequeña animacion al asomar*/
+    filter: blur(100px);
+    opacity: 0;
+    /*hace q la animacion no sea tan brusco*/
+     /*es como decir q la animacion se ejecutara recien dentro de 0.5s segundos*/
+     transition: 0.5s;
+  }
+  
+  .button:hover:before {
+    opacity: 1;
+    filter: blur(20px);
+    /*aplicando la misma funcion*/
+    animation: tranposicion 8s linear infinite;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* PARA PARTE DE ABAJO */
+  footer .footerlcch {
+    padding: 20px 0;
+    background: #252525;
+  }
+
+  footer .main-footer {
+    padding: 20px 0;
+    background: #252525;
+  }
+  
+  footer ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  
+  .footer-copyright {
+    background: #222;
+    padding: 5px 0;
+  }
+  
+  .footer-copyright .logo {
+    display: inherit;
+  }
+  
+  .footer-copyright nav {
+    float: right;
+    margin-top: 5px;
+  }
+  
+  .footer-copyright nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-copyright nav ul li {
+    border-left: 1px solid #505050;
+    display: inline-block;
+    line-height: 12px;
+    margin: 0;
+    padding: 0 8px;
+  }
+  
+  .footer-copyright nav ul li a {
+    color: #969696;
+  }
+  
+  .footer-copyright nav ul li:first-child {
+    border: medium none;
+    padding-left: 0;
+  }
+  
+  .footer-copyright p {
+    color: #969696;
+    margin: 2px 0 0;
+  }
+  
+  
+  .footer-top {
+    background: #252525;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #222;
+  }
+  
+  footer.transparent .footer-top,
+  footer.transparent .main-footer {
+    background: transparent;
+  }
+  
+  footer.transparent .footer-copyright {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  footer.light .footer-top {
+    background: #f9f9f9;
+  }
+  
+  footer.light .main-footer {
+    background: #f9f9f9;
+  }
+  
+  footer.light .footer-copyright {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .footer- .logo {
+    display: inline-block;
+  }
+  
+  .widget {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .widget.widget-last {
+    margin-bottom: 0px;
+  }
+  
+  .widget.no-box {
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 40px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+  }
+  
+  .widget.subscribe p {
+    margin-bottom: 18px;
+  }
+  
+  .widget li a {
+    color: #ff8d1e;
+  }
+  
+  .widget li a:hover {
+    color: #4b92dc;
+  }
+  
+  .widget-title {
+    margin-bottom: 20px;
+  }
+  
+  .widget-title span {
+    background: #839FAD none repeat scroll 0 0;
+    display: block;
+    height: 1px;
+    margin-top: 25px;
+    position: relative;
+    width: 20%;
+  }
+  
+  .widget-title span::after {
+    background: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    top: -4px;
+    width: 50%;
+  }
+  
+  .widget-title.text-center span,
+  .widget-title.text-center span::after {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  
+  .widget .badge {
+    float: right;
+    background: #7f7f7f;
+  }
+  
+  .typo-light h1,
+  .typo-light h2,
+  .typo-light h3,
+  .typo-light h4,
+  .typo-light h5,
+  .typo-light h6,
+  .typo-light p,
+  .typo-light div,
+  .typo-light span,
+  .typo-light small {
+    color: #fff;
+  }
+  
+  ul.social-footer2 {
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+  
+  ul.social-footer2 li {
+    display: inline-block;
+    padding: 0;
+  }
+  
+  ul.social-footer2 li a:hover {
+    background-color: #ff8d1e;
+  }
+  
+  ul.social-footer2 li a {
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .btn {
+    background-color: #ff8d1e;
+    color: #fff;
+  }
+  
+  .btn:hover,
+  .btn:focus,
+  .btn.active {
+    background: #4b92dc;
+    color: #fff;
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s;
+  
+  }

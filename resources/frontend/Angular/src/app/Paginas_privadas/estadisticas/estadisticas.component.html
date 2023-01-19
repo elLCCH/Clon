@@ -1,0 +1,1194 @@
+<style>
+    legend{
+        cursor:pointer;
+    }
+</style>
+<h2 class="text-center font-weight-bold text-danger">PÁGINA DE ESTADÍSTICAS NUMERICAS INSTITUCIONALES</h2>
+<div class="form">
+    <div class="content">
+      <fieldset>
+        <legend><a class="hover" (click)="OpenTabla('TERCERO SUPERIOR')">TERCERO SUPERIOR</a></legend>
+        <div class="container">
+            <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+THN3roSuperior">
+                </li>
+            </ul>
+             
+            <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roSuperior+THA3roSuperior">
+                </li>
+            </ul>
+             
+            <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+            
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT3roSuperior">
+                </li>
+            </ul>
+             
+            <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+             
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+TMA3roSuperior">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roSuperior+THA3roSuperior">
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL 3ro SUPERIOR:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+TMA3roSuperior+THN3roSuperior+THA3roSuperior">
+                </li>
+            </ul>
+        </div>
+      </fieldset>
+    </div>
+    <!-- SEGUNDO SUPERIOR -->
+    <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('SEGUNDO SUPERIOR')">SEGUNDO SUPERIOR</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doSuperior+THN2doSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doSuperior+THA2doSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT2doSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doSuperior+TMA2doSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doSuperior+THA2doSuperior">
+                  </li>
+              </ul>
+  
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 2do SUP:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doSuperior+TMA2doSuperior+THN2doSuperior+THA2doSuperior">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- PRIMERO SUPERIOR -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('PRIMERO SUPERIOR')">PRIMERO SUPERIOR</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roSuperior+THN1roSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roSuperior+THA1roSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT1roSuperior">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roSuperior+TMA1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roSuperior+THA1roSuperior">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 1ro SUP:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roSuperior+TMA1roSuperior+THN1roSuperior+THA1roSuperior">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- TERCERO INTERMEDIO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('TERCERO INTERMEDIO')">TERCERO INTERMEDIO</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio+THN3roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIntermedio+THA3roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT3roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio+TMA3roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roIntermedio+THA3roIntermedio">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 3ro INTERM.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio+TMA3roIntermedio+THN3roIntermedio+THA3roIntermedio">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- SEGUNDO INTERMEDIO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('SEGUNDO INTERMEDIO')">SEGUNDO INTERM.</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIntermedio+THN2doIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doIntermedio+THA2doIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT2doIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIntermedio+TMA2doIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doIntermedio+THA2doIntermedio">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 2do INTERM.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIntermedio+TMA2doIntermedio+THN2doIntermedio+THA2doIntermedio">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- PRIMERO INTERMEDIO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('PRIMERO INTERMEDIO')">PRIMERO INTERMEDIO</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIntermedio+THN1roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roIntermedio+THA1roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT1roIntermedio">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIntermedio+TMA1roIntermedio">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roIntermedio+THA1roIntermedio">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">PRIMERO INTERM.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIntermedio+TMA1roIntermedio+THN1roIntermedio+THA1roIntermedio">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- TERCERO BASICO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('TERCERO BASICO')">TERCERO BASICO</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico+THN3roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roBasico+THA3roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT3roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico+TMA3roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roBasico+THA3roBasico">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 3ro BASICO:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico+TMA3roBasico+THN3roBasico+THA3roBasico">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- SEGUNDO BASICO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('SEGUNDO BASICO')">SEGUNDO BASICO</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doBasico+THN2doBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doBasico+THA2doBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT2doBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doBasico+TMA2doBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doBasico+THA2doBasico">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 2do BASICO:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doBasico+TMA2doBasico+THN2doBasico+THA2doBasico">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- PRIMERO BASICO -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('PRIMERO BASICO')">PRIMERO BASICO</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roBasico+THN1roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roBasico+THA1roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT1roBasico">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roBasico+TMA1roBasico">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roBasico+THA1roBasico">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 1ro BASICO:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roBasico+TMA1roBasico+THN1roBasico+THA1roBasico">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- TERCERO INICIACION -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('TERCERO INICIACION')">TERCERO INICIACION</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion+THN3roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIniciacion+THA3roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT3roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion+TMA3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roIniciacion+THA3roIniciacion">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 3ro INICIA.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion+TMA3roIniciacion+THN3roIniciacion+THA3roIniciacion">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- SEGUNDO INICIACION -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('SEGUNDO INICIACION')">SEGUNDO INICIACION</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIniciacion+THN2doIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA2doIniciacion+THA2doIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT2doIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIniciacion+TMA2doIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN2doIniciacion+THA2doIniciacion">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 2do INICIA.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN2doIniciacion+TMA2doIniciacion+THN2doIniciacion+THA2doIniciacion">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- PRIMERO INICIACION -->
+      <div class="content">
+        <fieldset>
+          <legend><a class="hover" (click)="OpenTabla('PRIMERO INICIACION')">PRIMERO INICIACION</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIniciacion+THN1roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA1roIniciacion+THA1roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT1roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIniciacion+TMA1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN1roIniciacion+THA1roIniciacion">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL 1ro INICIA.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN1roIniciacion+TMA1roIniciacion+THN1roIniciacion+THA1roIniciacion">
+                  </li>
+              </ul>
+          </div>
+        </fieldset>
+      </div>
+      <!-- DATOS POR NIVEL -->
+      <div class="content">
+        <fieldset>
+          <legend><a>GENERALIZACION_NIVELES</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">DATOS SUPERIOR</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">NUEVOS SUPERIOR:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+THN3roSuperior+TMN2doSuperior+THN2doSuperior+TMN1roSuperior+THN1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">ANTIGUOS SUPERIOR:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roSuperior+THA3roSuperior+TMA2doSuperior+THA2doSuperior+TMA1roSuperior+THA1roSuperior">
+                  </li>
+              </ul>
+              <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL SUPERIOR:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+TMA3roSuperior+THN3roSuperior+THA3roSuperior+TMN2doSuperior+TMA2doSuperior+THN2doSuperior+THA2doSuperior+TMN1roSuperior+TMA1roSuperior+THN1roSuperior+THA1roSuperior">
+                </li>
+                </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS_INTERMEDIO</label>
+              <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">NUEVOS INTERMEDIO:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio+THN3roIntermedio+TMN2doIntermedio+THN2doIntermedio+TMN1roIntermedio+THN1roIntermedio">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">ANTIGUOS INTERMEDIO:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIntermedio+THA3roIntermedio+TMA2doIntermedio+THA2doIntermedio+TMA1roIntermedio+THA1roIntermedio">
+                </li>
+            </ul>
+            <ul>
+              <li>
+                  <label class="col-form-label col-sm-9 ">TOTAL INTERMEDIO:</label>
+                  <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIntermedio+TMA3roIntermedio+THN3roIntermedio+THA3roIntermedio+TMN2doIntermedio+TMA2doIntermedio+THN2doIntermedio+THA2doIntermedio+TMN1roIntermedio+TMA1roIntermedio+THN1roIntermedio+THA1roIntermedio">
+              </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS_BASICO</label>
+              <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">NUEVOS BASICO:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico+THN3roBasico+TMN2doBasico+THN2doBasico+TMN1roBasico+THN1roBasico">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">ANTIGUOS BASICO:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roBasico+THA3roBasico+TMA2doBasico+THA2doBasico+TMA1roBasico+THA1roBasico">
+                </li>
+            </ul>
+            <ul>
+              <li>
+                  <label class="col-form-label col-sm-9 ">TOTAL BASICO:</label>
+                  <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roBasico+TMA3roBasico+THN3roBasico+THA3roBasico+TMN2doBasico+TMA2doBasico+THN2doBasico+THA2doBasico+TMN1roBasico+TMA1roBasico+THN1roBasico+THA1roBasico">
+              </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS_INICIACION</label>
+              <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">NUEVOS INICIACION:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion+THN3roIniciacion+TMN2doIniciacion+THN2doIniciacion+TMN1roIniciacion+THN1roIniciacion">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">ANTIGUOS INICIACION:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roIniciacion+THA3roIniciacion+TMA2doIniciacion+THA2doIniciacion+TMA1roIniciacion+THA1roIniciacion">
+                </li>
+            </ul>
+            <ul>
+              <li>
+                  <label class="col-form-label col-sm-9 ">TOTAL INICIACION:</label>
+                  <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roIniciacion+TMA3roIniciacion+THN3roIniciacion+THA3roIniciacion+TMN2doIniciacion+TMA2doIniciacion+THN2doIniciacion+THA2doIniciacion+TMN1roIniciacion+TMA1roIniciacion+THN1roIniciacion+THA1roIniciacion">
+              </li>
+              </ul>
+               
+          </div>
+        </fieldset>
+      </div>
+      <!-- GENERALIZACIONES -->
+      <div class="content">
+        <fieldset>
+          <legend><a>GENERALIZACIONES</a></legend>
+          <div class="container">
+              <label class="text-center text-danger font-weight-bold">NUEVOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+TMN2doSuperior+TMN1roSuperior+TMN3roIntermedio+TMN2doIntermedio+TMN1roIntermedio+TMN3roBasico+TMN2doBasico+TMN1roBasico+TMN3roIniciacion+TMN2doIniciacion+TMN1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roSuperior+THN2doSuperior+THN1roSuperior+THN3roIntermedio+THN2doIntermedio+THN1roIntermedio+THN3roBasico+THN2doBasico+THN1roBasico+THN3roIniciacion+THN2doIniciacion+THN1roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">ANTIGUOS</label>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMA3roSuperior+TMA2doSuperior+TMA1roSuperior+TMA3roIntermedio+TMA2doIntermedio+TMA1roIntermedio+TMA3roBasico+TMA2doBasico+TMA1roBasico+TMA3roIniciacion+TMA2doIniciacion+TMA1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THA2doSuperior+THA1roSuperior+THA3roSuperior+THA2doIntermedio+THA1roIntermedio+THA3roIntermedio+THA2doBasico+THA1roBasico+THA3roBasico+THA2doIniciacion+THA1roIniciacion+THA3roIniciacion">
+                  </li>
+              </ul>
+               
+              <label class="text-center text-danger font-weight-bold">DATOS_EXTRAS</label>
+              
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO MAÑANA:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TM3roSuperior+TM2doSuperior+TM1roSuperior+TM3roIntermedio+TM2doIntermedio+TM1roIntermedio+TM3roBasico+TM2doBasico+TM1roBasico+TM3roIniciacion+TM2doIniciacion+TM1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TURNO TARDE:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TT3roSuperior+TT2doSuperior+TT1roSuperior+TT3roIntermedio+TT2doIntermedio+TT1roIntermedio+TT3roBasico+TT2doBasico+TT1roBasico+TT3roIniciacion+TT2doIniciacion+TT1roIniciacion">
+                  </li>
+              </ul>
+              
+               
+              <label class="text-center text-danger font-weight-bold">DATOS_GENERALES</label>
+               
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL MUJERES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TMN3roSuperior+TMN2doSuperior+TMN1roSuperior+TMN3roIntermedio+TMN2doIntermedio+TMN1roIntermedio+TMN3roBasico+TMN2doBasico+TMN1roBasico+TMN3roIniciacion+TMN2doIniciacion+TMN1roIniciacion+TMA3roSuperior+TMA2doSuperior+TMA1roSuperior+TMA3roIntermedio+TMA2doIntermedio+TMA1roIntermedio+TMA3roBasico+TMA2doBasico+TMA1roBasico+TMA3roIniciacion+TMA2doIniciacion+TMA1roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL HOMBRES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="THN3roSuperior+THN2doSuperior+THN1roSuperior+THN3roIntermedio+THN2doIntermedio+THN1roIntermedio+THN3roBasico+THN2doBasico+THN1roBasico+THN3roIniciacion+THN2doIniciacion+THN1roIniciacion+THA2doSuperior+THA1roSuperior+THA3roSuperior+THA2doIntermedio+THA1roIntermedio+THA3roIntermedio+THA2doBasico+THA1roBasico+THA3roBasico+THA2doIniciacion+THA1roIniciacion+THA3roIniciacion">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL POSTULANTES:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TotalP">
+                  </li>
+              </ul>
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL NUEVOS:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TotalN">
+                  </li>
+              </ul>
+    
+              <ul>
+                  <li>
+                      <label class="col-form-label col-sm-9 ">TOTAL ANTIGUOS.:</label>
+                      <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TotalA">
+                  </li>
+              </ul>
+              <ul>
+                <li>
+                    <label class="col-form-label col-sm-9 ">TOTAL GESTION 2022.:</label>
+                    <input type="text" class="col-sm-3"  style="width: 70px; float: right;" [(ngModel)]="TotalN+TotalA">
+                </li>
+            </ul>
+          </div>
+        </fieldset>
+      </div>
+</div>

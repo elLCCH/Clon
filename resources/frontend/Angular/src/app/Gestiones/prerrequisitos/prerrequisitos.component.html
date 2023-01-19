@@ -1,0 +1,97 @@
+
+  <h2 class="text-center font-weight-bold text-danger">GESTIONAR PRERREQUISITOS</h2>
+<hr />
+
+<!-- CRUD V3: idPK=> id, TITULO=> PRERREQUISITO, nombreCRUD=> Prerrequisito,  dataP=> pre -->
+<button type="button" class="btn btn-outline-light font-weight-bold" data-toggle="modal" data-target="#ModalCrudPrerrequisito"
+  data-whatever="@getbootstrap">AGREGAR PRERREQUISITO</button>
+<form [formGroup]="filterBuscadorForm" method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-warning" id="inputGroup-sizing-default">Búsqueda</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" formControlName="txt"
+      aria-describedby="inputGroup-sizing-default">
+  </div>
+</form>
+<br>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover table-danger">
+    <thead class="bg-danger ">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Materia</th>
+        <th scope="col">Prerrequisito</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of pre; let i= index">
+        <td style="width: 20px;">{{i+1}}</td>
+        <td>{{a.mat_prin}} - {{a.cod_prin}}</td>
+        <td>{{a.materia_sec}} - {{a.cod_sec}}</td>
+        <td style="width: 200px;">
+          <button (click)="SeleccionarPrerrequisito(a)"
+            class="btn btn-warning"><i class="bi bi-pencil"></i></button>
+          <button type="button" class="btn btn-danger" (click)="EliminarPrerrequisito(a.id)">
+            <i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- MODAL DE CRUD ADD MOD DE CODIGO DE Prerrequisito-->
+<div class="modal fade" id="ModalCrudPrerrequisito" (keyup)="$event.keyCode == 27 ? filtroCursos=false: null" (keyup)="$event.keyCode == 27 ? filtroCursos2=false: null" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{!newPrerrequisito.get('id').value ? 'REGISTRAR' : 'MODIFICAR'}} PRERREQUISITO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newPrerrequisito">
+          <!-- FILTRADOR V3: NombreFiltro => Cursos-->
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">MATERIA: </label>
+            <div [formGroup]="filterCursosForm" class="lcch-select col-sm-10">
+              <div>
+                <input formControlName="txt" type="text" class="form-control"/>
+              </div>
+              <div *ngIf="filtroCursos" class="lcch-options" >
+                <span *ngFor="let a of cursoFiltrado" class="form-control" (click)="filterCursosForm.patchValue({txt:a.NombreCurso+' - '+a.Sigla}); newPrerrequisito.patchValue({id_materia_p:a.id})" (click)="filtroCursos=false">{{a.NombreCurso}} - {{a.Sigla}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">PRERREQUISITO: </label>
+            <div [formGroup]="filterCursos2Form" class="lcch-select col-sm-10">
+              <div>
+                <input formControlName="txt" type="text" class="form-control"/>
+              </div>
+              <div *ngIf="filtroCursos2" class="lcch-options" >
+                <span *ngFor="let a of curso2Filtrado" class="form-control" (click)="filterCursos2Form.patchValue({txt:a.NombreCurso+' - '+a.Sigla}); newPrerrequisito.patchValue({id_materia_s:a.id})" (click)="filtroCursos2=false">{{a.NombreCurso}} - {{a.Sigla}}</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- FILTRADOR V3: NombreFiltro => Cursos2-->
+
+          {{newPrerrequisito.value|json}}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          (click)="resetPrerrequisito()">Cancelar</button>
+        <button type="button" class="btn {{!newPrerrequisito.get('id').value ? 'btn-success' : 'btn-warning'}}" data-dismiss="modal" [disabled]="!newPrerrequisito.valid"
+          (click)="AgregarModificarPrerrequisito()">{{!newPrerrequisito.get('id').value ? 'CREAR PRERREQUISITO' : 'MODIFICAR PRERREQUISITO'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnCrudPrerrequisito" data-toggle="modal"
+  data-target="#ModalCrudPrerrequisito" style="width: 0px;">Abrir Modal Crud</button>

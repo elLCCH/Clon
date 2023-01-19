@@ -1,0 +1,44 @@
+<div class="container col-md-12">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <form action="#" class="sign-in-form" [formGroup]="Administrador">
+        <h2 class="title">INICIAR SESION</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Carnet" formControlName="CI">
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Contraseña" formControlName="Password"/>
+          <br>
+          <p *ngIf="Auth" class="text-danger font-weight-bold">Cuenta o Contraseña Incorrecta.</p>
+          
+        </div>
+        <!-- <input type="submit" value="Ingresar" class="btn solid" /> -->
+        <br>
+        <button type="button" class="form-control btn btn-primary submit px-3" (click)="autenticar()">INGRESAR</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>¿Eres Nuevo Estudiante?</h3>
+        <p>
+          A Continuacion pulsa el Boton y llena el formulario de Inscripcion
+        </p>
+        <button routerLink="/Inscripciones" class="btn transparent" id="sign-up-btn" (click)="Registrarse()">
+          Inscribirse
+        </button>
+        <button routerLink="/InscripcionesNuevos" class="btn transparent" id="sign-up-btn" (click)="Registrarse()">
+          Postularse
+        </button>
+      </div>
+      <img [src]="ruta+'fijos/Logotipo.svg'" class="image" alt="" />
+    </div>
+    
+  </div>
+</div>
+
+

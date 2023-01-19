@@ -1,0 +1,27 @@
+<div>
+  <h1 class="text-danger text-center font-weight-bold">LISTA DE ESTUDIANTES NUEVOS INSCRITOS - GESTION 2022</h1>
+  <hr>
+  <label class="col-sm-8 float-left text-center font-weight-bold text-primary">SI EN OBSERVACION DICE "SIN VERIFICAR", NO SE PREOCUPE ESTA INSCRITO SOLO QUE NUESTRO PLANTEL ADMINISTRATIVO NO VERIFICO QUE TODA SU INFORMACION SEA CORRECTA</label>
+  <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+    <div class="input-group">
+      <label class="font-weight-light font-weight-bold" style="color:rgb(109, 87, 1)">BUSQUEDA: </label>
+      <input type="text" class="form-control" [(ngModel)]="filterpost" name="filterPost" oninput="this.value= this.value.toUpperCase()">
+    </div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-bordered table-danger table-hover ">
+      <thead>
+        <tr>
+          <th *ngFor="let column of Columnas">
+              <span>{{column.titulo}} </span>
+            </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of admin | filterEstCi:filterpost">
+               <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

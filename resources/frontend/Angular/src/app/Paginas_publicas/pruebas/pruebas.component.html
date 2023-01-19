@@ -1,0 +1,23 @@
+<div class="cabeza">
+    <h1>Copiar llamadas de api rest a portapapeles </h1>
+</div>
+<section>
+    <div class="url">
+        <p>Inserte url completa</p>
+        <div>
+            <input type="text" #urls placeholder="http://llamada.com/pruebarestjson" />
+            <button (click)="copyText(urls.value)">Consultar</button>
+        </div>
+
+
+    </div>
+    <div *ngIf="respuesta != null" class="respuesta">
+        <div *ngIf="copy">
+            <p>Copiado en clipboard</p>
+        </div>
+        <p>{{respuesta}}</p>
+    </div>
+
+
+
+</section>

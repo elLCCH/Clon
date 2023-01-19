@@ -1,0 +1,159 @@
+<!-- <p id="p1">P1: Soy el primer párrafo</p>
+<p id="p2">P2: Soy el segundo párrafo</p>
+<button (click)="copiarAlPortapapeles('p1')">Copiar P1</button>
+<button (click)="copiarAlPortapapeles('p2')">Copiar P2</button>
+<br/><br/> -->
+<!-- <input type="text" placeholder="Pega aquí para probar" /> -->
+
+<!-- <div>
+    <h1 class="text-danger text-center font-weight-bold">LISTA DE ESTUDIANTES - {{curso_sol}}</h1>
+    <hr>
+    
+    <div class="table-responsive">
+      <table class="table table-bordered table-light table-hover ">
+        <thead>
+          <tr>
+            <th *ngFor="let column of Columnas">
+                <span>{{column.titulo}} </span>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of est">
+                 <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+  <div>
+    <h1 class="text-danger text-center font-weight-bold">LISTA DE ESTUDIANTES - {{curso_sol}}</h1>
+    <hr>
+    <!-- <label class="col-sm-8 float-left text-center font-weight-bold text-primary">Si en Observación aparece las iniciales de sus apellidos con su Número de Carnet o Dice NINGUNA, entonces no tiene Ninguna Observación</label> -->
+    <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+      <div class="input-group">
+        <label class="font-weight-light font-weight-bold" style="color:rgb(109, 87, 1)">BUSQUEDA: </label>
+        <input type="text" class="form-control" [(ngModel)]="filterpost" name="filterPost"
+          oninput="this.value = this.value.toUpperCase()">
+      </div>
+    </form>
+    <div class="table-responsive">
+      <table class="table table-bordered table-danger table-hover ">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th *ngFor="let column of Columnas">
+              <span>{{column.titulo}} </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let i= index; let item of est | filterlistacursos:filterpost">
+            <td>{{i+1}}</td>
+             <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+          </tr> -->
+          <tr *ngFor="let i= index; let item of est | filterlistacursos:filterpost"  (click)="PreGuardadoEst(item)" (click)='EstudianteSeleccionado=item;'  data-toggle="modal" data-target="#ModalMod">
+            <td>{{i+1}}</td>
+            <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!-- MODAL de MODIFICACION -->
+<div class="modal fade" id="ModalMod" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog " role="document" style="width:100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">MODIFICAR ESTUDIANTE</h4>
+        <button type="button"  (click)="DevolverDataAnterior()" #cerrarBtnMod class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newEstudiante">
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <label class="form-control">{{EstudianteSeleccionado.Nombre_Completo}}</label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Carnet:</label>
+            <div class="col-sm-8">
+              <input id="CI" type="text" class="form-control" formControlName="CI" [(ngModel)]="EstudianteSeleccionado.CI" disabled>
+              <!-- <p id="p2">P2: Soy el segundo párrafo</p>
+              <button (click)="copiarAlPortapapeles('p2')">s</button> -->
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Curso_Solicitado:</label>
+              <div class="col-sm-8">
+                <select class="custom-select" type="text" formControlName="Curso_Solicitado" [(ngModel)]="EstudianteSeleccionado.Curso_Solicitado">
+                  <optgroup label="Seleccione Curso">
+                    <option value="TERCERO SUPERIOR">TERCERO SUPERIOR </option>
+                    <option value="SEGUNDO SUPERIOR">SEGUNDO SUPERIOR</option>
+                    <option value="PRIMERO SUPERIOR">PRIMERO SUPERIOR</option>
+                    <option value="TERCERO INTERMEDIO">TERCERO INTERMEDIO </option>
+                    <option value="SEGUNDO INTERMEDIO">SEGUNDO INTERMEDIO</option>
+                    <option value="PRIMERO INTERMEDIO">PRIMERO INTERMEDIO</option>
+                    <option value="TERCERO BASICO">TERCERO BASICO </option>
+                    <option value="SEGUNDO BASICO">SEGUNDO BASICO</option>
+                    <option value="PRIMERO BASICO">PRIMERO BASICO</option>
+                    <option value="TERCERO INICIACION">TERCERO INICIACION </option>
+                    <option value="SEGUNDO INICIACION">SEGUNDO INICIACION</option>
+                    <option value="PRIMERO INICIACION">PRIMERO INICIACION</option>
+                    <option value="NIVEL SUPERIOR (Diploma de Bachiller)">NIVEL SUPERIOR (Diploma de Bachiller)</option>
+                    <option value="NIVEL INTERMEDIO (15 a 17 años)">NIVEL INTERMEDIO (15 a 17 años)</option>
+                    <option value="NIVEL BASICO (12 a 14 años)">NIVEL BASICO (12 a 14 años)</option>
+                    <option value="NIVEL INICIACION (9 a 11 años)">NIVEL INICIACION (9 a 11 años)</option>
+                  </optgroup>
+                </select>
+                <!-- <input type="text" class="form-control" formControlName="Curso_Solicitado" [(ngModel)]="EstudianteSeleccionado.Curso_Solicitado"> -->
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Turno:</label>
+              <div class="col-sm-8">
+                <select class="custom-select" type="text" formControlName="Turno"  [(ngModel)]="EstudianteSeleccionado.Turno">
+                  <optgroup label="Seleccione Curso">
+                    <option value="MAÑANA">MAÑANA </option>
+                    <option value="TARDE">TARDE </option>
+                    <option value="NOCHE">NOCHE </option>
+                  </optgroup>
+                </select>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Especialidad:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" formControlName="Especialidad" [(ngModel)]="EstudianteSeleccionado.Especialidad">
+            </div>
+          </div>
+          <div class="form-group row">
+          
+            <label for="nombre" class="col-sm-4 col-form-label">Docente:</label>
+            <div class="col-sm-8">
+              <select class="custom-select" name="Admin_id" type="text" formControlName="Admin_id" id="Admin_id" [(ngModel)]="EstudianteSeleccionado.Admin_id">
+                <optgroup label="Seleccione su Docente de Instrumento de Especialidad" >
+                    <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}}</option>    
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          
+          
+          
+        
+        
+
+
+        
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="DevolverDataAnterior()">CANCELAR</button>
+        <button type="button" class="btn btn-danger" (click)="ModificarEstudiante(EstudianteSeleccionado)"  (click)="reiniciarEstudiantes()">GUARDAR</button>
+      </div>
+
+    </div>
+  </div>
+</div>

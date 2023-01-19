@@ -1,0 +1,18 @@
+.modal-content {
+    /* background: linear-gradient(1deg, #138acf, #1c20e6); */
+    background: linear-gradient(-80deg, #e99898, #750202);
+    color: aliceblue;
+  }
+
+.modal-body .form-control {
+/* background: linear-gradient(150deg, #1c20e6, #138acf); */
+background: linear-gradient(150deg, #ac1905, #ec9696);
+color: aliceblue;
+}
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #555;
+  color: #fff;
+}

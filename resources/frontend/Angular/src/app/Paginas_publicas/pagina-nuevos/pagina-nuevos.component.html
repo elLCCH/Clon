@@ -1,0 +1,298 @@
+<!-- MODAL DE DATOS REQUERIDOS O VALIDACION -->
+<button id="btnModalValidacion" type="button" class="btn btn-primary position-absolute invisible" data-toggle="modal" data-target="#modalvalidacion">
+    Abrir Panel
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade black" id="modalvalidacion" tabindex="-1" aria-labelledby="modalvalidacionLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(168, 4, 4);">
+          <h5 class="modal-title text-center text-bold" style="color: lightcyan; font-size: 25px; font-weight: bold;">¡ADVERTENCIA!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color: lightcoral;">
+              <label class="text-center" style="font-size: 15px; font-weight: bold;">SE DEBE INTRODUCIR O COMPLETAR LOS DATOS REQUERIDOS CORRECTAMENTE</label>
+        </div>
+        <div class="modal-footer" style="background-color: rgb(141, 12, 12);">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-warning" data-dismiss="modal" >ENTENDIDO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL DE FORMATO INVALIDO DE LOS FILES-->
+  <button id="btnModalFormatoInvalido" type="button" class="btn btn-primary position-absolute invisible" data-toggle="modal" data-target="#modalformato">
+    Abrir Panel
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade black" id="modalformato" tabindex="-1" aria-labelledby="modalformatoLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(168, 4, 4);">
+          <h5 class="modal-title text-center text-bold" style="color: lightcyan; font-size: 25px; font-weight: bold;">¡ADVERTENCIA!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color: lightcoral;">
+              <label class="text-center" style="font-size: 15px; font-weight: bold;">{{MensajeContenido}}</label>
+        </div>
+        <div class="modal-footer" style="background-color: rgb(141, 12, 12);">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-warning" data-dismiss="modal" >ENTENDIDO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h1 class="red text-center font-weight-bold">FORMULARIO DE INSCRIPCION PARA EL EXAMEN DE APTITUD MUSICAL</h1>
+  <hr>
+  <div class="container">
+    <div id="">
+      <div>
+        <div>
+          <div>
+            <!-- <div>
+              <ul class="steps">
+                <li id="paso1" data-step="1"><span class="step">1</span> <span class="title">Datos Personales</span></li>
+                <li id="paso2" data-step="2"><span class="step">2</span> <span class="title">Familia y Datos Academicos</span></li>
+                <li id="paso3" data-step="3"><span class="step">3</span> <span class="title">Informacion Institucional</span></li>
+                <li id="paso4" data-step="4"><span class="step">4</span> <span class="title">Documentos PDF</span></li>
+              </ul>
+            </div>
+            <hr /> -->
+            <div class="step-content pos-rel" >
+  
+              <div id="pagina1" class="step-pane" data-step="1">
+                <form [formGroup]="frmPagina1" (ngSubmit)="validarPagina1()">
+                <h2 class="lighter block green">Datos Personales</h2>
+                <h4 class="lighter block red font-weight-bold">*Todos los Campos son Obligatorios*</h4>
+                
+                <div class="form-group row">
+                  <label class="col-sm-2">Apellidos Nombres:</label>
+                  <div class="col-sm-2">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Apellido Paterno." maxlength="15" placeholder="Apellido Paterno"
+                        formControlName="Ap_Paterno">
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Apellido Materno." maxlength="15" placeholder="Apellido Materno"
+                        formControlName="Ap_Materno">
+                    </div>
+                  </div>
+                  <!-- <label class="col-sm-2">Nombres:</label> -->
+                  <div class="col-sm-3">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Nombres." maxlength="30" placeholder="Nombres" required formControlName="Nombre">
+                    </div>
+                  </div>
+                  <label class=" col-sm-3 font-weight-bold text-danger" style="opacity: 60%;">*Este Campo es Obligatorio*</label>
+                </div>
+                
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2">Apellido Materno:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Apellido Materno." maxlength="15" placeholder="Apellido Materno"
+                        formControlName="Ap_Materno">
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 font-weight-bold text-danger" style="opacity: 60%;">*Este Campo es Obligatorio*</label>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2">Nombres:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Nombres." maxlength="30" placeholder="Nombres" required formControlName="Nombre">
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 font-weight-bold text-danger" style="opacity: 60%;">*Este Campo es Obligatorio*</label>
+                </div> -->
+                
+                
+                <div class="form-group row">
+                  <label class="col-sm-2">Carnet de Identidad:</label>
+                  <div class="col-sm-2">
+                    <div class="clearfix">
+                      <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Carnet de Identidad." maxlength="15" placeholder="12345678-OR"
+                        formControlName="CI">
+                    </div>
+                  </div>
+                  <label class="col-sm-2">Correo:</label>
+                  <div class="col-sm-3">
+                    <div class="clearfix">
+                      <input type="email" class="form-control" title="Correo." maxlength="60" formControlName="Correo" placeholder="instituto@gmail.com">
+                    </div>
+                  </div>
+                  <label class="col-sm-1">Celular:</label>
+                  <div class="col-sm-2">
+                    <div class="clearfix">
+                      <input type="number" class="form-control" onkeyup="this.value = this.value.toUpperCase();" placeholder="12345678"
+                        title="Celular." min="11111111" max="99999999999" onKeyDown="if(this.value.length==20){return false;}else{return true;} " formControlName="Celular">
+                    </div>
+                  </div>
+                  <!-- <label class="col-sm-2 font-weight-bold" style="opacity: 50%; ">Ejemplo: 12345678-OR</label>
+                  <label class=" col-sm-3 font-weight-bold text-danger" style="opacity: 60%;">*Este Campo es Obligatorio*</label> -->
+                </div>
+                
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2">Correo:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="email" class="form-control" title="Correo." maxlength="60" formControlName="Correo">
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 font-weight-bold text-danger" style="opacity: 60%;">*Este Campo es Obligatorio*</label>
+                </div> -->
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2">Telefono:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="number" class="form-control" 
+                        title="Telefono."  min="11111111" max="99999999999" onKeyDown="if(this.value.length==20) return false;" formControlName="Telefono" value="000">
+                        
+                    </div>
+                  </div>
+                  <label class=" col-sm-2 " style="opacity: 50%;">Sino se tiene Numero Teléfonico escriba: <b> 000</b></label>
+                  <label class=" col-sm-3 red font-weight-bold" style="opacity: 80%;">*Este Campo es Obligatorio*</label>
+                </div> -->
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2">Celular:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="number" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Celular." min="11111111" max="99999999999" onKeyDown="if(this.value.length==20){return false;}else{return true;} " formControlName="Celular">
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 red font-weight-bold" style="opacity: 80%;">*Este Campo es Obligatorio*</label>
+                </div> -->
+                <div class="form-group row">
+                  <label class="col-sm-2">Especialidad:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <select class="form-control" type="text"  formControlName="Especialidad">
+                        <optgroup label="Seleccione Curso" >
+                            <option *ngFor="let i of instrumentosUnique" value="{{i.InstEspecialidad}}">{{i.InstEspecialidad}}</option>    
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 red font-weight-bold" style="opacity: 80%;">*Este Campo es Obligatorio*</label>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2">Categoria:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <select class="form-control" type="text" formControlName="Categoria" [(ngModel)]="CatEst">
+                        <optgroup label="Seleccione Curso">
+                          <option value="POSTULANTE">POSTULANTE</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 red font-weight-bold" style="opacity: 80%;">*Este Campo es Obligatorio*</label>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2">Curso:</label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <!-- <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                        title="Curso." formControlName="CursoActual"> -->
+                        <!-- ESTE APARTADO ES LO Q SE VERÁ EN SOLICITO CURSO 
+                        EXAMEN DE ADMISION NIVEL MEDIO ,SUPERIOR-->
+                        <select class="form-control" type="text"  formControlName="CursoActual">
+                          <optgroup label="Seleccione Curso" >
+                              <option *ngFor="let c of cursoUnique" value="{{c.NivelCurso}}">{{c.NivelCurso}}</option>    
+                          </optgroup>
+                        </select>
+                    </div>
+                  </div>
+                  <label class=" col-sm-5 red font-weight-bold" style="opacity: 80%;">*Este Campo es Obligatorio*</label>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2">Boleta de Deposito Bancario: <b class="text-danger font-weight-bold">10Bs</b></label>
+                  <div class="col-sm-5">
+                    <div class="clearfix">
+                      <input type="file" class="form-control" #PDFBoleta accept=".pdf" (change)="VerificarFormatoPDFBoleta(PDFBoleta)" (change)="onFileChangeBoleta($event)" formControlName="Boleta">
+                    </div>
+                  </div>
+                  <label class="col-sm-5" style="opacity: 50%;">Solo se admite archivo PDF con un tamaño maximo de 1.5MB:</label>
+                </div>
+                <hr>
+                <button id="btnNext1" type="submit" class="btn btn-success btn-next"
+                  style="padding-left: 2px; padding-right: 2px; float: right; margin-bottom: 10px;">
+                  Inscribirse <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+                </button>
+                </form>
+              </div>
+              <!-- PAGINA 2 .................................................................-->
+              <div id="pagina2" class="step-pane " data-step="2">
+                
+                <div  style="display: flex; justify-content: center; align-items: center;" style="width: 100%;">
+                  <div class="card center bg-light" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 class="card-title red"><b>REGISTRO COMPLETADO EXITOSAMENTE</b></h2>
+                      <h4 class="card-subtitle mb-2 text-muted ">USTED ACABA DE REGISTRARSE AL EXAMEN DE APTITUD MUSICAL</h4>
+                      <hr>
+                      <h5 class="font-weight-bold " style="font-size: 20px;">
+                        El Rol de Exámenes y Fechas del mismo se publicarán en los próximos Dias, tanto en
+                        redes Sociales como en la sección de Publicaciones de la Página Institucional.
+                      </h5>
+                      <label style="font-size: 20px;">PUEDE VERIFICAR SU INSCRIPCION DANDO CLICK EN EL SIGUIENTE BOTONES: </label>
+                      <a routerLink="/ListaPostulantes" class="btn btn-success " style="border-radius: 20px;">VERIFICAR INSCRIPCIÓN COMO POSTULANTE</a>
+                      <hr>
+                      <!-- <button  class="btn btn-success col-sm-8" style="border-radius: 20px;">
+                        <b>GENERAR FORMULARIO DE INSCRIPCION</b>
+                      </button> -->
+                      <hr>
+                      <!-- <label style="font-size: 20px; font: oblique 120% cursive;">
+                        <h3 style="font-size: 30px; color: brown;" class="font-weight-bold">POR FAVOR A CONTINUACION GUARDE O COPIE LA SIGUIENTE INFORMACION </h3>
+                        Tema: INFORMACIÓN IFA"MARIA LUISA LUZIO"
+                        <br>
+                        Hora: Este es una reunión recurrente Reunirse en cualquier momento
+                        <h4 style="font-size: 30px; color: seashell; border-radius: 5px; background-color: cornflowerblue;" class="font-weight-bold">
+                          PRIMERA REUNION 7 DE DICIEMBRE, 20:00hrs
+                        </h4>
+                        <h4 style="font-size: 30px; color: seashell; border-radius: 5px; background-color: cornflowerblue;" class="font-weight-bold">
+                          PRIMERA REUNION 7 DE DICIEMBRE, 20:00hrs
+                        </h4>
+                        Unirse a la reunión Zoom
+                        <br>
+                        <a routerLink="https://us02web.zoom.us/j/88633156012?pwd=SlNOc2RORm52VTJlSzg5R3pacGhCdz09">https://us02web.zoom.us/j/88633156012?pwd=SlNOc2RORm52VTJlSzg5R3pacGhCdz09</a> 
+                        <br>
+                        ID de reunión: 886 3315 6012
+                        <br>
+                        Código de acceso: 001694
+                        
+                      </label> -->
+                      <!-- <h4 class="card-text ">Finalmente se le Enviará un sus Credenciales a su Mail Dandole Click en el Siguiente Boton: </h4> -->
+                      <button class="btn btn-primary col-sm-8" style="border-radius: 20px;" (click)="RetornarInicio()">
+                        <b>RETORNAR AL INICIO</b>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <!-- /.widget-main -->
+      </div>
+      <!-- /.widget-body -->
+    </div>
+    <!-- PAGE CONTENT ENDS -->
+  </div>
+  

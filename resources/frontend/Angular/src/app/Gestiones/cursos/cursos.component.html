@@ -1,0 +1,230 @@
+<div style="background: linear-gradient(-180deg, #aa0505, #ffffff); padding: 5px 20px;">
+
+  <strong>
+    <h2 class="text-center text-bold text-light"><b>GESTIONAR CURSOS</b></h2>
+  </strong>
+  <hr />
+  <div class="col-md-12">
+    <div class="card text-white bg-transparent border-0 mb-3">
+      <!-- <div class=" text-center text-white"><b>GESTIONAR CURSOS</b></div> -->
+      <div class="card-body">
+        <div class="form-group row">
+          <a class="btn btn-danger" title="" data-toggle="modal"
+            data-target="#staticBackdrop">
+            <i class="bi bi-plus-circle"></i> AGREGAR CURSO
+          </a>
+          <!-- <a class="btn btn-danger"  (click)="openCentralizadorFinal()"
+            >
+            <i class="bi bi-plus-circle"></i> GENERAR
+          </a> -->
+          <label class="form-label text-right col-sm-2">MODIFICAR BIMESTRES: </label>
+          <select class="custom-select col-sm-2 form-control" type="text" oninput="this.value= this.value.toUpperCase()" [(ngModel)]="BimestreMod">
+            <optgroup label="MODIFICA LOS BIMESTRES" >
+              <option value="PRIMER BIMESTRE ENVIADO">PRIMER BIMESTRE ENVIADO</option>
+              <option value="SEGUNDO BIMESTRE ENVIADO">SEGUNDO BIMESTRE ENVIADO</option>
+              <option value="TERCER BIMESTRE ENVIADO">TERCER BIMESTRE ENVIADO</option>
+              <option value="CUARTO BIMESTRE ENVIADO">CUARTO BIMESTRE ENVIADO</option>
+              <option value="SEGUNDA INSTANCIA ENVIADO">SEGUNDA INSTANCIA ENVIADO</option>
+              <option value="NINGUN BIMESTRE">NINGUN BIMESTRE</option>
+              <option value="PRIMER BIMESTRE">HABILITAR PRIMER BIMESTRE</option>
+              <option value="SEGUNDO BIMESTRE">HABILITAR SEGUNDO BIMESTRE</option>
+              <option value="TERCER BIMESTRE">HABILITAR TERCER BIMESTRE</option>
+              <option value="CUARTO BIMESTRE">HABILITAR CUARTO BIMESTRE</option>
+              <option value="SEGUNDA INSTANCIA">HABILITAR SEGUNDA INSTANCIA</option>
+            </optgroup>
+           </select>
+           <button (click)="ModificarBimestres()" class="btn btn-danger">MODIFICAR GESTION</button>
+
+            <label class="form-label col-sm-1">MALLA: </label>
+            <select class="custom-select col-sm-2 form-control" type="text" oninput="this.value= this.value.toUpperCase()" [(ngModel)]="mallaGlobal" (change)="CargarCurso()">
+              <optgroup label="SELECCIONE MALLA" >
+                <option *ngFor="let a of malla" value="{{a.Malla}}">{{a.Malla}}</option>
+              </optgroup>
+            </select>
+
+
+
+
+           <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" style="margin-left: 30px;" role="search">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Búsqueda</span>
+              </div>
+              <input type="text" oninput="this.value= this.value.toUpperCase()" class="form-control" [(ngModel)]="filterpost" name="filterPost">
+
+            </div>
+          </form>
+        </div>
+
+
+
+        <br />
+        <br />
+
+        <div class="table-responsive  ">
+          <table class="table table-bordered table-striped table-hover table-dark">
+            <thead class="bg-danger">
+              <tr>
+                <th>#</th>
+                <th>Nombre del Curso</th>
+                <th>Nivel Curso</th>
+                <th>Sigla</th>
+                <th>Tipo</th>
+                <th>Horas</th>
+                <th>Malla</th>
+                <th>Bimestre Habilitado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let i= index; let a of curso | filter:filterpost">
+                <td>{{i+1}}</td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.NombreCurso">
+                  <span *ngIf="!a.Editando">{{a.NombreCurso}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.NivelCurso">
+                  <span *ngIf="!a.Editando">{{a.NivelCurso}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.Sigla">
+                  <span *ngIf="!a.Editando">{{a.Sigla}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.Tipo">
+                  <span *ngIf="!a.Editando">{{a.Tipo}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.Horas">
+                  <span *ngIf="!a.Editando">{{a.Horas}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.Malla">
+                  <span *ngIf="!a.Editando">{{a.Malla}}</span>
+                </td>
+                <td>
+                  <!-- <input class="col-12" type="text" oninput="this.value= this.value.toUpperCase()" *ngIf="a.Editando" [(ngModel)]="a.BiTriEstado"> -->
+                  <span *ngIf="!a.Editando">{{a.BiTriEstado}}</span>
+                  <div class="form-group row" *ngIf="a.Editando">
+                    <select class="custom-select col-sm-10 form-control" type="text" oninput="this.value= this.value.toUpperCase()" [(ngModel)]="a.BiTriEstado" (change)="ModificarCurso(a)">
+                      <optgroup label="SELECCIONE ESTADO" >
+                        <option value="PRIMER BIMESTRE ENVIADO">PRIMER BIMESTRE ENVIADO</option>
+                        <option value="SEGUNDO BIMESTRE ENVIADO">SEGUNDO BIMESTRE ENVIADO</option>
+                        <option value="TERCER BIMESTRE ENVIADO">TERCER BIMESTRE ENVIADO</option>
+                        <option value="CUARTO BIMESTRE ENVIADO">CUARTO BIMESTRE ENVIADO</option>
+                        <option value="SEGUNDA INSTANCIA ENVIADO">SEGUNDA INSTANCIA ENVIADO</option>
+                        <option value="NINGUN BIMESTRE">NINGUN BIMESTRE</option>
+                        <option value="PRIMER BIMESTRE">HABILITAR PRIMER BIMESTRE</option>
+                        <option value="SEGUNDO BIMESTRE">HABILITAR SEGUNDO BIMESTRE</option>
+                        <option value="TERCER BIMESTRE">HABILITAR TERCER BIMESTRE</option>
+                        <option value="CUARTO BIMESTRE">HABILITAR CUARTO BIMESTRE</option>
+                        <option value="HABILITAR SEGUNDA INSTANCIA">HABILITAR SEGUNDA INSTANCIA</option>
+                      </optgroup>
+                     </select>
+                  </div>
+
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning col-6" (click)="a.Editando=true;" *ngIf="!a.Editando"><i
+                      class="bi bi-pencil"></i></button>
+                  <button type="button" class="btn btn-warning col-4" (click)="ModificarCurso(a)" *ngIf="a.Editando"><img width="20px" height="20px"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABXElEQVRogWNgGAWjYBSMgoEEjLgkTGbc/g9jf31xD6uadjseqjmk5ZYYsqM6T2eoVhCjj4lqLqAi+M/AUG4643YHMWpZaO0YGCgrKUbhd/X04lUP9QQDoZgYlDEAA8TExKD2AAMDYU8Meg8wMEA8gUtuSHgAHxj1wECDIe8BouoBRmYWhv9//2CIf/z5j4GfnbgwwFfuf/rNTJQZ2ABRtrPziTAwMmP6dd2tnwwff/4j23IGBojjt77iJVs/UTHAzM7FwCUqhyH+lIGBYfJDsu2mChjyeWDUAwMNRj0w0ICoUmhugAyDnjgHrd2CAi6++MGQsvEJQXVExQC9Hc/AwMCgL0GcnSMjCaGDCzfvUtsdDAwMDAwG6sok6xmZMUBOSNEKjMwYGM0DVASjeWCgwWgeGGgwmgcGGhDlgYsvftDaHRjgApF2EpWEiGmXDxQY8kloFIyCUTAKBhYAAEvUTIshBoCmAAAAAElFTkSuQmCC" /></button>
+                  <button class="btn btn-secondary col-4" type="button" *ngIf="a.Editando" (click)="a.Editando=false"><i class="bi bi-box-arrow-left"></i></button>
+
+
+
+                  <button type="button" class="btn btn-danger col-4" (click)="EliminarCurso(a)"><i
+                      class="bi bi-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination-wrapper">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- MODAL AGREGAR CURSO -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">AGREGAR CURSO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #CerrarBoton>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3" [formGroup]="newCurso">
+            <div class="form-group row">
+              <label class="form-label col-sm-2">NOMBRE MATERIA: </label>
+              <input type="text" oninput="this.value= this.value.toUpperCase()" class="form-control col-sm-10" formControlName="nombreCurso">
+            </div>
+            <div class="form-group row">
+              <!-- {{nivelSelect|json}} -->
+              <label class="form-label col-sm-2">NIVEL DE CURSO: </label>
+              <select class="custom-select col-sm-8 form-control text-dark" type="text" #lvlcurso (change)="nivelSelect=lvlcurso.value">
+                <optgroup label="SELECCIONE NIVEL" >
+                  <option value="" selected>SELECCIONE CURSO</option>
+                  <option value="PRIMERO SUPERIOR">PRIMERO SUPERIOR</option>
+                  <option value="SEGUNDO SUPERIOR">SEGUNDO SUPERIOR</option>
+                  <option value="TERCERO SUPERIOR">TERCERO SUPERIOR</option>
+                  <option value="PRIMERO INICIACION">PRIMERO INICIACION</option>
+                  <option value="SEGUNDO INICIACION">SEGUNDO INICIACION</option>
+                  <option value="TERCERO INICIACION">TERCERO INICIACION</option>
+                  <option value="PRIMERO BASICO">PRIMERO BASICO</option>
+                  <option value="SEGUNDO BASICO">SEGUNDO BASICO</option>
+                  <option value="TERCERO BASICO">TERCERO BASICO</option>
+                  <option value="PRIMERO INTERMEDIO">PRIMERO INTERMEDIO</option>
+                  <option value="SEGUNDO INTERMEDIO">SEGUNDO INTERMEDIO</option>
+                  <option value="TERCERO INTERMEDIO">TERCERO INTERMEDIO</option>
+
+                </optgroup>
+              </select>
+
+              <input type="text" oninput="this.value= this.value.toUpperCase()" class="form-control col-sm-2" placeholder="A" maxlength="1" formControlName="nivelCurso">
+            </div>
+            <div class="form-group row">
+              <label class="form-label col-sm-2">SIGLA: </label>
+              <input type="text" oninput="this.value= this.value.toUpperCase()" class="form-control col-sm-10" formControlName="Sigla">
+            </div>
+
+            <div class="form-group row">
+              <label class="form-label col-sm-2">TIPO: </label>
+              <select class="custom-select col-sm-10 form-control text-dark" type="text" oninput="this.value= this.value.toUpperCase()" formControlName="Tipo">
+                <optgroup label="SELECCIONE TIPO" >
+                  <option value="PRACTICA">PRACTICA</option>
+                  <option value="TEORICA">TEORICA</option>
+                </optgroup>
+               </select>
+            </div>
+
+            <div class="form-group row">
+              <label class="form-label col-sm-2">HORAS: </label>
+              <input type="number" class="form-control col-sm-10" formControlName="Horas">
+            </div>
+            <div class="form-group row">
+              <label class="form-label col-sm-2">MALLA: NUEVA... </label>
+              <input type="number" class="form-control col-sm-10" placeholder="2023" formControlName="Malla">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-danger" (click)="AgregarCurso()" [disabled]="!newCurso.valid">GUARDAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  $(function(){
+    $.scrollUp();
+  });
+</script>

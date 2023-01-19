@@ -1,0 +1,367 @@
+<style>
+  legend {
+    cursor: pointer;
+  }
+
+</style>
+<h2 class="text-center font-weight-bold text-danger">LISTAS DE ESTUDIANTES POR CURSOS, PARALELOS Y HORARIOS - GESTION 2022</h2>
+<hr>
+<h5 class="text-center font-weight-bold text-primary">ACLARACIÓN 1: LA LISTAS DE ESTUDIANTES ACTUALIZADAS SON LOS BOTONES ROJOS, LOS BOTONES PLOMOS SON LOS HORARIOS</h5>
+<h5 class="text-center font-weight-bold text-secondary">ACLARACIÓN 2: LOS HORARIOS DE INSTRUMENTO NO SE PASA DE LUNES A VIERNES; SINO QUE EL HORARIO DEBE DETERMINARSE CON EL DOCENTE DE INSTRUMENTO (SE DETERMINA DE 1 A 2 DIAS A LA SEMANA LAS CLASES DE INSTRUMENTO)</h5>
+<div class="form" *ngIf="esAdmin">
+  <!-- TERCERO SUPERIO -->
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL TÉCNICO SUPERIOR - CURSOS SUPERIORES</a></legend>
+      <div class="container">
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO SUPERIOR A')">1º SUPERIOR "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO SUPERIOR B')">1º SUPERIOR "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1SUPERIORB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"(click)="ParaCargarListadoEstudiantesAdmin('PRIMERO SUPERIOR C')">1º SUPERIOR "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1SUPERIORC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('SEGUNDO SUPERIOR A')">2º SUPERIOR "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/2SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('SEGUNDO SUPERIOR B')">2º SUPERIOR "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/2SUPERIORB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('TERCERO SUPERIOR A')">3º SUPERIOR "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/3SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+
+
+      </div>
+    </fieldset>
+  </div>
+  <!-- INTERMEDIOS -->
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS INTERMEDIOS</a></legend>
+      <div class="container">
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INTERMEDIO A')">1º INTERMEDIO "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INTERMEDIOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INTERMEDIO B')">1º INTERMEDIO "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INTERMEDIOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INTERMEDIO C')">1º INTERMEDIO "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INTERMEDIOC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('TERCERO INTERMEDIO A')">3º INTERMEDIO "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/3INTERMEDIOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+            </li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS BÁSICOS</a></legend>
+      <div class="container">
+        
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO BASICO A')">1º BÁSICO "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO BASICO B')">1º BÁSICO "B" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO BASICO C')">1º BÁSICO "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1BASICOC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO BASICO D')">1º BÁSICO "D" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1BASICOD')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"  (click)="ParaCargarListadoEstudiantesAdmin('SEGUNDO BASICO A')">2º BÁSICO "A" - TURNO MAÑANA</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/2BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('SEGUNDO BASICO B')">2º BÁSICO "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/2BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('TERCERO BASICO A')">3º BÁSICO "A" - TURNO MAÑANA</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/3BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('TERCERO BASICO B')">3º BÁSICO "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/3BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS DE INICIACIÓN</a></legend>
+      <div class="container">
+        
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"  (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INICIACION A')">1º INICIACIÓN "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INICIALA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INICIACION B')">1º INICIACIÓN "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INICIALB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('PRIMERO INICIACION C')">1º INICIACIÓN "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/1INICIALC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantesAdmin('SEGUNDO INICIACION A')">2º INICIACIÓN "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDFAdmin('fijos/2INICIALA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="form" *ngIf="!esAdmin">
+  <!-- TERCERO SUPERIO -->
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL TÉCNICO SUPERIOR - CURSOS SUPERIORES</a></legend>
+      <div class="container">
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO SUPERIOR A')">1º SUPERIOR "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO SUPERIOR B')">1º SUPERIOR "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1SUPERIORB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"(click)="ParaCargarListadoEstudiantes('PRIMERO SUPERIOR C')">1º SUPERIOR "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1SUPERIORC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('SEGUNDO SUPERIOR A')">2º SUPERIOR "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/2SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('SEGUNDO SUPERIOR B')">2º SUPERIOR "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/2SUPERIORB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('TERCERO SUPERIOR A')">3º SUPERIOR "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/3SUPERIORA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+
+
+      </div>
+    </fieldset>
+  </div>
+  <!-- INTERMEDIOS -->
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS INTERMEDIOS</a></legend>
+      <div class="container">
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO INTERMEDIO A')">1º INTERMEDIO "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INTERMEDIOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO INTERMEDIO B')">1º INTERMEDIO "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INTERMEDIOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO INTERMEDIO C')">1º INTERMEDIO "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INTERMEDIOC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('TERCERO INTERMEDIO A')">3º INTERMEDIO "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/3INTERMEDIOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+
+            </li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS BÁSICOS</a></legend>
+      <div class="container">
+        
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO BASICO A')">1º BÁSICO "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO BASICO B')">1º BÁSICO "B" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO BASICO C')">1º BÁSICO "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1BASICOC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO BASICO D')">1º BÁSICO "D" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1BASICOD')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"  (click)="ParaCargarListadoEstudiantes('SEGUNDO BASICO A')">2º BÁSICO "A" - TURNO MAÑANA</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/2BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('SEGUNDO BASICO B')">2º BÁSICO "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/2BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('TERCERO BASICO A')">3º BÁSICO "A" - TURNO MAÑANA</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/3BASICOA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('TERCERO BASICO B')">3º BÁSICO "B" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/3BASICOB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+  <div class="content">
+    <fieldset>
+      <legend><a>NIVEL CAPACITACIÓN - CURSOS DE INICIACIÓN</a></legend>
+      <div class="container">
+        
+        <label class="text-center text-light font-weight-bold">LISTAS Y HORARIOS</label>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;"  (click)="ParaCargarListadoEstudiantes('PRIMERO INICIACION A')">1º INICIACIÓN "A" - TURNO MAÑANA</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INICIALA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO INICIACION B')">1º INICIACIÓN "B" - TURNO TARDE</button>
+            <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INICIALB')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('PRIMERO INICIACION C')">1º INICIACIÓN "C" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/1INICIALC')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        <ul>
+            <li>
+              <button class="btn btn-danger col-sm-9 form-control border-black border border-3 border-light rounded" style="margin-bottom: 2px;" (click)="ParaCargarListadoEstudiantes('SEGUNDO INICIACION A')">2º INICIACIÓN "A" - TURNO TARDE</button>
+              <button class="btn btn-secondary col-sm-3 form-control border border-3 border-black" style="margin-bottom: 2px;" (click)="OpenPDF('fijos/2INICIALA')"><p><i class="bi bi-calendar3"></i> HORARIO </p></button>
+            </li>
+        </ul>
+        
+      </div>
+    </fieldset>
+  </div>
+</div>

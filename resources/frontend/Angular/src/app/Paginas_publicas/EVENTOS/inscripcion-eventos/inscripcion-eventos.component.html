@@ -1,0 +1,95 @@
+
+
+
+<h2 class="text-center font-weight-bold text-red">FORMULARIO DE INSCRIPCION A EVENTOS INSTITUCIONALES - 1er ENCUENTRO
+  NACIONAL DE INSTITUTOS DE FORMACION ARTÍSTICA</h2>
+<hr>
+<div class="container" [formGroup]="newInsEvento">
+  <div class="form-group row">
+    <label class="form-label col-sm-2">APELLIDOS NOMBRES: </label>
+    <input type="text" class="form-control col-sm-3" oninput="this.value= this.value.toUpperCase()"
+      title="Apellido Paterno." maxlength="15" placeholder="Apellido Paterno" formControlName="Ap_Paterno">
+
+    <input type="text" class="form-control col-sm-3" oninput="this.value= this.value.toUpperCase()"
+      title="Apellido Materno." maxlength="15" placeholder="Apellido Materno" formControlName="Ap_Materno">
+
+    <input type="text" class="form-control col-sm-4" oninput="this.value= this.value.toUpperCase()" title="Nombres."
+      maxlength="30" placeholder="Nombres" required formControlName="Nombre">
+  </div>
+  <div class="form-group row">
+    <label class="form-label col-sm-2">CARNET DE IDENTIDAD: </label>
+    <input type="text" class="form-control col-sm-2" oninput="this.value= this.value.toUpperCase()"
+      title="Carnet de Identidad." maxlength="15" placeholder="12345678-OR" formControlName="CI">
+
+    <label class="form-label col-sm-1">CELULAR: </label>
+    <input type="number" class="form-control col-sm-2" oninput="this.value= this.value.toUpperCase()"
+      placeholder="12345678" formControlName="Celular">
+    <label class="form-label col-sm-1">Área: </label>
+    <select class="custom-select col-sm-4 form-control" type="text" formControlName="Area">
+      <optgroup label="SELECCIONE AREA" >
+        <option *ngFor="let a of areaEventos" value="{{a.NombreArea}}">{{a.NombreArea}}</option>
+      </optgroup>
+     </select>
+    <!-- <select class="custom-select col-sm-4 form-control" type="text" formControlName="Area">
+      <optgroup label="SELECCIONE NOM_ATRIBUTO">
+        <option value="MÚSICA FOLKLORICA">MÚSICA FOLKLORICA</option>
+        <option value="MÚSICA CLÁSICA">MÚSICA CLÁSICA</option>
+        <option value="ARTES PLÁSTICAS">ARTES PLÁSTICAS</option>
+      </optgroup>
+    </select> -->
+  </div>
+  <div class="form-group row">
+    <label class="form-label col-sm-2">NOMBRE DE INSTITUCION(Opcional): </label>
+    <input type="text" class="form-control col-sm-4" formControlName="Institucion">
+    <label class="form-label col-sm-2">EVENTO: </label>
+      <select class="custom-select col-sm-4 form-control" type="text" formControlName="id_evento" #Even (change)="SeleccionarEvento(Even.value);">
+        <optgroup label="SELECCIONE EVENTO" >
+          <option *ngFor="let a of evento" value="{{a.id}}">{{a.Nombre_Evento}} ({{a.Monto}} Bs.)</option>
+        </optgroup>
+       </select>
+  </div>
+  <!-- {{newInsEvento.value|json}} -->
+  <hr>
+  <h3 class="text-center font-weight-bold text-red">CERTIFICACIÓN Y ACREDITACIÓN (Opcional).</h3>
+  <label class="form-text text-lg text-center font-weight-bold">{{v.Descripcion}}</label>
+  <div class="form-group row" [style]="(v.Monto=='0')?'position: absolute; top:100%; visibility:hidden;':''">
+    <label class="form-label col-sm-8">¿REALIZARÁ EL PAGO DE INSCRIPCION PARA LA EMISION DE CERTIFICACION?</label>
+    <select class="custom-select col-sm-4 form-control"  type="text" formControlName="Estado_Pago" #ConBoleta  (change)="(ConBoleta.value=='SI')?BoletaIF='':BoletaIF='invisible'">
+      <optgroup label="SELECCIONE RESPUESTA">
+        <option value="SI">SI</option>
+        <option value="NO">NO</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="row" *ngIf="!DetalleIF">
+  </div>
+  <div class="row" *ngIf="DetalleIF">
+    <label class="form-text text-lg text-center {{(BoletaIF=='invisible')?'col-sm-12':'col-sm-7'}}">
+      <label class="font-weight-bold {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''">{{v.Detalle}}</label>
+      <br>
+      <label class=" text-danger font-weight-bold {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''">SE DEBE CANCELAR EL MONTO DE: {{v.Monto}} Bs.</label>
+      <hr>
+      <label class="text-light {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''">PARA LA ACREDITACION (EMISION DE CERTIFICACIÓN), POR FAVOR DEBE REALIZAR EL PAGO MEDIANTE TRANSFERENCIA O MEDIANTE QR. LUEGO SE DEBE ADJUNTAR LA CAPTURA DEL LA TRANSACCION Y FINALMENTE INSCRIBIRSE.</label>
+      <br>
+      <label class="form-label col-sm-6 {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''">BOLETA DE PAGO[jpg,png,pdf]: </label>
+      <input type="file" class="form-control col-sm-12 {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''" [disabled]="(BoletaIF=='invisible')?true:false" title="BOLETA DE PAGO" #FOTO_IMG_ADD accept="image/jpg, image/png, image/jpeg,application/pdf" (change)="VerificarFormatoFoto(FOTO_IMG_ADD);"  (change)="onFileChangeFoto($event)">
+
+    </label>
+    <img class="col-sm-4 {{BoletaIF}}" [style]="(BoletaIF=='invisible')?'position: absolute; top:100%; visibility:hidden;':''" *ngIf="(BoletaIF=='invisible')?false:true" [src]="ruta+v.ImagenQR" width="20px">
+
+  </div>
+  <div class="row">
+    <label class="form-text text-lg text-center">
+
+    </label>
+  </div>
+  <div class="row">
+    <button class="btn btn-success form-control float-right" [disabled]="!newInsEvento.valid" (click)="Spinner=true" (click)="AgregarModificarInsEvento()" >
+      <span *ngIf="!Spinner"> INSCRIBIRSE <i class="ace-icon fa fa-arrow-right icon-on-right float: right; margin-bottom: 10px;"></i></span>
+      <span *ngIf="Spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
+  </div>
+  <hr>
+
+
+</div>

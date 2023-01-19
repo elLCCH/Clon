@@ -1,0 +1,94 @@
+
+  
+  <body class=" controls-visible yui3-skin-sam signed-out public-page site" id="senna_surface1">
+    <div class="lfr-spa-loading-bar"></div>
+    <div id="senna_surface1-screen_3" style="display: block;" class="flipped">
+      
+      <div id="wrapper">
+        
+        <section class="container-fluid-1280" id="content">
+          <!-- <h1 class="hide-accessible">Plantel Docente - CEPIES</h1> -->
+          <div class="columns-1" id="main-content" role="main">
+            <div class="portlet-layout row">
+              <div class="col-md-12 portlet-column portlet-column-only" id="column-1">
+                <div class="portlet-dropzone portlet-column-content portlet-column-content-only"
+                  id="layout-column_column-1">
+                  <div
+                    class="portlet-boundary portlet-boundary_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_ portlet-static portlet-static-end portlet-borderless portlet-asset-publisher "
+                    id="p_p_id_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rp8mo2syrGQ4_">
+                    <span
+                      id="p_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rp8mo2syrGQ4"></span>
+                    <section class="portlet"
+                      id="portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rp8mo2syrGQ4">
+                      <div class="portlet-content">
+                        <h2 class="portlet-title-text">PLANTEL DOCENTE</h2>
+                        <div class=" portlet-content-container">
+                          <div class="portlet-body">
+                           
+                            <div class="container-agenda">
+                              <div class="container-post" *ngFor="let item of docentes">
+                                <div class="cont-post">
+                                  <div class="container-div">
+                                    <div class="containerimg-post">
+                                      <div class="div-imgpost"> 
+                                        <img class="imgpost" [src]="ruta+item.Foto">
+                                        <div class="text"> <span style="text-transform: capitalize;"> 
+                                          {{item.Nombre}} {{item.Ap_Paterno}} {{item.Ap_Materno}}
+                                          </span> 
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-2"> 
+                                    <span style="text-transform: capitalize"> 
+                                      {{item.Nombre}} {{item.Ap_Paterno}} {{item.Ap_Materno}}
+                                    </span> 
+                                  </div>
+                                  <div class="titulo-postas"> <span class="titulo-posta "> DOCENTE </span>
+                                    <br><span class="titulo-post">
+                                      <p style="COLOR:#141426;">{{item.Nombre}} {{item.Ap_Paterno}} {{item.Ap_Materno}}</p>
+                                      <!-- LINEA DE INVESTIGACIÓN: EDUCACIÓN -->
+                                    </span> </div>
+                                </div>
+                              </div>
+                              
+                              
+                              
+                              <!-- <div class="container-post">
+                                <div class="cont-post">
+                                  <div class="container-div">
+                                    <div class="containerimg-post">
+                                      <div class="div-imgpost"> <img class="imgpost"
+                                          src="./Plantel Docente - CEPIES - Universidad Mayor de San Andrés_files/article(20)">
+                                        <div class="text"> <span style="text-transform: capitalize"> M.Sc. Carmen Rosa
+                                            Barrios Rada</span> </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-2"> <span style="text-transform: capitalize"> M.Sc. Carmen Rosa Barrios
+                                      Rada</span> </div>
+                                  <div class="titulo-postas"> <span class="titulo-posta "> DOCENTE CEPIES </span>
+                                    <br><span class="titulo-post">
+                                      <p style="COLOR:#141426;">M.SC.CARMEN ROSA BARRIOS RADA</p>LINEA DE INVESTIGACIÓN:
+                                      PSICOLOGÍA Y EDUCACIÓN
+                                    </span> </div>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </section>
+       
+      </div>
+    </div>
+  </body>
+

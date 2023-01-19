@@ -1,0 +1,363 @@
+<!-- INTRODUCIR nombre CRUD, nombreID,nombre dataPrincipal, TITULOS(nombreCrud?,nombrePK?,dataP?,TITULO?)-->
+<strong>
+  <h2 class="text-center text-bold text-danger">GESTIONAR INSCRITOS DE EVENTOS</h2>
+</strong>
+<hr class="border-warning">
+
+<button type="button" class="btn btn-outline-success font-weight-bold" data-toggle="modal" data-target="#ModalCrudInsEvento"
+  data-whatever="@getbootstrap">AGREGAR INSCRIPCION DE EVENTO</button>
+<button type="button" class="btn btn-outline-success font-weight-bold" data-toggle="modal" data-target="#ModalGestionEventos"
+  data-whatever="@getbootstrap">GESTIONAR EVENTOS</button>
+<button type="button" class="btn btn-outline-success font-weight-bold" data-toggle="modal" data-target="#ModalGestionAreaEventos"
+  data-whatever="@getbootstrap">GESTIONAR AREAS PARA EVENTOS</button>
+<form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+  <div class="input-group mb-3" [formGroup]="filterInsEventoForm" >
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-warning" id="inputGroup-sizing-default">Búsqueda</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" oninput="this.value= this.value.toUpperCase()" formControlName="txt"
+      aria-describedby="inputGroup-sizing-default">
+  </div>
+</form>
+<br>
+<!-- #region CRUD PRINCIPAL -->
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover table-danger">
+    <thead class="bg-danger ">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NOMBRE COMPLETO</th>
+        <th scope="col">CARNET</th>
+        <th scope="col">CELULAR</th>
+        <th scope="col">EVENTO</th>
+        <th scope="col">¿CON ACREDITACIÓN?</th>
+        <th scope="col">OBSERVACIONES</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of insEvento; let i= index">
+        <td style="width: 20px;">{{i+1}}</td>
+        <td>{{a.Ap_Paterno}} {{a.Ap_Materno}} {{a.Nombre}}</td>
+        <td>{{a.CI}}</td>
+        <td>
+          <a class="font-weight-bold text-blue" href="https://api.whatsapp.com/send?phone=591{{a.Celular}}" target="_blank" rel="noopener noreferrer">{{a.Celular}}</a>
+        </td>
+        <td>{{a.Nombre_Evento}}</td>
+        <td>{{a.Estado_Pago}}</td>
+        <td>{{a.Observacion}}</td>
+        <td style="width: 200px;">
+          <a class="btn btn-secondary" *ngIf="a.Boleta" [href]="(a.Boleta_Pago=='')?'/Eventos':ruta+a.Boleta_Pago" [target]="(a.Boleta_Pago=='')?'':_blank"><i class="bi bi-card-image"></i></a>
+          <button (click)="SeleccionarInsEvento(a.id)"
+            class="btn btn-warning"><i class="bi bi-pencil"></i></button>
+          <button type="button" class="btn btn-danger" (click)="EliminarInsEvento(a.id)">
+            <i class="bi bi-trash"></i></button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- MODAL DE CRUD ADD MOD DE CODIGO DE InsEvento-->
+<div class="modal fade" id="ModalCrudInsEvento" tabindex="-1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{!newInsEvento.get('id').value ? 'REGISTRAR' : 'MODIFICAR'}} INSCRIPCION DE EVENTO</h5>
+        <button type="button" class="close" (click)="resetInsEvento()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newInsEvento">
+          <div class="form-group row">
+            <label class="form-label col-sm-2">APELLIDOS NOMBRES: </label>
+            <input type="text" class="form-control col-sm-3" oninput="this.value= this.value.toUpperCase()"
+              title="Apellido Paterno." maxlength="15" placeholder="Apellido Paterno" formControlName="Ap_Paterno">
+
+            <input type="text" class="form-control col-sm-3" oninput="this.value= this.value.toUpperCase()"
+              title="Apellido Materno." maxlength="15" placeholder="Apellido Materno" formControlName="Ap_Materno">
+
+            <input type="text" class="form-control col-sm-4" oninput="this.value= this.value.toUpperCase()" title="Nombres."
+              maxlength="30" placeholder="Nombres" required formControlName="Nombre">
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">CARNET DE IDENTIDAD: </label>
+            <input type="text" class="form-control col-sm-2" oninput="this.value= this.value.toUpperCase()"
+              title="Carnet de Identidad." maxlength="15" placeholder="12345678-OR" formControlName="CI">
+
+            <label class="form-label col-sm-1">CELULAR: </label>
+            <input type="number" class="form-control col-sm-2" oninput="this.value= this.value.toUpperCase()"
+              placeholder="12345678" formControlName="Celular">
+            <label class="form-label col-sm-1">Área: </label>
+            <select class="custom-select col-sm-4 form-control" type="text" formControlName="Area">
+              <optgroup label="SELECCIONE NOM_ATRIBUTO">
+                <option value="MÚSICA FOLKLORICA">MÚSICA FOLKLORICA</option>
+                <option value="MÚSICA CLÁSICA">MÚSICA CLÁSICA</option>
+                <option value="ARTES PLÁSTICAS">ARTES PLÁSTICAS</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">NOMBRE DE INSTITUCION(Opcional): </label>
+            <input type="text" class="form-control col-sm-4" formControlName="Institucion">
+            <label class="form-label col-sm-2">EVENTO: </label>
+              <select class="custom-select col-sm-4 form-control" type="text" formControlName="id_evento">
+                <optgroup label="SELECCIONE EVENTO" >
+                  <option *ngFor="let a of EventoActivo" value="{{a.id}}">{{a.Nombre_Evento}}</option>
+                </optgroup>
+               </select>
+          </div>
+          <hr>
+          <h3 class="text-center font-weight-bold text-red">DATOS DE ACREDITACIÓN</h3>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">¿REALIZARÁ EL PAGO?</label>
+            <select class="custom-select col-sm-4 form-control" type="text" formControlName="Estado_Pago">
+              <optgroup label="SELECCIONE RESPUESTA">
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+              </optgroup>
+            </select>
+            <label class="form-label col-sm-2">BOLETA DE PAGO[jpg,png]: </label>
+            <input type="file" class="form-control col-sm-4" title="BOLETA DE PAGO" #FOTO_IMG_ADD accept="image/jpg, image/png, image/jpeg,application/pdf" (change)="VerificarFormatoFoto(FOTO_IMG_ADD);"  (change)="onFileChangeFoto($event)">
+          </div>
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">OPCIONES: </label>
+            <button class="btn btn-success col-sm-2" (click)="obs='NINGUNA OBSERVACION'">NINGUNA OBSERVACION</button>
+            <button class="btn btn-warning col-sm-2" (click)="obs='CORREGIR BOLETA DE INSCRIPCION'">CORREGIR BOLETA DE INSCRIPCION</button>
+            <button class="btn btn-danger col-sm-2" (click)="obs='INSCRIPCION NO VALIDA'">INSCRIPCION NO VALIDA</button>
+            <button class="btn btn-warning col-sm-2" (click)="obs='CORREGIR DATOS PERSONALES'">CORREGIR DATOS PERSONALES</button>
+            <button class="btn btn-secondary col-sm-2" (click)="obs='CONTACTARSE CON DIRECCION ACADEMICA'">CONTACTARSE CON DIRECCION ACADEMICA</button>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">OBSERVACION: </label>
+            <input type="text" class="form-control col-sm-10" formControlName="Observacion" [(ngModel)]="obs" oninput="this.value= this.value.toUpperCase()">
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          (click)="resetInsEvento()">Cancelar</button>
+        <button type="button" class="btn {{!newInsEvento.get('id').value ? 'btn-success' : 'btn-warning'}}" data-dismiss="modal" [disabled]="!newInsEvento.valid"
+          (click)="AgregarModificarInsEvento()">{{!newInsEvento.get('id').value ? 'CREAR INSCRIPCION DE EVENTO' : 'MODIFICAR INSCRIPCION DE EVENTO'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnCrudInsEvento" data-toggle="modal"
+  data-target="#ModalCrudInsEvento" style="width: 0px;">Abrir Modal Crud</button>
+
+<!-- #endregion CRUD PRINCIPAL -->
+
+<!-- #region GESTION EVENTOS -->
+<!-- MODAL DE GESTION EVENTOS-->
+<div class="modal fade" id="ModalGestionEventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> GESTION DE EVENTOS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4">
+            <!-- CRUD V3: idPK=> id, TITULO=> EVENTO, nombreCRUD=> Evento,  dataP=> evento -->
+            <button type="button" class="btn btn-outline-light font-weight-bold" data-toggle="modal" data-target="#ModalCrudEvento"
+              data-whatever="@getbootstrap">AGREGAR EVENTO</button>
+            <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-warning" id="inputGroup-sizing-default">Búsqueda</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </form>
+            <br>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover table-danger">
+                <thead class="bg-danger ">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre Evento</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Acceso</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of evento; let i= index">
+                    <td style="width: 20px;">{{i+1}}</td>
+                    <td>{{a.Nombre_Evento}}</td>
+                    <td>{{a.Monto}}</td>
+                    <td>{{a.Acceso}}</td>
+                    <td>{{a.Estado}}</td>
+                    <td style="width: 200px;">
+                      <a class="btn btn-secondary" *ngIf="a.ImgQR" [href]="(a.ImagenQR=='')?'/Eventos':ruta+a.ImagenQR" [target]="(a.ImagenQR=='')?'':_blank"><i class="bi bi-card-image"></i></a>
+                      <button (click)="SeleccionarEvento(a.id)"
+                        class="btn btn-warning"><i class="bi bi-pencil"></i></button>
+                      <button type="button" class="btn btn-danger" (click)="EliminarEvento(a.id)">
+                        <i class="bi bi-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL DE CRUD ADD MOD DE CODIGO DE Evento-->
+<div class="modal fade" id="ModalCrudEvento" tabindex="-1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{!newEvento.get('id').value ? 'REGISTRAR' : 'MODIFICAR'}} EVENTO</h5>
+        <button type="button" class="close" (click)="resetEvento()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newEvento">
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">NOMBRE DE EVENTO: </label>
+            <input type="text" class="form-control col-sm-10" oninput="this.value= this.value.toUpperCase()" formControlName="Nombre_Evento">
+          </div>
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">DESCRIPCION: </label>
+            <input type="text" class="form-control col-sm-10" oninput="this.value= this.value.toUpperCase()" formControlName="Descripcion">
+          </div>
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">ESTADO DE EVENTO: </label>
+            <select class="custom-select col-sm-10 form-control" type="text" formControlName="Estado">
+              <optgroup label="SELECCIONE ESTADO DE EVENTO" >
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+              </optgroup>
+             </select>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-label col-sm-2">MONTO: </label>
+            <input type="number" class="form-control col-sm-10" formControlName="Monto">
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">DETALLE Y REFERENCIAS: </label>
+            <input type="text" class="form-control col-sm-10" formControlName="Detalle">
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">IMAGEN QR: </label>
+            <input type="file" class="form-control col-sm-10" title="IMAGEN QR" #FOTO_IMG_ADD_EVENTO  accept="image/jpg, image/png, image/jpeg" (change)="VerificarFormatoFotoEvento(FOTO_IMG_ADD_EVENTO);"  (change)="onFileChangeFotoEvento($event)">
+          </div>
+          <div class="form-group row">
+            <label class="form-label text-right col-sm-2">ACCESO: </label>
+            <select class="custom-select col-sm-10 form-control" type="text" formControlName="Acceso">
+              <optgroup label="SELECCIONE EL ESTADO DE ACCESO" >
+                <option value="TODOS">TODOS (PARA TODO PUBLICO)</option>
+                <option value="INSTITUCION">INSTITUCION (SOLO LOS QUE SON PARTE DE LA INSTITUCION)</option>
+                <option value="ESTUDIANTES">ESTUDIANTES</option>
+                <option value="DOCENTES">DOCENTES</option>
+              </optgroup>
+             </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          (click)="resetEvento()">Cancelar</button>
+        <button type="button" class="btn {{!newEvento.get('id').value ? 'btn-success' : 'btn-warning'}}" data-dismiss="modal" [disabled]="!newEvento.valid"
+          (click)="AgregarModificarEvento()">{{!newEvento.get('id').value ? 'CREAR EVENTO' : 'MODIFICAR EVENTO'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnCrudEvento" data-toggle="modal"
+  data-target="#ModalCrudEvento" style="width: 0px;">Abrir Modal Crud</button>
+<!-- #endregion GESTION EVENTOS -->
+
+<!-- #region GESTION AREA DE EVENTOS -->
+<!-- MODAL DE GESTION AREA DE EVENTOS-->
+<div class="modal fade" id="ModalGestionAreaEventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> GESTION DE AREA PARA EVENTOS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-outline-light font-weight-bold" data-toggle="modal" data-target="#ModalCrudAreaEventos"
+          data-whatever="@getbootstrap">AGREGAR AREA PARA EVENTOS</button>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover table-danger">
+            <thead class="bg-danger ">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre de Area</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of areaEventos; let i= index">
+                <td style="width: 20px;">{{i+1}}</td>
+                <td>{{a.NombreArea}}</td>
+                <td style="width: 200px;">
+                  <button (click)="SeleccionarAreaEventos(a.id)"
+                    class="btn btn-warning"><i class="bi bi-pencil"></i></button>
+                  <button type="button" class="btn btn-danger" (click)="EliminarAreaEventos(a.id)">
+                    <i class="bi bi-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL DE CRUD ADD MOD DE CODIGO DE AreaEventos-->
+<div class="modal fade" id="ModalCrudAreaEventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{!newAreaEventos.get('id').value ? 'REGISTRAR' : 'MODIFICAR'}} AREA PARA EVENTOS</h5>
+        <button type="button" class="close" (click)="resetAreaEventos()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newAreaEventos">
+          <div class="form-group row">
+            <label class="form-label col-sm-2">NOMBRE DE AREA: </label>
+            <input type="text" class="form-control col-sm-10" formControlName="NombreArea">
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          (click)="resetAreaEventos()">Cancelar</button>
+        <button type="button" class="btn {{!newAreaEventos.get('id').value ? 'btn-success' : 'btn-warning'}}" data-dismiss="modal" [disabled]="!newAreaEventos.valid"
+          (click)="AgregarModificarAreaEventos()">{{!newAreaEventos.get('id').value ? 'CREAR AREA PARA EVENTOS' : 'MODIFICAR AREA PARA EVENTOS'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnCrudAreaEventos" data-toggle="modal"
+  data-target="#ModalCrudAreaEventos" style="width: 0px;">Abrir Modal Crud</button>
+
+
+
+<!-- #endregion GESTION AREA DE EVENTOS -->

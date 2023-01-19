@@ -1,0 +1,569 @@
+<!-- MANIAS PARA NUESTRO PROPIO USO DE .text de algun elemento -->
+<!-- <input type="text"  [(ngModel)]="txtGG">
+<span>{{txtGG}}</span>
+<button type="button" class="btn btn-danger" (click)="ObtenertxtGG()">obtener</button> -->
+<div style="background: linear-gradient(-180deg, #aa0505, #ffffff); padding: 5px 20px;">
+
+
+    <!-- Button trigger modal -->
+    <strong>
+      <h2 class="text-center text-bold text-light">GESTIONAR ADMINISTRATIVO</h2>
+    </strong>
+    <hr />
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" (click)="ObtenertxtGG()">
+      <img height="35px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFVUlEQVRoge1ZW2xURRj+/nO6W7YFailtuQgFaYFCisgKtNBYtl2EKtCtTU1NDLUJgUR8EYkoibHhwSgI8cUERAVNNFIS0xKjVHe5WIyAVhMTwr2AFoNYVmC33W139/w+lFN72e2enTkpD/I9zZn5b9+ZmX/+Mwd4gAf4f4PMNFZUVGSz2WwuIqpi5rkApgBI1ccVRXG43e5jZvpMMsuQw+GoIqJdAKYyc1SZSCTyJgBTCZgyA2VlZduY+Q2D4heYuVFRlF0ej+cvWd/SBBwOx+tE9JaAqo+ZXzh69OiXMv6lCJSWli4C8APEl2KEiMo9Hs93ojEooor38Dbk9pHKzB/a7XaLqAFhAk6n8zEADiOyOVlhrHX68NHLN7HW6Rs8PDUtLc0lGofw29M0rWK48ZysMErmBbBsXgA5WeG+/mnZPiRbGHu/GdtfvBzAQZE4hAkwcwnRwC2kB11SEMC07HAMTaCmxI/uEOFT9xgAABEViMYhs35nALHfdDzUOv+bCWbOFA1CmAARjQeAjzfdFDWBmhK/vpSECchkIZuE7mCkiCrKptH7DiEC3iP5Tz86vTtoVhALcoMBr2dmuYiu0B5g5t1bn/OO+uLYgFSI3Xv9IAI2rBsdVS/a+DNL/ahZ5rMx0R4AUxONRXgJKcR4ac2dAX29WTV2dRJtfOPquyBEr16NQKgW8npmljOUD9JHYzKRdEGoef18HRrWZzjPH05UWco5n559DsAsGRsgOksLz84RVZfMQtwipw9A4+9l1OUIkHJASh8AwA1SIUi7/2n2EbCxqjQKjtOic8tk/JtwkGnrAHQIKHqhqutkvUsToIUX2gCqAuGfBNS8YMVF9jOXpP3LGtDBJ/PzQuGuCxbr8CVSKBSAZdToPDOCB0y+F7r1lYUt1hRYk1ORZLVBIRUAoHEE4Z4AeoJ+hEIBZKwKEQBUN1RbvYE7lcRUwYQFYDx8L6p2YvwCoDE9ZWzjwWcP9owYASNyGatC5Ny/oopB2wF+JI74ZWJ61V13OOrtxYgT0ECo6XDsBPBKIrYJ9G7x1cIt9fX1Wv9+NcEYh8DV0mnvnOI4FMl76v38bF8419Y2bIG4zVsW+ZuxVMDVkt8farddabzs7t8pPAMVLV2LAdoJYGlrcwuuX7yGKZNt4V9L62ISONWdiZ2+6J+/7tqBZZDzk5XRjTBXeuq+bdQfE06j5V9z8pqWwB6AfgR63+S0glkAAX9cDyS9eH5bVL0wFLx3e1Gi7oaCaFd1Q7VVf0yIwJqT/mzrmOARAtaj3+xlTMpC7vx8AEDD6fEoPrEXBzoqcSM0ATdCE3CgoxLlv21FRA3IEwCm3+r09V3pGP6gqTx1N0PrUY8jRvU5Z4kdiqriYusZnLsSwsYrywEs7xufO/+kRMwDQYQK3LtHMkaAmbQTwc8wXOlMwOzC+ZiUl4NrZy6ho/0GAr4uAIBtTArGZXYNEB+85gdj2D1B/LjeNETAdSL4PAMrjMiOzUhHwRMLh/R3tn2OGL8NEgdjst6MuweqG1jVgHqTXJuFvrMgLoGeid0OAuKdlnFBSemyJvrAwJ9628AS0labcWCryTOghfr8Dsnzhs8BAAT+WW/HT6NMQxe0ANTUQjPM9ILQpDfjEyBMN8OnmroYimWiCZaobZwt7ZD+ZOQgM2XxEiUheVytCXZ4U//y2tRq1Aic+1fuYPBmEV1ivOOua36tf9+IX+4WXy3cAuIdAqrbi68VbR3cOeIzoKNs35MuItrBQO5wcgRcAmGzu7a5Kcb4/YN9j92SZs10EaGCwXZC7yclA+0EagVpjbeDt5paN7SGYtn4F3L2r0au8CFMAAAAAElFTkSuQmCC"/>
+      AGREGAR ADMINISTRATIVO
+    </button>
+    <br><br>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">AGREGAR ADMINISTRATIVO</h4>
+            <button type="button" #CerrarBoton class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-4" [formGroup]="newAdministrativo">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Foto de Perfil:</label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" (change)="onFileChange($event)">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-4 col-form-label">Apellidos Paterno y Materno:</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" formControlName="Ap_Paterno">
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" formControlName="Ap_Materno">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombres:</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" formControlName="Nombre">
+                </div>
+                <label class="col-sm-3 col-form-label">Carnet de Identidad:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="CI">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Sexo</label>
+                <div class="col-sm-4">
+                  <select class="form-control" type="text" formControlName="Sexo" >
+                    <optgroup label="Seleccione Sexo" >
+                        <option value="MASCULINO">MASCULINO</option>
+                        <option value="FEMENINO">FEMENINO</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <label class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control" formControlName="FechNac">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tipo:</label>
+                <div class="col-sm-4">
+                  <select class="form-control" type="text" formControlName="Tipo">
+                    <optgroup label="Seleccione Sexo" >
+                        <option value="DOCENTE">DOCENTE</option>
+                        <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <label class="col-sm-2 col-form-label">Estado:</label>
+                <div class="col-sm-4">
+                  <select class="form-control" name="Curso_id" type="text" formControlName="Estado">
+                    <optgroup label="Seleccione" >
+                        <option value="INACTIVO">INACTIVO</option>
+                        <option value="ACTIVO">ACTIVO</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Contraseña:</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" formControlName="Password">
+                </div>
+              </div>
+              <!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cursos:</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="Curso_id" type="text" formControlName="curso_id" id="Curso_id" >
+                    <optgroup label="Seleccione Curso" >
+                        <option *ngFor="let c of curso" value="{{c.id}}">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+              </div> -->
+              <!-- <label class="form-label">Foto: </label>
+              <input type="file" class="form-control" (change)="onFileChange($event)" >
+              <label class="form-label">Ap. Paterno: </label>
+              <input type="text" class="form-control" formControlName="Ap_Paterno">
+              <label class="form-label">Ap. Materno: </label>
+              <input type="text" class="form-control" formControlName="Ap_Materno">
+              <label class="form-label">Nombre: </label>
+              <input type="text" class="form-control" formControlName="Nombre">
+              <label class="form-label">Sexo: </label>
+              <select class="form-control" type="text" formControlName="Sexo" >
+                <optgroup label="Seleccione Sexo" >
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                </optgroup>
+              </select>
+              <label for="nombre" class="form-label">Fecha Nacimiento: </label>
+              <input type="text" class="form-control" formControlName="FechNac">
+              <label for="nombre" class="form-label">CI: </label>
+              <input type="text" class="form-control" formControlName="CI">
+              <label for="nombre" class="form-label">Contraseña: </label>
+              <input type="text" class="form-control" formControlName="Password">
+              <label for="nombre" class="form-label">Tipo: </label>
+              <input type="text" class="form-control" formControlName="Tipo">
+              <label for="nombre" class="form-label">Curso: </label>
+              <select class="form-control" name="Curso_id" type="text" formControlName="curso_id" id="Curso_id" >
+                  <optgroup label="Seleccione Curso" >
+                      <option *ngFor="let c of curso" value="{{c.id}}">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+                  </optgroup>
+              </select> -->
+              <!-- <label for="nombre" class="form-label">Estado de Cuenta: </label>
+              <input type="text" class="form-control" formControlName="Estado"> -->
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+            <button type="button" class="btn btn-danger" (click)="AgregarAdministrativo()">GUARDAR</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover table-dark">
+      <thead class="bg-danger ">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Apellidos y Nombres</th>
+          <th scope="col">Sexo</th>
+          <!-- <th scope="col">F.Nacimiento</th> -->
+          <!-- <th scope="col">CI</th> -->
+          <!-- <th scope="col">Password</th> -->
+          <th scope="col">Tipo</th>
+          <!-- <th scope="col">Curso</th> -->
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of admin; let i= index"  >
+          <td>{{i+1}}</td>
+          <td style="padding: 0;">
+            <img [src]="ruta+a.Foto" width="60px" height="60px">
+          </td>
+          <td>
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Ap_Paterno"> -->
+            <span *ngIf="!a.Editando">{{a.Ap_Paterno}}⠀</span>
+            <!-- </td>
+                      <td> -->
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Ap_Materno"> -->
+            <span *ngIf="!a.Editando">{{a.Ap_Materno}}⠀</span>
+            <!-- </td>
+                      <td> -->
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Nombre"> -->
+            <span *ngIf="!a.Editando">{{a.Nombre}}</span>
+          </td>
+          <td>
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Sexo"> -->
+            <span *ngIf="!a.Editando">{{a.Sexo}}</span>
+          </td>
+          <!-- <td>
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.FechNac">
+            <span *ngIf="!a.Editando">{{a.FechNac}}</span>
+          </td>
+          <td>
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.CI">
+            <span *ngIf="!a.Editando">{{a.CI}}</span>
+          </td>
+
+          <td>
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Password">
+            <span *ngIf="!a.Editando">{{a.Password}}</span>
+          </td> -->
+          <td>
+              <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Tipo"> -->
+              <span *ngIf="!a.Editando">{{a.Tipo}}</span>
+          </td>
+          <!-- <td >
+              <span *ngIf="!a.Editando">{{a.curso_id}}</span>
+          </td> -->
+          <td>
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Estado"> -->
+            <span *ngIf="!a.Editando">{{a.Estado}}</span>
+          </td>
+
+          <td>
+            <!-- <button type="button" class="btn btn-warning" (click)="a.Editando=true;" *ngIf="!a.Editando">Editar</button> -->
+            <button type="button" class="btn btn-success tamanio" data-toggle="modal" data-target="#ViewAdministrativo"
+              (click)='AdministrativoSeleccionado=a;' style="margin-right: 10px;"><i class="bi bi-eye"></i></button>
+
+            <button type="button" class="btn btn-warning"
+              (click)='AdministrativoSeleccionado=a;' (click)="CargarCurso();" style="margin-right: 10px;"><i class="bi bi-view-list"></i></button>
+
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1"
+              (click)='AdministrativoSeleccionado=a;' style="margin-right: 10px;"><i class="bi bi-pencil"></i></button>
+
+            <button type="button" class="btn btn-warning" (click)="ModificarAdministrativo(a)" *ngIf="a.Editando"
+              (click)="a.Editando=true;"><i class="bi bi-box-arrow-up"></i></button>
+
+            <button type="button" class="btn btn-danger" (click)="EliminarAdministrativo(a)"><i
+                class="bi bi-trash"></i></button>
+
+            <button type="button" #btnModalCursos class="btn btn-warning invisible" data-toggle="modal" data-target="#ModalCursos"
+               style="margin-right: 10px;"><i class="bi bi-view-list"></i></button>
+
+            <!-- <button type="button" class="btn btn-danger" (click)="seleccionado=a;">select</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <span>{{seleccionado | json}}</span> -->
+
+  </div>
+</div>
+
+
+
+<!-- MODAL de MODIFICACION -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">MODIFICAR ADMINISTRATIVO</h4>
+        <button type="button" #CerrarBotonMod class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+
+      </div>
+      <div class="modal-body">
+        <div class="mb-3" [formGroup]="newAdministrativo">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Foto de Perfil:</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" (change)="onFileChange($event)">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Apellidos Paterno y Materno:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Ap_Paterno" [(ngModel)]="AdministrativoSeleccionado.Ap_Paterno">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Ap_Materno" [(ngModel)]="AdministrativoSeleccionado.Ap_Materno">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombres:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Nombre" [(ngModel)]="AdministrativoSeleccionado.Nombre">
+            </div>
+            <label class="col-sm-3 col-form-label">Carnet de Identidad:</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" formControlName="CI" [(ngModel)]="AdministrativoSeleccionado.CI">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Sexo</label>
+            <div class="col-sm-4">
+              <select class="form-control" type="text" formControlName="Sexo" [(ngModel)]="AdministrativoSeleccionado.Sexo">
+                <optgroup label="Seleccione Sexo" >
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                </optgroup>
+              </select>
+            </div>
+            <label class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+            <div class="col-sm-3">
+              <input type="date" class="form-control" formControlName="FechNac" [(ngModel)]="AdministrativoSeleccionado.FechNac">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Tipo:</label>
+            <div class="col-sm-4">
+              <select class="form-control" type="text" formControlName="Tipo" [(ngModel)]="AdministrativoSeleccionado.Tipo">
+                <optgroup label="Seleccione Sexo" >
+                    <option value="DOCENTE">DOCENTE</option>
+                    <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                </optgroup>
+              </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Estado:</label>
+            <div class="col-sm-4">
+              <select class="form-control" name="Curso_id" type="text" formControlName="Estado" [(ngModel)]="AdministrativoSeleccionado.Estado">
+                <optgroup label="Seleccione" >
+                    <option value="INACTIVO">INACTIVO</option>
+                    <option value="ACTIVO">ACTIVO</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contraseña:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" formControlName="Password" [(ngModel)]="AdministrativoSeleccionado.Password">
+            </div>
+          </div>
+          <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Cursos:</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="Curso_id" type="text" formControlName="curso_id" id="Curso_id" [(ngModel)]="AdministrativoSeleccionado.curso_id">
+                <optgroup label="Seleccione Curso" >
+                    <option *ngFor="let c of curso" value="{{c.id}}">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+                </optgroup>
+              </select>
+            </div>
+          </div> -->
+          <!-- <label for="nombre" class="form-label">Foto: </label>
+          <input type="file" class="form-control" (change)="onFileChange($event)">
+          <label for="nombre" class="form-label">Ap. Paterno: </label>
+          <input type="text" class="form-control" formControlName="Ap_Paterno"
+            [(ngModel)]="AdministrativoSeleccionado.Ap_Paterno">
+          <label for="nombre" class="form-label">Ap. Materno: </label>
+          <input type="text" class="form-control" formControlName="Ap_Materno"
+            [(ngModel)]="AdministrativoSeleccionado.Ap_Materno">
+          <label for="nombre" class="form-label">Nombre: </label>
+          <input type="text" class="form-control" formControlName="Nombre"
+            [(ngModel)]="AdministrativoSeleccionado.Nombre">
+          <label for="nombre" class="form-label">Sexo: </label>
+          <select class="form-control" name="Sexo" type="text"  formControlName="Sexo" id="Sexo" [(ngModel)]="AdministrativoSeleccionado.Sexo">
+            <optgroup label="Seleccione Curso" >
+                <option value="MASCULINO">MASCULINO</option>
+                <option value="FEMENINO">FEMENINO</option>
+            </optgroup>
+          </select>
+          <label for="nombre" class="form-label">Fecha Nacimiento: </label>
+          <input type="text" class="form-control" formControlName="FechNac"
+            [(ngModel)]="AdministrativoSeleccionado.FechNac">
+          <label for="nombre" class="form-label">CI: </label>
+          <input type="text" class="form-control" formControlName="CI" [(ngModel)]="AdministrativoSeleccionado.CI">
+          <label for="nombre" class="form-label">TIPO: </label>
+          <input type="text" class="form-control" formControlName="Tipo" [(ngModel)]="AdministrativoSeleccionado.Tipo">
+          <label for="nombre" class="form-label">Curso: </label>
+          <select class="form-control" name="Curso_id" type="text"  formControlName="curso_id" id="Curso_id" [(ngModel)]="AdministrativoSeleccionado.curso_id">
+            <optgroup label="Seleccione Curso" >
+                <option *ngFor="let c of curso" value="{{c.id}}">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+            </optgroup>
+          </select>
+          <label for="nombre" class="form-label">Contraseña: </label>
+          <input type="text" class="form-control" formControlName="Password"
+            [(ngModel)]="AdministrativoSeleccionado.Password">
+          <label for="nombre" class="form-label">Estado de Cuenta: </label>
+          <input type="text" class="form-control" formControlName="Estado"
+            [(ngModel)]="AdministrativoSeleccionado.Estado"> -->
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-danger"
+          (click)="ModificarAdministrativo(AdministrativoSeleccionado)">GUARDAR</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- MODAL de VISUALIZACION -->
+<div class="modal fade" id="ViewAdministrativo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">INFORMACION DEL ADMINISTRATIVO</h4>
+        <button type="button" #CerrarBotonMod class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3" [formGroup]="newAdministrativo">
+
+          <!-- <label for="nombre" class="form-label float-left">Foto:⠀⠀⠀⠀⠀⠀⠀⠀⠀</label>
+          <div><img [src]="ruta+AdministrativoSeleccionado.Foto" width="200px" height="200px"></div> -->
+          <div class="form-group row">
+            <!-- <label class="col-sm-2 col-form-label">Foto de Perfil:</label> -->
+            <div class="col-sm-3">
+              <img [src]="ruta+AdministrativoSeleccionado.Foto" width="190px" height="220px" >
+            </div>
+            <div class="col-sm-3">
+              <label class=" col-form-label ">Nombre Completo:</label>
+              <label class=" col-form-label ">Carnet de Identidad:</label>
+              <label class=" col-form-label ">Sexo:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</label>
+              <label class=" col-form-label ">Tipo:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</label>
+              <label class=" col-form-label ">Fecha Nacimiento:</label>
+              <label class=" col-form-label ">Estado:⠀⠀⠀⠀⠀⠀⠀⠀</label>
+            </div>
+            <div class="col-sm-6">
+              <!-- <p class="form-control-plaintext text-white ">{{AdministrativoSeleccionado.Ap_Paterno}} {{AdministrativoSeleccionado.Ap_Materno}} {{AdministrativoSeleccionado.Nombre}}</p> -->
+              <input type="text" class="form-control" disabled value="{{AdministrativoSeleccionado.Ap_Paterno}} {{AdministrativoSeleccionado.Ap_Materno}} {{AdministrativoSeleccionado.Nombre}}">
+              <p class="form-control-plaintext text-white ">{{AdministrativoSeleccionado.CI}}</p>
+              <p class="form-control-plaintext text-white ">{{AdministrativoSeleccionado.Sexo}}</p>
+              <p class="form-control-plaintext text-white ">{{AdministrativoSeleccionado.Tipo}}</p>
+              <input type="date" class="form-control" formControlName="FechNac">
+              <p class="form-control-plaintext text-white">{{AdministrativoSeleccionado.Estado}}</p>
+            </div>
+
+          </div>
+          <!-- <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Apellidos Paterno y Materno:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Ap_Paterno">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Ap_Materno">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombres:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="Nombre">
+            </div>
+            <label class="col-sm-3 col-form-label">Carnet de Identidad:</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" formControlName="CI">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Sexo</label>
+            <div class="col-sm-4">
+              <select class="form-control" type="text" formControlName="Sexo" >
+                <optgroup label="Seleccione Sexo" >
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                </optgroup>
+              </select>
+            </div>
+            <label class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+            <div class="col-sm-3">
+              <input type="date" class="form-control" formControlName="FechNac">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Tipo:</label>
+            <div class="col-sm-4">
+              <select class="form-control" type="text" formControlName="Tipo">
+                <optgroup label="Seleccione Sexo" >
+                    <option value="DOCENTE">DOCENTE</option>
+                    <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
+                </optgroup>
+              </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Estado:</label>
+            <div class="col-sm-4">
+              <select class="form-control" name="Curso_id" type="text" formControlName="Estado">
+                <optgroup label="Seleccione" >
+                    <option value="INACTIVO">INACTIVO</option>
+                    <option value="ACTIVO">ACTIVO</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contraseña:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" formControlName="Password">
+            </div>
+          </div> -->
+          <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Cursos:</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="Curso_id" type="text" formControlName="curso_id" id="Curso_id" >
+                <optgroup label="Seleccione Curso" >
+                    <option *ngFor="let c of curso" value="{{c.id}}">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+                </optgroup>
+              </select>
+            </div>
+
+          </div> -->
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL de CURSOS -->
+<div class="modal fade" id="ModalCursos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">CURSOS DEL DOCENTE: {{AdministrativoSeleccionado.Ap_Paterno}} {{AdministrativoSeleccionado.Ap_Materno}} {{AdministrativoSeleccionado.Nombre}}</h4>
+        <button type="button" #CerrarBotonMod class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body bg-danger">
+        <form>
+          <style>
+            .hoverlcch:hover
+            {
+              background-color: rgb(248, 103, 103);
+            }
+          </style>
+          <div class="content col-sm-12">
+            <fieldset>
+              <legend>MATERIAS - CURSOS
+
+                <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+                  <div class="input-group">
+                    Búsqueda:
+                    <input type="text" class="border-danger" [(ngModel)]="filterCursos" name="filterCursos" oninput="this.value = this.value.toUpperCase()">
+                  </div>
+                </form>
+              </legend>
+
+              <div class="container">
+                <ul>
+                  <li *ngFor="let item of iniciacionbasico | filter:filterCursos">
+                    <input type="checkbox" id="{{item.id}}" checked="{{item.Chequeo}}" (change)="AgregarDocenteCurso($event,item)" [disabled]="item.Disable">
+                    <label for="{{item.id}}" class="text-dark hoverlcch">{{item.NombreCurso}}  <a class="float-right text-warning" [disabled]="item.Disable" (click)="ParaCargarListadoEstudiantesAdmin(item.NivelCurso)">{{item.NivelCurso}}</a> <a class="text-blue float-right"> {{item.Ap_Paterno}} {{item.Ap_Materno}} {{item.Nombre}}⠀⠀⠀⠀⠀⠀</a></label>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+        </div>
+
+    </div>
+  </div>
+</div>

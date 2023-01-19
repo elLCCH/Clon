@@ -1,0 +1,1141 @@
+@media only screen and (max-width: 768px) {
+  /*PARA CELULARES*/
+  .iframedes
+  {
+    width: 100%;
+    height: 190px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /*PARA PC*/
+  .iframedes
+  {
+    width: 100%;
+    height: 600px;
+  }
+  
+}
+
+.responsive-iframe {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* LETRAS CENTREADAS */
+
+.carousel-inner img {
+  width: 100%;
+  /* MAXIMO DE TAMAÑO DE IMAGEN CAROUSEL**********************************************/
+  height: 600px;
+  max-height: 600px;
+}
+
+.carousel-control {
+  width: 0;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+opacity: 1;
+filter: alpha(opacity=100);
+background-image: none;
+background-repeat: no-repeat;
+text-shadow: none;
+}
+
+.carousel-control.left span {
+padding: 15px;
+}
+
+.carousel-control.right span {
+padding: 15px;
+}
+
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right, 
+.carousel-control .icon-prev, 
+.carousel-control .icon-next {
+position: absolute;
+top: 45%;
+z-index: 5;
+display: inline-block;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {
+left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next {
+right: 0;
+}
+
+.carousel-control.left span,
+.carousel-control.right span {
+background-color: #000;
+}
+
+.carousel-control.left span:hover,
+.carousel-control.right span:hover {
+opacity: .7;
+filter: alpha(opacity=70);
+}
+
+/* Carousel Header Styles */
+.header-text {
+  position: absolute;
+  top: 20%;
+  left: 1.8%;
+  right: auto;
+  width: 96.66666666666666%;
+  color: rgb(146, 9, 9); /*COLOR DE TEXTO*/
+}
+/*TEXTO ENCIMA DEL CAROUSEL*/
+@media only screen and (max-width: 768px) {
+  /*PARA CELULARES*/
+  .header-text h2 {
+    font-size: 13px;
+    -webkit-text-stroke: 0.5px black;
+    color: red;
+  }
+  
+  .header-text h2 span {
+  
+    /* background-color: #2980b9; */
+  padding: 10px;
+  }
+  
+  .header-text h3 span {
+  /* background-color: #000; */
+  
+  font-size: 10px;
+  padding: 15px;
+  -webkit-text-stroke: 0.5px black;
+    color: red;
+  }
+  .btn-min-block {
+    min-width: 100px;
+    line-height: 10px;
+  }
+
+  .btn-theme {
+    
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    margin-right: 15px;
+    font-size: 10px;
+  }
+
+  .btn-theme:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /*PARA COMPU*/
+  .header-text h2 {
+    font-size: 40px;
+    -webkit-text-stroke: 3px black;
+    color: red;
+  }
+  
+  .header-text h2 span {
+  
+    /* background-color: #2980b9; */
+  padding: 10px;
+  }
+  
+  .header-text h3 span {
+  /* background-color: #000; */
+  font-size: 25px;
+  padding: 15px;
+  -webkit-text-stroke: 2px black;
+    color: red;
+  }
+  
+  .btn-min-block {
+    min-width: 170px;
+    line-height: 26px;
+  }
+
+  .btn-theme {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    margin-right: 15px;
+  }
+
+  .btn-theme:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+
+
+/*HASTA ACÁ LAS LETRAS CENTREADAS**-----------------------------------*/
+
+
+
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+  .parteArriba li a:hover {
+    background: rgba(122, 122, 122, 0.753);
+  }
+  
+  .alinearder {
+    text-align: right;
+  }
+  
+  .alinearizq {
+  
+    float: left;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /*CAROUSEL PARA CELULARES*/
+    /*PARA CELULARES*/
+    .carousel-inner div img {
+      width: 100%;
+      height: 220px;
+    }
+  }
+/*   NO ES NECESARIO
+  @media only screen and (min-width: 768px) {
+    .carousel
+    {
+      height: 600px;
+    }
+    .carousel-inner
+    {
+      height: 600px;
+    }
+    .carousel-inner .bordeDiv{
+      height: 600px;
+    }
+    .carousel-inner div img {
+      width: 100%;
+      height: 1800px;
+    }
+  }
+   */
+  
+  .tarjeta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 70%;
+    margin: auto;
+    grid-gap: 10px;
+    padding: 20px 0;
+    overflow: hidden;
+    /* float: right; */
+  }
+  
+  
+  .tarjeta img {
+    width: 100%;
+    vertical-align: top;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s
+  }
+  
+  .agrandar {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .publicaciones {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    /* width: 22%; */
+    /* margin: auto; */
+    margin-top: 10px;
+    grid-gap: 10px;
+    padding: 0px 0;
+    overflow: hidden;
+    float: left;
+  }
+  
+  .publicaciones img {
+    width: 100%;
+    vertical-align: top;
+    /* height: auto; */
+    object-fit: cover;
+    transition: transform 0.5s
+  }
+  
+  .bordeDiv {
+    border-top-width: 10px;
+    border-right-width: 1em;
+    border-bottom-width: thick;
+    border-left-width: thin;
+  }
+  
+  /*BOTON ANIMADO*/
+  .aDebtnAnimado {
+    /*el display hace q se pueda ver como una caja o bloque a ese "a"*/
+    display: block;
+    text-decoration: none;
+    margin: 5px;
+  }
+  
+  .button {
+    /*position relative para que no este por delante elm destello de luz*/
+    position: relative;
+    /*seleccion de colores a combinar*/
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    /*se puso size background para que la combinacion de colores
+    si no hay esto estara invisible el boton, se puso 400% para q no se vea chistoso*/
+    background-size: 400%;
+    /*redondear esquinas*/
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    /*acomodamos biencito el espaciado de arriba abajo*/
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;/*nose*/
+    text-transform: uppercase; /*poner mayuscula al texto*/
+    color: #FFFFFF;
+    font-size: 20px;/*tamanio d fuente*/
+  }
+  /*esto se encarga de hacer recorrer el color por todo el boton
+  en si es una especie de funcion*/
+  @keyframes tranposicion {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+  }
+  /* en el evento hover llamamos dicha funcion*/
+  .button:hover {
+    animation: tranposicion 8s linear infinite;
+    text-decoration: none;
+    /*animation: educatecnica 1s(velodidad de cambio de color) linear infinite;*/
+  }
+  /*este hace q alrededor del boton tenga un resplandor*/
+  .button:before {
+    content: ""; /*es para que se vea el resplandor*/
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    position: absolute; /*para q este por delante el resplandor o se pueda apreciar*/
+    /*escogiendo longitud de destellos*/
+    top: -5px;
+    right: -5px;
+    left: -5px;
+    bottom: -5px;
+    /*es para que no este por delante del texto y buton*/
+    z-index: -1;
+    border-radius: 40px;/*curveando*/
+    /*esto hace q una pequeña animacion al asomar*/
+    filter: blur(100px);
+    opacity: 0;
+    /*hace q la animacion no sea tan brusco*/
+     /*es como decir q la animacion se ejecutara recien dentro de 0.5s segundos*/
+     transition: 0.5s;
+  }
+  
+  .button:hover:before {
+    opacity: 1;
+    filter: blur(20px);
+    /*aplicando la misma funcion*/
+    animation: tranposicion 8s linear infinite;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* PARA PARTE DE ABAJO */
+  
+  footer .main-footer {
+    padding: 20px 0;
+    background: #252525;
+  }
+  
+  footer ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  
+  .footer-copyright {
+    background: #222;
+    padding: 5px 0;
+  }
+  
+  .footer-copyright .logo {
+    display: inherit;
+  }
+  
+  .footer-copyright nav {
+    float: right;
+    margin-top: 5px;
+  }
+  
+  .footer-copyright nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-copyright nav ul li {
+    border-left: 1px solid #505050;
+    display: inline-block;
+    line-height: 12px;
+    margin: 0;
+    padding: 0 8px;
+  }
+  
+  .footer-copyright nav ul li a {
+    color: #969696;
+  }
+  
+  .footer-copyright nav ul li:first-child {
+    border: medium none;
+    padding-left: 0;
+  }
+  
+  .footer-copyright p {
+    color: #969696;
+    margin: 2px 0 0;
+  }
+  
+  
+  .footer-top {
+    background: #252525;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #222;
+  }
+  
+  footer.transparent .footer-top,
+  footer.transparent .main-footer {
+    background: transparent;
+  }
+  
+  footer.transparent .footer-copyright {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  footer.light .footer-top {
+    background: #f9f9f9;
+  }
+  
+  footer.light .main-footer {
+    background: #f9f9f9;
+  }
+  
+  footer.light .footer-copyright {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .footer- .logo {
+    display: inline-block;
+  }
+  
+  .widget {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .widget.widget-last {
+    margin-bottom: 0px;
+  }
+  
+  .widget.no-box {
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 40px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+  }
+  
+  .widget.subscribe p {
+    margin-bottom: 18px;
+  }
+  
+  .widget li a {
+    color: #ff8d1e;
+  }
+  
+  .widget li a:hover {
+    color: #4b92dc;
+  }
+  
+  .widget-title {
+    margin-bottom: 20px;
+  }
+  
+  .widget-title span {
+    background: #839FAD none repeat scroll 0 0;
+    display: block;
+    height: 1px;
+    margin-top: 25px;
+    position: relative;
+    width: 20%;
+  }
+  
+  .widget-title span::after {
+    background: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    top: -4px;
+    width: 50%;
+  }
+  
+  .widget-title.text-center span,
+  .widget-title.text-center span::after {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  
+  .widget .badge {
+    float: right;
+    background: #7f7f7f;
+  }
+  
+  .typo-light h1,
+  .typo-light h2,
+  .typo-light h3,
+  .typo-light h4,
+  .typo-light h5,
+  .typo-light h6,
+  .typo-light p,
+  .typo-light div,
+  .typo-light span,
+  .typo-light small {
+    color: #fff;
+  }
+  
+  ul.social-footer2 {
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+  
+  ul.social-footer2 li {
+    display: inline-block;
+    padding: 0;
+  }
+  
+  ul.social-footer2 li a:hover {
+    background-color: #ff8d1e;
+  }
+  
+  ul.social-footer2 li a {
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .btn {
+    background-color: #ff8d1e;
+    color: #fff;
+  }
+  
+  .btn:hover,
+  .btn:focus,
+  .btn.active {
+    background: #4b92dc;
+    color: #fff;
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s;
+  
+  }
+
+  /* TARJETA VOLTEABLE VOLTEAR---------------------------------------------------------------------------------*/
+  *{
+    box-sizing:border-box;
+  }
+  .container{
+    width:auto;
+    padding: 0;
+    margin:0 auto;
+    display:flex; 
+    justify-content: center;
+  }
+  /* button{
+    &:focus{
+      outline:none;
+    }
+  } */
+  button:focus{
+    outline:none;
+  }
+  .publicaciones .container
+  {
+    padding: 0;
+    width: 270px;
+  }
+  .deck{
+    margin:15px;
+    width:270px;
+    height:250px;
+    /* margin-top: 20px; */
+    position:relative;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    font-family:verdana;
+    border-radius:10px;
+  }
+  .card{
+    width:100%;
+    height:100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+    border-radius:10px;
+  }
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color:whitesmoke;  
+    border-radius:10px;
+  }
+  .back {
+    overflow:hidden;
+    z-index:-1;
+    display: block;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    /* &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-size:100% 100%;
+      background: url('https://i.imgur.com/W3tra4F.gif');
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      transform: rotateY(180deg); */
+    }
+  
+  .back:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size:100% 100%;
+    background: url('https://i.imgur.com/W3tra4F.gif');
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .front, .back{
+    transition: all .5s linear;
+  }
+  .front{
+    /*FONDO DE PUBLICACIONES*/
+    background-image:url('https://i.imgur.com/W3tra4F.gif');
+    z-index:1;
+    box-shadow: 5px 5px 5px #aaa;
+    
+  }
+  .back{
+    box-shadow: 0 0 0 #aaa;
+  }
+  .flipped, .hovercard:hover{
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    /* .front{
+      box-shadow:0 0 0 #aaa;
+    }
+    .back{
+      box-shadow: 5px 5px 5px #aaa;
+    } */
+  }
+  .front{
+    box-shadow:0 0 0 #aaa;
+  }
+  .back{
+    box-shadow: 5px 5px 5px #aaa;
+  }
+
+  .bottext{
+    position:absolute; 
+    color:whitesmoke;
+    width:100%; 
+    height:100px; 
+    bottom:0; 
+    border-radius:0 0 10px 10px; 
+    text-align:center;
+    padding:10px;
+    /* h2{
+      margin:0;
+    }
+    h3{
+      margin:10px 0;
+    } */
+  }
+  .bottext h2{
+    
+    margin:0;
+  }
+  .bottext h3{
+    margin:10px 0;
+  }
+  .rad-button{
+    border:2px solid gray;
+    color:gray;
+    width:90px;
+    background-color:rgba(255, 255, 255, .3);
+    padding:10px;
+    border-radius:4px;
+    cursor: pointer;
+    position:absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 110px;
+    -webkit-transition:all .5s linear;
+    transition:all .5s linear;
+  }
+  .rad-button:hover{
+    color:gray;
+    background-color:rgba(255, 255, 255, 1);
+  }
+  
+  /* .front{
+    h2, h3{
+      text-align:center;
+      color:whitesmoke;
+    }
+  } */
+  .front h5, h3{
+    
+    text-align:center;
+    color:whitesmoke;
+  }
+  
+  .back h5
+  {
+    margin:0;
+      border-radius:10px 10px 0 0;
+      padding:10px;
+      text-align:center;
+      color:whitesmoke;
+  }
+  .back ul
+  {
+    text-align:center;
+    list-style:none;
+    padding:10px;
+    margin:0;
+  }
+  .back ul li
+  {
+
+    margin-top:15px;
+    color:whitesmoke;
+  }
+  /* .back{
+    h2{
+      margin:0;
+      border-radius:10px 10px 0 0;
+      padding:10px;
+      text-align:center;
+      color:whitesmoke;
+    }
+    ul{
+      text-align:center;
+      list-style:none;
+      padding:10px;
+      margin:0;
+      li{
+        
+        margin-top:15px;
+        color:whitesmoke;
+      }
+    } */
+    /* .botprice{
+      position:absolute;
+      bottom:30px;
+      border-radius:0 0 10px 10px;
+      text-align:center;
+      width:100%;
+      padding:15px;
+      color:whitesmoke;
+      h3{
+        margin:0px;
+      }    
+    }
+  } */
+  .botprice{
+    position:absolute;
+    bottom:30px;
+    border-radius:0 0 10px 10px;
+    text-align:center;
+    width:100%;
+    padding:15px;
+    color:whitesmoke;
+      
+  }
+  .botprice h3
+  {
+    margin:0px;
+  }  
+  .return{
+    position:absolute;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    color:gray;
+    cursor:pointer;
+    padding:5px;
+    bottom:0;
+    border-radius:0 0 10px 10px;
+    background-color:darken(whitesmoke, 10%);
+    font-size:18px;
+    /* &:focus{
+      outline:none;
+    } */
+  }
+  .return:focus
+  {
+
+    outline:none;
+  }
+
+/* EL OTRO TIPO DE TARJETA...TARJETA NORMAL.................................. */
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0;
+  flex-wrap: wrap;
+}
+.container .box{
+  position: relative;
+  width: 280px;
+  height: 420px;
+  color: #fff;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px;
+  transition: 0.5s;
+
+}
+.container .box:hover
+{
+  transform:translateY(-20px);
+}
+/*DISEÑO DE LAS CARTAS NORMALES*/
+.container .box::before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(45deg,#ffbc00,#ff0058); */
+  background: linear-gradient(45deg,rgb(255, 255, 255),rgb(255, 255, 255));
+}
+/*ACA ESTA EL BRILLO POLVO*/
+.container .box::after
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(45deg,#ffbc00,#ff0058); */
+  
+}
+
+.container .box:nth-child(2)::before,
+.container .box:nth-child(2)::after
+{
+  /* background: linear-gradient(315deg,#03a9f4,#ff0058); */
+}
+.container .box:nth-child(3)::before,
+.container .box:nth-child(3)::after
+{
+  /* background: linear-gradient(315deg,#4dff03,#00d0ff); */
+}
+/*HASTA AQUI LOS RECUADROS A COLORES*/
+/* PARA PONERLO EN CUADRADO */
+.container .box span
+{
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  /* background: rgba(0,0,0,0.6); */
+  /*FONDO DE LAS TARJETAS NORMALES*/
+  background: rgba(151, 4, 4, 0.6);
+  /* background-image:url('https://i.imgur.com/W3tra4F.gif');  */
+  z-index: 2;
+}
+/* HASTA AQUI */
+/* PARA SUBDIVIDIRLO VERTICALMENTE */
+.container .box span::before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+/* HASTA AQUI */
+
+/* PARA MOSTRAR LOS DATOS */
+/*ESTOS SON LA SECCION DE NOTICIAS*/
+.container .box .content
+{
+  position: relative;
+  z-index: 2;
+  padding: 20px 40px;
+  
+}
+.container .box .content h4
+{
+  
+  /* font-size: 2em; */
+  color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.container .box .content p
+{
+  font-size: 1.1em;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+.container .box .content a
+{
+  display: inline-block;
+  font-size: 1.1em;
+  color: #fff;
+  /* background: rgb(69, 78, 83); */
+  padding: 5px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* BOTON ANIMADO............................................... */
+  
+.aDebtnAnimado {
+  /*el display hace q se pueda ver como una caja o bloque a ese "a"*/
+  display: block;
+  text-decoration: none;
+  margin: 5px;
+  margin-left: 20px;
+}
+
+.button {
+  /*position relative para que no este por delante elm destello de luz*/
+  position: relative;
+  /*seleccion de colores a combinar*/
+  background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  /*se puso size background para que la combinacion de colores
+  si no hay esto estara invisible el boton, se puso 400% para q no se vea chistoso*/
+  background-size: 400%;
+  /*redondear esquinas*/
+  border-radius: 20px;
+  width: 200px;
+  height: 45px;
+  /*acomodamos biencito el espaciado de arriba abajo*/
+  line-height: 40px;
+  text-align: center;
+  box-sizing: border-box;/*nose*/
+  text-transform: uppercase; /*poner mayuscula al texto*/
+  color: #FFFFFF;
+  font-size: 20px;/*tamanio d fuente*/
+  
+}
+/*esto se encarga de hacer recorrer el color por todo el boton
+en si es una especie de funcion*/
+@keyframes tranposicion {
+  /* ANIMACION DE BOTON DE COLORES */
+  /* 0% {
+      background-position: 0%;
+  }
+  100% {
+      background-position: 400%;
+  } */
+}
+/* en el evento hover llamamos dicha funcion*/
+.button:hover {
+  animation: tranposicion 8s linear infinite;
+  text-decoration: none;
+}
+/*este hace q alrededor del boton tenga un resplandor*/
+.button:before {
+  content: ""; /*es para que se vea el resplandor*/
+  background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  position: absolute; /*para q este por delante el resplandor o se pueda apreciar*/
+  /*escogiendo longitud de destellos*/
+  top: -5px;
+  right: -5px;
+  left: -5px;
+  bottom: -5px;
+  /*es para que no este por delante del texto y buton*/
+  z-index: -1;
+  border-radius: 40px;/*curveando*/
+  /*esto hace q una pequeña animacion al asomar*/
+   filter: blur(100px);
+  opacity: 0;
+  /*hace q la animacion no sea tan brusco*/
+   /*es como decir q la animacion se ejecutara recien dentro de 0.5s segundos*/
+   transition: 0.5s;
+}
+
+.button:hover:before {
+  opacity: 1;
+  filter: blur(20px);
+  /*aplicando la misma funcion*/
+  animation: tranposicion 8s linear infinite;
+}
+
+
+
+.container
+{
+  position: relative;
+    /* width: 100%; */
+    background-image: linear-gradient(-10deg, #ffffff 0%, #8f0000 100%);
+    border-radius: 10px;
+    /* min-height: 100vh; */
+    /* overflow: hidden; */
+}
+
+.publicaciones{
+/* background-color: #102129; */
+border-radius:10px 10px 10px 10px;
+padding-top: 10px;
+
+}
+.tarjetasfondo{
+  background-color: #5a0707;
+  border-radius:10px 10px 10px 10px;
+  padding-top: 10px;
+  margin-top: -14px;
+  margin-left: 5px;
+  }
+@media screen and (max-width: 750px){
+  /*PARA CELULARES*/
+  .publicaciones{
+    width: 100%;
+  }
+  .tarjeta{
+    width: 100%;
+  }
+}
+/*LA PARTE DEL FRENTE*/
+.frente{
+  background: #ffcbcb;
+  padding-top: 5px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 5px;
+  color: rgb(143, 2, 2);
+}
+.frentedesc
+{
+  background: #ffffff;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 5px;
+  border-radius: 30px;
+  border: none;
+  color: #000;
+}
+.imagenesNoticias
+{
+  border-radius: 20px;
+  width: 250px;
+  max-height: 200px;
+}
+.imagenesPublicaciones
+{
+  border-radius: 5px;
+  height: 150px;
+}
+.imagenesfrente
+{
+  border-radius: 25px;
+}
+.cardLive{
+  background: #412a05;
+  /* height: 100%;
+  width: 100%; */
+}
+.cardTitulo{
+ background: #4b92dc;
+ /* padding: 0 100%; */
+}
+.card-body
+{
+/* height:450px; */
+/* height: 100%; */
+height: 100%;
+}
+.iframeInterno
+{
+  /* height: 450px;
+  width: 100%; */
+  width:"100%";
+  height:"100%";
+}
+

@@ -1,0 +1,90 @@
+<div style="background: linear-gradient(-180deg, #aa0505, #ffffff); padding: 5px 0px;">
+  
+    <!--Diseño galeria-->
+    <div class="text-white text-center">
+      <h3> <em><strong>HISTORIAL DE NOTICIAS INSTITUCIONALES</strong></em></h3>
+    </div>
+    
+    <span class="linea"></span>
+    <br>
+    
+    <button type="button" class="boton1 btn btn-danger" data-toggle="modal" data-target="#agregarimagen" *ngIf="esAdmin">
+      AGREGAR NOTICIA
+    </button>
+    
+    
+    <section class="galeria">
+      <div *ngFor="let item of public">
+        <h4 class="display-5 text-center"><strong>{{item.Titulo}}</strong></h4>
+        <a> <img [src]="ruta+item.File" alt="Card image cap" alt="First slide"> </a>
+        <!-- <hr class="featurette-divider"> -->
+        
+        <p class="card-text font-italic font-family">{{item.Descripcion}}</p>
+        <p class="card-text font-italic font-family">Fecha de Publicacion: {{item.Fecha}}</p>
+        <div class="text-center">
+          <button type="button" class="boton2 btn btn-danger" (click)='EliminarPublicacion(item);' *ngIf="esAdmin">ELIMINAR NOTICIA</button>
+          <!-- <button type="button" class="boton2" *ngIf="esAdmin"  (click)='EliminarPublicacion(item);'>ELIMINAR</button> -->
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <!--Diseño galeria-->
+    <!-- Modal -->
+    <div class="modal fade" id="agregarimagen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">AGREGAR IMAGEN</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #CerrarBoton>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="newPublicacion" (ngSubmit)="AgregarPublicacion()">
+              <div class="form-group">
+                <label for="full_name_id" class="control-label">Titulo:</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" formControlName="Titulo">
+              </div>
+    
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripcion:</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"
+                  formControlName="Descripcion"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Fecha de Publicacion:</label>
+                <input type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha">
+              </div>
+    
+              <div class="form-group">
+                <label for="state_id" class="control-label">File:</label>
+                <input type="file" id="imagen" name="imagen" class="form-control"  (change)="onFileChange($event)">
+              </div>
+              <!-- <div class="form-group">
+                <label for="exampleFormControlTextarea1">Tipo</label>
+                <select class="form-control" name="Tipo" type="text" formControlName="Tipo" id="Tipo">
+                  <optgroup label="Seleccione Tipo">
+                      <option value="Publicacion">Publicacion</option>    
+                      <option value="Aviso">Aviso</option>    
+                      <option value="Noticia">Noticia</option>    
+                      <option value="Documento">Documento</option>    
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Admin_id:</label>
+                <input type="text" class="form-control" id="Admin_id" name="Admin_id" formControlName="Admin_id">
+              </div> -->
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div >

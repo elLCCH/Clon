@@ -1,0 +1,50 @@
+<!-- <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columnsOnly">
+            <span>{{column.label}} </span>
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+             <td *ngFor="let column of columnsOnly">{{item[column.field]}}</td>
+          </tr>
+    </tbody>
+  </table> -->
+  <!-- <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columnasConsulta">
+            <span>{{column.titulo}} </span>
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of admin">
+             <td *ngFor="let column of columnasConsulta">{{item[column.titulo]}}</td>
+          </tr>
+    </tbody>
+  </table> -->
+  <div>
+    <h1 class="text-danger text-center font-weight-bold">CONSULTAS DE BASE DE DATOS</h1>
+    <hr>
+    <textarea type="text" class="form-control font-weight-bold" style="font-size: 23px; height: 150px;" [(ngModel)]="consulta"></textarea>
+    <button (click)="Consultar()" class="btn btn-primary float-right">CONSULTAR</button>
+    <div class="table-responsive">
+      <table class="table table-bordered table-light table-hover ">
+        <thead>
+          <tr>
+            <th *ngFor="let column of Columnas">
+                <span>{{column.titulo}} </span>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of admin">
+                 <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

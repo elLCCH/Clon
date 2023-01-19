@@ -1,0 +1,47 @@
+
+@media only screen and (min-width: 768px) {
+    /*PARA PC*/
+    .opacity {
+        background: rgba(79,70,62,0.5);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      z-index: -1;
+      }
+      .gravity {
+          width: 100%;
+          text-align: center;
+          padding: 70px 0;
+      }
+      .gravity P {
+        color: #d0d0d0;
+        font-family: "Raleway",sans-serif;
+        font-size: 100px;
+        font-weight: 600;
+        text-align: center;
+          padding-top: 90px
+      }
+  }
+  @media only screen and (max-width: 768px) {
+    /*PARA CELULAR*/
+    .opacity {
+        background: rgba(79,70,62,0.5);
+        height: 100%;
+        position: absolute;
+        width: 90%;
+      z-index: -1;
+      }
+      .gravity {
+          width: 100%;
+          text-align: center;
+          padding: 70px 0;
+      }
+      .gravity P {
+        color: #d0d0d0;
+        font-family: "Raleway",sans-serif;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+          padding-top: 90px
+      }
+  }

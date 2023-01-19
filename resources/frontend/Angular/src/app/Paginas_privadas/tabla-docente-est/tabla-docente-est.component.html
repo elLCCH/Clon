@@ -1,0 +1,59 @@
+
+  <div>
+    <h1 class="text-danger text-center font-weight-bold">LISTA DE ESTUDIANTES DE DOCENTES DE INSTRUMENTO</h1>
+    <hr>
+    <!-- <label class="col-sm-8 float-left text-center font-weight-bold text-primary">Si en Observación aparece las iniciales de sus apellidos con su Número de Carnet o Dice NINGUNA, entonces no tiene Ninguna Observación</label> -->
+    <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+      <div class="input-group">
+        <label class="font-weight-light font-weight-bold" style="color:rgb(109, 87, 1)">BUSQUEDA: </label>
+        <!-- <input type="text" class="form-control" [(ngModel)]="filterpost" name="filterPost"
+          oninput="this.value = this.value.toUpperCase()"> -->
+          <select class="custom-select" name="Admin_id" type="text" [(ngModel)]="doc" (change)="CambioDocente()">
+            <optgroup label="Seleccione su Docente de Instrumento de Especialidad" >
+                <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}}</option>
+            </optgroup>
+          </select>
+      </div>
+    </form>
+    <div class="table-responsive">
+      <!-- <button (click)="AccionCopiar()" *ngIf="esAdmin" class="btn button-transparent "><i class="bi bi-clipboard" *ngIf="!copiado"></i><i class="bi bi-check2" *ngIf="copiado"></i></button>
+      <button (click)="AccionCopiar()" *ngIf="esAdmin" class="btn button-transparent float-right"><i class="bi bi-clipboard" *ngIf="!copiado"></i><i class="bi bi-check2" *ngIf="copiado"></i></button> -->
+
+
+      <button (click)="AccionCopiarNombres()" *ngIf="esAdmin" class="btn button-transparent ">
+        <i class="bi bi-clipboard" *ngIf="!copiadoNombres"></i><i class="bi bi-check2" *ngIf="copiadoNombres"></i>Copiar Nombres Completos</button>
+      <button (click)="AccionCopiarCarnets()" *ngIf="esAdmin" class="btn button-transparent ">
+        <i class="bi bi-clipboard" *ngIf="!copiadoCarnets"></i><i class="bi bi-check2" *ngIf="copiadoCarnets"></i>Copiar Carnets</button>
+
+      <button (click)="AccionCopiarEspecialidades()" *ngIf="esAdmin" class="btn button-transparent ">
+        <i class="bi bi-clipboard" *ngIf="!copiadoEspecialidades"></i><i class="bi bi-check2" *ngIf="copiadoEspecialidades"></i>Copiar Especialidades</button>
+
+      <button (click)="AccionCopiarSexos()" *ngIf="esAdmin" class="btn button-transparent ">
+        <i class="bi bi-clipboard" *ngIf="!copiadoSexos"></i><i class="bi bi-check2" *ngIf="copiadoSexos"></i>Copiar Sexos</button>
+
+      <button (click)="AccionCopiarTodos()" *ngIf="esAdmin" class="btn button-transparent ">
+        <i class="bi bi-clipboard" *ngIf="!copiadoTodos"></i><i class="bi bi-check2" *ngIf="copiadoTodos"></i>Copiar nombre,ci,sexo,especialidad</button>
+
+      <table class="table table-bordered table-danger table-hover ">
+
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th *ngFor="let column of Columnas">
+              <span>{{column.titulo}} </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let i= index; let item of est | filterlistacursos:filterpost">
+            <td>{{i+1}}</td>
+             <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+          </tr> -->
+          <tr *ngFor="let i= index; let item of est "  (click)="PreGuardadoEst(item)" (click)='EstudianteSeleccionado=item;'  data-toggle="modal" data-target="#ModalMod">
+            <td>{{i+1}}</td>
+            <td *ngFor="let column of Columnas">{{item[column.titulo]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

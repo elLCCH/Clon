@@ -1,0 +1,674 @@
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header text-center">LISTA DE ESTUDIANTES - {{cursoData.NombreCurso}} de {{cursoData.NivelCurso}}</div>
+    <div class="card-body">
+      <!-- <a routerLink="" class="btn btn-success btn-sm" title="Add New Estudiante" data-toggle="modal"
+        data-target="#staticBackdrop">
+        <i class="bi bi-plus-circle"></i> AÑADIR CURSOS
+      </a> -->
+      <a class="btn btn-success col-sm-2 btn-sm" (click)="GenerarCalificaciones()" *ngIf="!esPractico">
+        <i class="bi bi-plus-circle"></i> GENERAR CALIFICACION1
+      </a>
+      <a class="btn btn-success col-sm-2 btn-sm" (click)="GenerarCalificacionesPracticas()" *ngIf="esPractico">
+        <i class="bi bi-plus-circle"></i> GENERAR CALIFICACION2
+      </a>
+      <a *ngIf="esAdmin">
+        <a class="btn btn-success col-sm-2 btn-sm" (click)="openListaCursosCentralizador()" *ngIf="!esPractico">
+          <i class="bi bi-plus-circle"></i> GENERAR CENTRALIZADOR1
+        </a>
+        <a class="btn btn-success col-sm-2 btn-sm" (click)="openListaCursosCentralizadorPracticas()" *ngIf="esPractico">
+          <i class="bi bi-plus-circle"></i> GENERAR CENTRALIZADOR2
+        </a>
+        <span>FECHA DE CENTRALIZADOR</span>
+        <input type="date" #dateReporte [(ngModel)]="now">
+        <!-- {{now|json}} -->
+      </a>
+      <a class="btn btn-danger col-sm-2 btn-sm" *ngIf="!esPractico" (click)="EnviarCalificacion(calificacion)">
+        <i class="bi bi-plus-circle"></i> ENVIAR CALIFICACIÓN
+      </a>
+      <style>
+        /* PARA EL CHECKED */
+        input[type=checkbox] + label {
+          color: #ccc;
+          font-style: italic;
+        }
+        input[type=checkbox]:checked + label {
+          color: rgb(32, 102, 53);
+          font-style: normal;
+        }
+      </style>
+      <div class=" col-sm-8 float-right">
+        <input type="checkbox" id="ossm" name="ossm" (change)="MostrarDocentes()" *ngIf="esAdmin">
+        <label for="ossm" *ngIf="esAdmin">MOSTRAR DOCENTES DE INSTRUMENTO</label>
+      </div>
+
+      <div class="  col-sm-8 float-right">
+        <input type="checkbox" id="ossm1" name="ossm1" (change)="MostrarEspecialidad()">
+        <label for="ossm1">MOSTRAR INSTRUMENTOS DE ESPECIALIDAD</label>
+      </div>
+
+      <div class="input-group mb-3  col-sm-12" *ngIf="esAdmin">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Seleccione Docente</label>
+        </div>
+        <select [(ngModel)]="DocenteSeleccionada" style="background-color: rgb(252, 243, 243);"  class="custom-select col-sm-5" type="text"
+              (change)="onCambioDocenteEspecialidad(this.DocenteSeleccionada)">
+              <optgroup label="Seleccione Docente">
+                <option value="TODOS" selected>TODOS LOS DOCENTES </option>
+                <option *ngFor="let c of doc" value="{{c.id}}">{{c.Nombre_Docente}}</option>
+              </optgroup>
+        </select>
+      </div>
+      <div class="input-group mb-3  col-sm-12" *ngIf="esAdmin">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Seleccione Especialidad1</label>
+        </div>
+        <select [(ngModel)]="especialidadSeleccionada" style="background-color: rgb(252, 243, 243);"  class="custom-select col-sm-5" type="text"
+              (change)="onCambioEspecialidad(this.especialidadSeleccionada)">
+              <optgroup label="Seleccione Especialidad Disponible">
+                <option value="TODOS" selected>TODOS LOS DOCENTES Y ESPECIALIDADES</option>
+                <option *ngFor="let c of comboboxEspecialidad" value="{{c.Especialidad}}">{{c.Especialidad}}</option>
+              </optgroup>
+        </select>
+      </div>
+      <div class="input-group mb-3  col-sm-12" *ngIf="esAdmin">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Seleccione Bimestre a Modificar</label>
+        </div>
+        <select [(ngModel)]="cursoData.BiTriEstado" (change)="BiTriEstadoLocalRespaldo=cursoData.BiTriEstado" style="background-color: rgb(252, 243, 243);"  class="custom-select col-sm-5" type="text"
+              >
+              <optgroup label="Seleccione Especialidad Disponible">
+                <option value="NINGUN BIMESTRE">NINGUN BIMESTRE</option>
+                <option value="PRIMER BIMESTRE">HABILITAR PRIMER BIMESTRE</option>
+                <option value="SEGUNDO BIMESTRE">HABILITAR SEGUNDO BIMESTRE</option>
+                <option value="TERCER BIMESTRE">HABILITAR TERCER BIMESTRE</option>
+                <option value="CUARTO BIMESTRE">HABILITAR CUARTO BIMESTRE</option>
+                <option value="SEGUNDA INSTANCIA">HABILITAR SEGUNDA INSTANCIA</option>
+              </optgroup>
+        </select>
+        <input type="checkbox" id="MantenBimestrecheckbox" [checked]="false">
+        <label for="MantenBimestrecheckbox" class="form-text">Mantener Bimestre</label>
+        <!-- {{cursoData.BiTriEstado|json}} -->
+      </div>
+      <div class="input-group mb-3  col-sm-12" *ngIf="!esAdmin">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Seleccione Especialidad2</label>
+        </div>
+        <select [(ngModel)]="especialidadSeleccionada" style="background-color: rgb(252, 243, 243);"  class="custom-select col-sm-3" type="text"
+              (change)="onCambioEspecialidad(this.especialidadSeleccionada)">
+              <optgroup label="Seleccione Especialidad Disponible">
+                <option value="TODOS" selected>TODAS LAS ESPECIALIDADES</option>
+                <option *ngFor="let c of comboboxEspecialidad" value="{{c.Especialidad}}">{{c.Especialidad}}</option>
+              </optgroup>
+        </select>
+      </div>
+      <!-- <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control" name="search" placeholder="Buscar..." value="">
+          <span class="input-group-append">
+            <button class="btn btn-secondary" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+      <br />
+      <br />-->
+      <style>
+        .verticalText {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        margin: 0;
+        }
+        .GrupoTittles th
+        {
+          writing-mode: vertical-lr;
+          transform: rotate(180deg);
+          margin: 0;
+          vertical-align: middle;
+        }
+        th, td{
+          padding: 4px;
+          text-align: center;
+          font-size: 12px;
+        }
+        /* table, tr , td{
+          border: 1px solid;
+          border-collapse: collapse;
+        }
+        tr{
+          height: 4em;
+        }
+        td:nth-child()
+        {
+          vertical-align: middle;
+        } */
+        td{
+          /* cursor:pointer; */
+        }
+        .hoverNom:hover{
+          background-color: rgb(243, 147, 211);
+          cursor:pointer;
+        }
+      </style>
+      <div class="table-responsive">
+        <table class="table table-bordered  table-hover">
+          <thead>
+            <tr>
+              <th colspan="2" class="{{colorBimestre}}">{{cursoData.BiTriEstado}} </th>
+              <th colspan="16">EVALUACIÓN CUANTITATIVA</th>
+              <th colspan="16">ASISTENCIAS</th>
+              <th colspan="1" *ngIf="esAdmin">*</th>
+            </tr>
+            <tr>
+              <th rowspan="2">#</th>
+              <th rowspan="2">NOMBRE_COMPLETO_DEL_ESTUDIANTE_NOMINA</th>
+              <th colspan="3">PRIMERA EVALUACION</th>
+              <th colspan="3">SEGUNDA EVALUACION</th>
+              <th colspan="3">TERCERA EVALUACION</th>
+              <th colspan="3">CUARTA EVALUACION</th>
+              <th rowspan="2" class="verticalText">PROMEDIO EVALUACIÓN TEÓRICA</th>
+              <th rowspan="2" class="verticalText">PROMEDIO EVALUACIÓN PRÁCTICA</th>
+              <th rowspan="2" class="verticalText">PROMEDIO FINAL</th>
+              <th rowspan="2" class="verticalText">PRUEBA DE RECUPERACIÓN</th>
+              <!-- <th rowspan="2">OBSERVACIÓN</th> -->
+
+              <th colspan="4">PRIMERA EVALUACION</th>
+              <th colspan="4">SEGUNDA EVALUACION</th>
+              <th colspan="4">TERCERA EVALUACION</th>
+              <th colspan="4">CUARTA EVALUACION</th>
+
+              <th rowspan="2" class="verticalText" *ngIf="esAdmin">BOTÓN DE MODIFICACIÓN</th>
+            </tr>
+            <tr>
+              <!-- <th colspan="3">TEÓRICA</th>
+              <th colspan="5">PRÁCTICA</th> -->
+              <th rowspan="1" class="verticalText"> Teórica</th>
+              <th rowspan="1" class="verticalText"> Práctica</th>
+              <th rowspan="1" class="verticalText">Observación</th>
+              <th rowspan="1" class="verticalText"> Teórica</th>
+              <th rowspan="1" class="verticalText"> Práctica</th>
+              <th rowspan="1" class="verticalText">Observación</th>
+              <th rowspan="1" class="verticalText"> Teórica</th>
+              <th rowspan="1" class="verticalText"> Práctica</th>
+              <th rowspan="1" class="verticalText">Observación</th>
+              <th rowspan="1" class="verticalText"> Teórica</th>
+              <th rowspan="1" class="verticalText"> Práctica</th>
+              <th rowspan="1" class="verticalText">Observación</th>
+
+              <th rowspan="1" class="verticalText">Total Asistencias</th>
+              <th rowspan="1" class="verticalText">Total Faltas</th>
+              <th rowspan="1" class="verticalText">Total Licencias</th>
+              <th rowspan="1" class="verticalText">Total Atrasos</th>
+
+              <th rowspan="1" class="verticalText">Total Asistencias</th>
+              <th rowspan="1" class="verticalText">Total Faltas</th>
+              <th rowspan="1" class="verticalText">Total Licencias</th>
+              <th rowspan="1" class="verticalText">Total Atrasos</th>
+
+              <th rowspan="1" class="verticalText">Total Asistencias</th>
+              <th rowspan="1" class="verticalText">Total Faltas</th>
+              <th rowspan="1" class="verticalText">Total Licencias</th>
+              <th rowspan="1" class="verticalText">Total Atrasos</th>
+
+              <th rowspan="1" class="verticalText">Total Asistencias</th>
+              <th rowspan="1" class="verticalText">Total Faltas</th>
+              <th rowspan="1" class="verticalText">Total Licencias</th>
+              <th rowspan="1" class="verticalText">Total Atrasos</th>
+          </thead>
+          <tbody>
+
+
+            <!-- [(ngModel)]="CalifSeleccionado.curso_id" -->
+
+            <!-- <tr *ngFor="let a of calificacion; let i= index"  (click)="PreGuardado(a)" (click)='CalifSeleccionado=a;'  data-toggle="modal" data-target="#ModalCalif"> -->
+              <tr *ngFor="let a of calificacion; let i= index">
+              <!-- <tr *ng-repeat="a in calificacion | orderBy:NomCompleto"> -->
+              <td>{{i+1}}</td>
+              <td style="width: 250px;" class="hoverNom" (click)="PreGuardado(a)" (click)='VerificarSiAbandono(a)'>
+                <span>{{a.Ap_Paterno}} {{a.Ap_Materno}} {{a.Nombre}}</span>
+                <br>
+                <label for="" *ngIf="ShowDoc">{{a.Nombre_Docente}} - </label>
+                <label for="" *ngIf="ShowEsp"> {{a.Especialidad}}</label>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Teorica1">
+                <span *ngIf="!a.Editando">{{a.Teorica1}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Practica1">
+                <span *ngIf="!a.Editando">{{a.Practica1}}</span>
+
+              </td>
+              <td>
+                <!-- <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Primero">
+                <span *ngIf="!a.Editando">{{a.Primero}}</span> -->
+                <button class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalObservacion" (click)="PreGuardado(a)" (click)='CalifSeleccionado=a;' (click)="messaje = a.Primero" style="font-size: 20px; padding: 0 0; border: none;"><i class="bi bi-eye"></i></button>
+              </td>
+
+              <!-- SEGUNDA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Teorica2">
+                <span *ngIf="!a.Editando">{{a.Teorica2}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Practica2">
+                <span *ngIf="!a.Editando">{{a.Practica2}}</span>
+              </td>
+              <td>
+                <!-- <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Segundo">
+                <span *ngIf="!a.Editando">{{a.Segundo}}</span> -->
+                <button class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalObservacion" (click)="PreGuardado(a)" (click)='CalifSeleccionado=a;' (click)="messaje = a.Segundo" style="font-size: 20px; padding: 0 0; border: none;"><i class="bi bi-eye"></i></button>
+              </td>
+
+              <!-- TERCERA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Teorica3">
+                <span *ngIf="!a.Editando">{{a.Teorica3}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Practica3">
+                <span *ngIf="!a.Editando">{{a.Practica3}}</span>
+              </td>
+              <td>
+                <!-- <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Tercero">
+                <span *ngIf="!a.Editando">{{a.Tercero}}</span> -->
+                <button class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalObservacion" (click)="PreGuardado(a)" (click)='CalifSeleccionado=a;' (click)="messaje = a.Tercero" style="font-size: 20px; padding: 0 0; border: none;"><i class="bi bi-eye"></i></button>
+              </td>
+
+              <!-- CUARTA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Teorica4">
+                <span *ngIf="!a.Editando">{{a.Teorica4}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Practica4">
+                <span *ngIf="!a.Editando">{{a.Practica4}}</span>
+              </td>
+              <td>
+                <!-- <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Cuarto">
+                <span *ngIf="!a.Editando">{{a.Cuarto}}</span> -->
+                <button class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalObservacion" (click)="PreGuardado(a)" (click)='CalifSeleccionado=a;' (click)="messaje = a.Cuarto" style="font-size: 20px; padding: 0 0; border: none;"><i class="bi bi-eye"></i></button>
+              </td>
+
+              <!-- PROMEDIOS -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.PromEvT">
+                <span *ngIf="!a.Editando">{{a.PromEvT}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.PromEvP">
+                <span *ngIf="!a.Editando">{{a.PromEvP}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.Promedio">
+                <span *ngIf="!a.Editando">{{a.Promedio}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.PruebaRecuperacion">
+                <span *ngIf="!a.Editando">{{a.PruebaRecuperacion}}</span>
+              </td>
+
+              <!-- SECCION ASISTENCIAS -->
+              <!-- ASISTENCIAS PRIMERA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAsistencias1">
+                <span *ngIf="!a.Editando">{{a.TAsistencias1}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TFaltas1">
+                <span *ngIf="!a.Editando">{{a.TFaltas1}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TLicencias1">
+                <span *ngIf="!a.Editando">{{a.TLicencias1}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAtrasos1">
+                <span *ngIf="!a.Editando">{{a.TAtrasos1}}</span>
+              </td>
+              <!-- ASISTENCIAS SEGUNDA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAsistencias2">
+                <span *ngIf="!a.Editando">{{a.TAsistencias2}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TFaltas2">
+                <span *ngIf="!a.Editando">{{a.TFaltas2}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TLicencias2">
+                <span *ngIf="!a.Editando">{{a.TLicencias2}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAtrasos2">
+                <span *ngIf="!a.Editando">{{a.TAtrasos2}}</span>
+              </td>
+              <!-- ASISTENCIAS TERCERA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAsistencias3">
+                <span *ngIf="!a.Editando">{{a.TAsistencias3}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TFaltas3">
+                <span *ngIf="!a.Editando">{{a.TFaltas3}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TLicencias3">
+                <span *ngIf="!a.Editando">{{a.TLicencias3}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAtrasos3">
+                <span *ngIf="!a.Editando">{{a.TAtrasos3}}</span>
+              </td>
+              <!-- ASISTENCIAS CUARTA EVALUACION -->
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAsistencias4">
+                <span *ngIf="!a.Editando">{{a.TAsistencias4}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TFaltas4">
+                <span *ngIf="!a.Editando">{{a.TFaltas4}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TLicencias4">
+                <span *ngIf="!a.Editando">{{a.TLicencias4}}</span>
+              </td>
+              <td>
+                <input type="text" *ngIf="a.Editando" style="width: 20px;" [(ngModel)]="a.TAtrasos4">
+                <span *ngIf="!a.Editando">{{a.TAtrasos4}}</span>
+              </td>
+
+              <td *ngIf="esAdmin">
+                <button type="button" style="padding: 0 0; width: 25px;" class="btn btn-outline-warning" (click)="a.Editando=true;" *ngIf="!a.Editando"><i
+                  class="bi bi-pencil"></i></button>
+                <button type="button" style="padding: 0 0; width: 25px;" class="btn btn-outline-warning" (click)="ModificarCurso(a)" *ngIf="a.Editando"
+                (click)="a.Editando=true;"><img width="20px" height="20px"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABXElEQVRogWNgGAWjYBSMgoEEjLgkTGbc/g9jf31xD6uadjseqjmk5ZYYsqM6T2eoVhCjj4lqLqAi+M/AUG4643YHMWpZaO0YGCgrKUbhd/X04lUP9QQDoZgYlDEAA8TExKD2AAMDYU8Meg8wMEA8gUtuSHgAHxj1wECDIe8BouoBRmYWhv9//2CIf/z5j4GfnbgwwFfuf/rNTJQZ2ABRtrPziTAwMmP6dd2tnwwff/4j23IGBojjt77iJVs/UTHAzM7FwCUqhyH+lIGBYfJDsu2mChjyeWDUAwMNRj0w0ICoUmhugAyDnjgHrd2CAi6++MGQsvEJQXVExQC9Hc/AwMCgL0GcnSMjCaGDCzfvUtsdDAwMDAwG6sok6xmZMUBOSNEKjMwYGM0DVASjeWCgwWgeGGgwmgcGGhDlgYsvftDaHRjgApF2EpWEiGmXDxQY8kloFIyCUTAKBhYAAEvUTIshBoCmAAAAAElFTkSuQmCC" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination-wrapper">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnOpenModalModalCalif" data-toggle="modal"
+data-target="#ModalCalif" style="width: 0px;">Abrir Modal Visualizacion</button>
+
+<style>
+  .acortar div
+  {
+    padding: 0px 0px;
+    margin: 0px 0px;
+  }
+</style>
+
+<!-- MODAL DE MODIFICACION DE CALIFICACIONES PROFESORES-->
+<div class="modal fade" id="ModalCalif" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center" id="myModalLabelProf">MODIFICANDO CALIFICACION DEL CURSO: <b>{{cursoData.NivelCurso}}</b> <br> PARA LA MATERIA: <b>{{cursoData.NombreCurso}}</b></h4>
+        <button type="button" #CerrarBotonMod class="close" (click)="DevolverDataAnterior()" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-sm-5 text-center">
+                    <img [src]="ruta+CalifSeleccionado.Foto" alt="user-avatar" class="img-circle img-fluid">
+
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+
+                      <br><br>
+                      <hr>
+                      <span class=" col-sm-5">PROM. EV. TEORICA</span>
+                      <span class=" col-sm-3 float-right">{{(+(CalifSeleccionado.Teorica1 + CalifSeleccionado.Teorica2 + CalifSeleccionado.Teorica3 + CalifSeleccionado.Teorica4)/4)}}</span>
+                      <br><br>
+                      <span class=" col-sm-5">PROM. EV. PRÁCTICA</span>
+                      <span class=" col-sm-3 float-right">{{(+(CalifSeleccionado.Practica1 + CalifSeleccionado.Practica2 + CalifSeleccionado.Practica3 + CalifSeleccionado.Practica4)/4)}}</span>
+
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalPrimero">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <!-- <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li> -->
+                      <h3>PRIMERA EVALUACION</h3>
+                      <span class=" col-sm-8">CALIFICACIÓN TEÓRICA</span>
+                      <input autofocus type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<31)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Teorica1">
+                      <br><br>
+                      <span class=" col-sm-8">CALIFICACIÓN PRÁCTICA</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<71)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Practica1">
+                      <br><br>
+                      <span class=" col-sm-12">OBSERVACIÓN PRIMERA EVALUACIÓN</span>
+                      <input type="text" class="col-sm-12 float-right" [(ngModel)]="CalifSeleccionado.Primero">
+                      <br><br>
+                      <hr>
+                      <span class=" col-sm-8">TOTAL ASISTENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAsistencias1">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL FALTAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TFaltas1">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL LICENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TLicencias1">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL ATRASOS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAtrasos1">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL JORNADAS</span>
+                      <span class=" col-sm-2 float-right">{{CalifSeleccionado.TAsistencias1 + CalifSeleccionado.TFaltas1 + CalifSeleccionado.TLicencias1 + CalifSeleccionado.TAtrasos1}}</span>
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalSegundo">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <!-- <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li> -->
+                      <h3>SEGUNDA EVALUACION</h3>
+                      <span class=" col-sm-8">CALIFICACIÓN TEÓRICA</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<31)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Teorica2">
+                      <br><br>
+                      <span class=" col-sm-8">CALIFICACIÓN PRÁCTICA</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<71)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Practica2">
+                      <br><br>
+                      <span class=" col-sm-12">OBSERVACIÓN SEGUNDA EVALUACIÓN</span>
+                      <input type="text" class="col-sm-12 float-right" [(ngModel)]="CalifSeleccionado.Segundo">
+                      <br><br>
+                      <hr>
+                      <span class=" col-sm-8">TOTAL ASISTENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAsistencias2">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL FALTAS</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TFaltas2">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL LICENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TLicencias2">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL ATRASOS</span>
+                      <input type="number" class="col-sm-2 float-right"  oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAtrasos2">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL JORNADAS</span>
+                      <span class=" col-sm-2 float-right">{{CalifSeleccionado.TAsistencias2 + CalifSeleccionado.TFaltas2 + CalifSeleccionado.TLicencias2 + CalifSeleccionado.TAtrasos2}}</span>
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalTercero">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <!-- <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li> -->
+                      <h3>TERCERA EVALUACION</h3>
+                      <span class=" col-sm-8">CALIFICACIÓN TEÓRICA</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<31)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Teorica3">
+                      <br><br>
+                      <span class=" col-sm-8">CALIFICACIÓN PRÁCTICA</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<71)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Practica3">
+                      <br><br>
+                      <span class=" col-sm-12">OBSERVACIÓN TERCERA EVALUACIÓN</span>
+                      <input type="text" class="col-sm-12 float-right" [(ngModel)]="CalifSeleccionado.Tercero">
+                      <br><br>
+                      <hr>
+                      <span class=" col-sm-8">TOTAL ASISTENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAsistencias3">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL FALTAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TFaltas3">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL LICENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TLicencias3">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL ATRASOS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAtrasos3">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL JORNADAS</span>
+                      <span class=" col-sm-2 float-right">{{CalifSeleccionado.TAsistencias3 + CalifSeleccionado.TFaltas3 + CalifSeleccionado.TLicencias3 + CalifSeleccionado.TAtrasos3}}</span>
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalCuarto">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <!-- <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li> -->
+                      <h3>CUARTA EVALUACION</h3>
+                      <span class=" col-sm-8">CALIFICACIÓN TEÓRICA</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<31)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Teorica4">
+                      <br><br>
+                      <span class=" col-sm-8">CALIFICACIÓN PRÁCTICA</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<71)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.Practica4">
+                      <br><br>
+                      <span class=" col-sm-12">OBSERVACIÓN CUARTA EVALUACIÓN</span>
+                      <input type="text" class="col-sm-12 float-right" [(ngModel)]="CalifSeleccionado.Cuarto">
+                      <br><br>
+                      <hr>
+                      <span class=" col-sm-8">TOTAL ASISTENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAsistencias4">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL FALTAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TFaltas4">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL LICENCIAS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TLicencias4">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL ATRASOS</span>
+                      <input type="number" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<101)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.TAtrasos4">
+                      <br><br>
+                      <span class=" col-sm-8">TOTAL JORNADAS</span>
+                      <span class=" col-sm-2 float-right">{{CalifSeleccionado.TAsistencias4 + CalifSeleccionado.TFaltas4 + CalifSeleccionado.TLicencias4 + CalifSeleccionado.TAtrasos4}}</span>
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalInstancia">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <!-- <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li> -->
+                      <h3>SEGUNDA INSTANCIA</h3>
+                      <span class=" col-sm-8">CALIFICACIÓN 2da INSTANCIA</span>
+                      <!-- PARA DOCENTES -->
+                      <input type="number" *ngIf="!esAdmin" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<62)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.PruebaRecuperacion" disabled>
+                      <!-- PARA ADMINS -->
+                      <input type="number" *ngIf="esAdmin" class="col-sm-2 float-right" oninput="(this.value>-1 && this.value<62)?this.value=this.value:this.value=''" [(ngModel)]="CalifSeleccionado.PruebaRecuperacion">
+                      <br><br>
+
+                      <button class="btn btn-success col-sm-6" (click)="CalifSeleccionado.PruebaRecuperacion=61">APROBÓ SEGUNDA INSTANCIA</button>
+                      <button class="btn btn-danger col-sm-6" (click)="CalifSeleccionado.PruebaRecuperacion=CalifSeleccionado.PromEvP+CalifSeleccionado.PromEvT">REPROBÓ SEGUNDA INSTANCIA</button>
+                      <br><br>
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalNotFound">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <h3 class="text-center text-danger font-weight-bold">NO SE PUEDE MODIFICAR CALIFICACION</h3>
+                      <img [src]="ruta+'fijos/noseEncuentra.png'" alt="user-avatar" class="img-circle img-fluid">
+                    </ul>
+                  </div>
+                  <div class="col-sm-7" *ngIf="modalSended">
+                    <h2 class="lead text-blue"><b>Est. {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h2>
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <h3>LA CALIFICACION YA FUE ENVIADA</h3>
+                      <img [src]="ruta+'fijos/notEdit.png'" alt="user-avatar" class="img-circle img-fluid">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <!-- <a href="#" class="btn btn-sm bg-teal">
+                    <i class="fas fa-comments"></i>
+                  </a>
+                  <a href="#" class="btn btn-sm btn-primary">
+                    <i class="fas fa-user"></i> View Profile
+                  </a> -->
+                  <label class="form-text text-lg text-center">
+                    PROMEDIO FINAL: <b>{{+(CalifSeleccionado.PromEvP+CalifSeleccionado.PromEvT)}}</b>
+                    <!-- PROMEDIO FINAL: <b>{{(+(CalifSeleccionado.PromEvP+CalifSeleccionado.PromEvT)}}</b> -->
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer col-sm-12">
+          <button type="button" class="btn btn-primary float-left"  (click)="Modificarcalificacion(CalifSeleccionado,'Habilitar')" data-dismiss="modal" *ngIf="esAdmin">HABILITAR ESTUDIANTE</button>
+          <button type="button" class="btn btn-warning float-left"  (click)="Modificarcalificacion(CalifSeleccionado,'Reset')" data-dismiss="modal">GUARDAR CON CALIFICACIONES VACIAS</button>
+          <button type="button" class="btn btn-default"  (click)="DiferenciadorUser(DatoCursoData,DatosesionData)" data-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-success float-right" (click)="Modificarcalificacion(CalifSeleccionado,'Defecto')">GUARDAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- MODAL DE OBSERVACION-->
+<div class="modal fade" id="ModalObservacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center" id="myModalLabel">OBSERVACIÓN DEL ESTUDIANTE: <b> {{CalifSeleccionado.Ap_Paterno}} {{CalifSeleccionado.Ap_Materno}} {{CalifSeleccionado.Nombre}}</b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col-sm-5 text-center">
+                    <img [src]="ruta+CalifSeleccionado.Foto" alt="user-avatar" class="img-circle img-fluid">
+
+
+                  </div>
+                  <div class="col-sm-7">
+                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                      <div class="form-group">
+                        <label for="">OBSERVACIÓN</label>
+                        <textarea class="form-control" name="" id="" disabled rows="3">{{messaje}}</textarea>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer col-sm-12">
+          <button type="button" class="btn btn-success float-right"  data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+
+
+<div class="d-flex " id="wrapper" >
+  
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Luis Choque </div>
+    <div class="list-group list-group-flush">
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Mi Perfil</a>
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Armonia</a>
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Ritmica Musical</a>
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Dictado Musical</a>
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Solfeo</a>
+      <a routerLink="#" class="list-group-item list-group-item-action bg-light">Instrumento</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <!-- <button class="btn btn-primary" id="menu-toggle" (click)="Open()">Toggle Menu</button> -->
+    
+    <app-mnav [someInput]="inputValue"></app-mnav>
+    <!-- <div class="container-fluid " style="background: seagreen;"> -->
+    <div class="container-fluid"  >
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+      <a routerLink="/Inicio" class="btn btn-secondary" style="margin-left:40%">Retornar al Inicio</a>
+    </div>
+    <app-superusuario [someInput]="inputValue" style="right: 0%; top: 90%; position: fixed; z-index: 2" class="visible"></app-superusuario>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+
+

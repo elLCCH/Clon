@@ -1,0 +1,1208 @@
+<!-- MODAL DE ADICION DE DATOS -->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-xl" role="document" style="width:100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-light" id="myModalLabel">AGREGAR ESTUDIANTE</h4>
+        <button type="button" #CerrarBoton id="ModalAdd" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4" [formGroup]="newEstudiante">
+          <h3>ESTADISTICAS </h3>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">Antiguos no Inscritos: </label>
+            <label class="form-label col-sm-2">{{dataEstadisticasdeInscripcion.AntiguosNoInscritos.AntiguosNoInscritos}}</label>
+            <label class="form-label col-sm-2">Cantidad de Inscritos: </label>
+            <label class="form-label col-sm-2">{{dataEstadisticasdeInscripcion.CantidadInscritos.CantidadInscritos}}</label>
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-3">Inscritos Primero Superior: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.PrimeroSuperior.PrimeroSuperior}}</label>
+            <label class="form-label col-sm-3">Inscritos Segundo Superior: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.SegundoSuperior.SegundoSuperior}}</label>
+            <label class="form-label col-sm-3">Inscritos Tercero Superior: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.TerceroSuperior.TerceroSuperior}}</label>
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-3">Inscritos Primero Intermedio: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.PrimeroIntermedio.PrimeroIntermedio}}</label>
+            <label class="form-label col-sm-3">Inscritos Segundo Intermedio: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.SegundoIntermedio.SegundoIntermedio}}</label>
+            <label class="form-label col-sm-3">Inscritos Tercero Intermedio: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.TerceroIntermedio.TerceroIntermedio}}</label>
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-3">Inscritos Primero Basico: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.PrimeroBasico.PrimeroBasico}}</label>
+            <label class="form-label col-sm-3">Inscritos Segundo Basico: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.SegundoBasico.SegundoBasico}}</label>
+            <label class="form-label col-sm-3">Inscritos Tercero Basico: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.TerceroBasico.TerceroBasico}}</label>
+          </div>
+          <div class="form-group row">
+            <label class="form-label col-sm-3">Inscritos Primero Iniciacion: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.PrimeroIniciacion.PrimeroIniciacion}}</label>
+            <label class="form-label col-sm-3">Inscritos Segundo Iniciacion: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.SegundoIniciacion.SegundoIniciacion}}</label>
+            <label class="form-label col-sm-3">Inscritos Tercero Iniciacion: </label>
+            <label class="form-label col-sm-1">{{dataEstadisticasdeInscripcion.TerceroIniciacion.TerceroIniciacion}}</label>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Foto</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" (change)="onFileChange($event)">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-4 col-form-label">Apellidos Paterno,Materno y Nombres:</label>
+            <div class="col-sm-2">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Ap_Paterno">
+            </div>
+            <div class="col-sm-2">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Ap_Materno">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Nombre">
+            </div>
+          </div>
+          <div class="form-group row">
+
+            <label for="nombre" class="col-sm-2 col-form-label">Sexo:</label>
+            <div class="col-sm-4">
+              <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Sexo">
+                <optgroup label="Seleccione Curso">
+                  <option value="MASCULINO">MASCULINO </option>
+                  <option value="FEMENINO">FEMENINO </option>
+                  <!-- <option value="OTRO">OTRO </option> -->
+                </optgroup>
+              </select>
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Correo:</label>
+            <div class="col-sm-4">
+              <input type="text"  class="form-control" formControlName="Correo">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Fecha de Nacimiento:</label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control sm-form-control" formControlName="FechNac"  [(ngModel)]="fechad" (ngModelChange)="CalcularEdad()">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Edad:</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control sm-form-control" formControlName="Edad" [ngModel]="fechadfinal">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">CI:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="CI">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Direccion:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Direccion">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Telefono -> DOCENTE DE PRACTICA CONJUNTO:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Telefono">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Celular:</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" formControlName="Celular">
+            </div>
+
+          </div>
+          <hr>
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre Padre:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Nombre_Padre">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre Madre:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Nombre_Madre">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Ocupacion Padre: </label>
+            <div class="col-sm-4">
+              <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="OcupacionP"> -->
+              <select class="custom-select" type="text" formControlName="OcupacionP">
+                <optgroup label="SELECCIONE OCUPACION" >
+                  <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                  <option value="PROFESIONAL">PROFESIONAL</option>
+                </optgroup>
+               </select>
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Ocupacion Madre:</label>
+            <div class="col-sm-4">
+              <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="OcupacionM"> -->
+              <select class="custom-select" type="text" formControlName="OcupacionM">
+                <optgroup label="SELECCIONE OCUPACION" >
+                  <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                  <option value="PROFESIONAL">PROFESIONAL</option>
+                </optgroup>
+               </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Celular Padre: </label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" formControlName="NumCelP">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Celular Madre:</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" formControlName="NumCelM">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre Colegio:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="NColegio">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Tipo de Colegio:</label>
+            <div class="col-sm-4">
+
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                  title="Tipo de Colegio." formControlName="TipoColegio"> -->
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="TipoColegio">
+                    <optgroup label="Seleccione Tipo">
+                      <option value="FISCAL">FISCAL </option>
+                      <option value="PARTICULAR">PARTICULAR </option>
+                      <option value="CONVENIO">CONVENIO </option>
+                    </optgroup>
+                  </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Grado en Colegio:</label>
+            <div class="col-sm-4">
+              <div class="clearfix">
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                  title="Grado." formControlName="CGrado"> -->
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="CGrado">
+                    <optgroup label="Seleccione Grado">
+                      <option value="PRIMERO DE PRIMARIA">PRIMERO DE PRIMARIA</option>
+                      <option value="SEGUNDO DE PRIMARIA">SEGUNDO DE PRIMARIA</option>
+                      <option value="TERCERO DE PRIMARIA">TERCERO DE PRIMARIA</option>
+                      <option value="CUARTO DE PRIMARIA">CUARTO DE PRIMARIA</option>
+                      <option value="QUINTO DE PRIMARIA">QUINTO DE PRIMARIA</option>
+                      <option value="SEXTO DE PRIMARIA">SEXTO DE PRIMARIA</option>
+                      <option value=" "> NINGUNA</option>
+                      <option value="PRIMERO DE SECUNDARIA">PRIMERO DE SECUNDARIA</option>
+                      <option value="SEGUNDO DE SECUNDARIA">SEGUNDO DE SECUNDARIA</option>
+                      <option value="TERCERO DE SECUNDARIA">TERCERO DE SECUNDARIA</option>
+                      <option value="CUARTO DE SECUNDARIA">CUARTO DE SECUNDARIA</option>
+                      <option value="QUINTO DE SECUNDARIA">QUINTO DE SECUNDARIA</option>
+                      <option value="SEXTO DE SECUNDARIA">SEXTO DE SECUNDARIA</option>
+                    </optgroup>
+                  </select>
+              </div>
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Nivel en Colegio:</label>
+            <div class="col-sm-4">
+              <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                title="Nivel." formControlName="CNivel"> -->
+                <select  class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="CNivel">
+                  <optgroup label="Seleccione Nivel">
+                    <option value="ESTUDIANTE">ESTUDIANTE</option>
+                    <option value="BACHILLER">BACHILLER</option>
+                    <option value="TECNICO SUPERIOR">TECNICO SUPERIOR</option>
+                    <option value="UNIVERSIDAD">UNIVERSITARIO</option>
+                  </optgroup>
+                </select>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label class="form-label col-sm-2">Area/Carrera: </label>
+            <select class="custom-select col-sm-4" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Area">
+              <optgroup label="SELECCIONE Area/Carrera" >
+                <option *ngFor="let a of carrera" value="{{a.Carrera}}">{{a.Carrera}} - (Malla {{a.Malla}})</option>
+              </optgroup>
+            </select>
+            <!-- <label for="nombre" class="col-sm-2 col-form-label">Mension:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Mension" placeholder="INSTRUMENTISTA">
+            </div> -->
+          </div>
+
+          <div class="form-group row">
+            <label class="form-label col-sm-2">Especialidad: </label>
+            <select class="custom-select  col-sm-4" type="text" oninput="this.value = this.value.toUpperCase()"  formControlName="Especialidad">
+              <optgroup label="Seleccione Instrumento Especialidad" >
+                <option *ngFor="let i of instrumentosUnique" value="{{i.InstEspecialidad}}">{{i.InstEspecialidad}} - ESTADO: {{i.Estado}}</option>
+              </optgroup>
+            </select>
+
+            <label for="nombre" class="col-sm-2 col-form-label">Contraseña:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Password">
+            </div>
+          </div>
+
+
+
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Categoria:</label>
+            <div class="col-sm-4">
+              <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Categoria">
+                <optgroup label="Seleccione Curso">
+                  <option value="NUEVO">NUEVO </option>
+                  <option value="ANTIGUO">ANTIGUO </option>
+                  <!-- <option value="POSTULANTE">POSTULANTE</option>
+                  <option value="ANTIGUO (RESAGADO)">ANTIGUO (RESAGADO)</option>
+                  <option value="NUEVO (RESAGADO)">NUEVO (RESAGADO)</option>
+                  <option value="OTROS">OTROS</option> -->
+                </optgroup>
+              </select>
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Curso_Solicitado:</label>
+            <div class="col-sm-4">
+              <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Curso_Solicitado">
+                <optgroup label="Seleccione Curso">
+                  <option *ngFor="let a of cursosApi" value="{{a.NivelCurso}}">{{a.NivelCurso}} - {{a.Para}}</option>
+                  <!-- <option value="TERCERO SUPERIOR">TERCERO SUPERIOR </option>
+                  <option value="SEGUNDO SUPERIOR">SEGUNDO SUPERIOR</option>
+                  <option value="PRIMERO SUPERIOR">PRIMERO SUPERIOR</option>
+                  <option value="TERCERO INTERMEDIO">TERCERO INTERMEDIO </option>
+                  <option value="SEGUNDO INTERMEDIO">SEGUNDO INTERMEDIO</option>
+                  <option value="PRIMERO INTERMEDIO">PRIMERO INTERMEDIO</option>
+                  <option value="TERCERO BASICO">TERCERO BASICO </option>
+                  <option value="SEGUNDO BASICO">SEGUNDO BASICO</option>
+                  <option value="PRIMERO BASICO">PRIMERO BASICO</option>
+                  <option value="TERCERO INICIACION">TERCERO INICIACION </option>
+                  <option value="SEGUNDO INICIACION">SEGUNDO INICIACION</option>
+                  <option value="PRIMERO INICIACION">PRIMERO INICIACION</option> -->
+                  <!-- <option value="NIVEL SUPERIOR (Diploma de Bachiller)">NIVEL SUPERIOR (Diploma de Bachiller)</option>
+                  <option value="NIVEL INTERMEDIO (15 a 17 años)">NIVEL INTERMEDIO (15 a 17 años)</option>
+                  <option value="NIVEL BASICO (12 a 14 años)">NIVEL BASICO (12 a 14 años)</option>
+                  <option value="NIVEL INICIACION (9 a 11 años)">NIVEL INICIACION (9 a 11 años)</option> -->
+                </optgroup>
+              </select>
+            </div>
+            <!-- <label for="nombre" class="col-sm-2 col-form-label">Curso Solicitado:</label>
+            <div class="col-sm-4">
+              <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Curso_Solicitado">
+            </div> -->
+
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Turno:</label>
+            <div class="col-sm-4">
+              <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Turno">
+                <optgroup label="Seleccione Curso">
+                  <option value="MAÑANA">MAÑANA </option>
+                  <option value="TARDE">TARDE </option>
+                  <option value="NOCHE">NOCHE </option>
+                </optgroup>
+              </select>
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Docente:</label>
+            <div class="col-sm-4">
+              <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Especialidad"> -->
+              <select class="custom-select" name="Admin_id" type="text" oninput="this.value = this.value.toUpperCase()" formControlName="Admin_id" id="Admin_id" >
+                <optgroup label="Seleccione su Docente de Instrumento de Especialidad" >
+                    <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}} - (Tiene {{d.CantidadEstudiantesDocente}} Estudiantes)</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">CI Documento:</label>
+            <div class="col-sm-4">
+              <input type="file" class="form-control" (change)="onFileChangeCIDoc($event)">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Boleta de Inscripcion:</label>
+            <div class="col-sm-4">
+              <input type="file" class="form-control" (change)="onFileChangeBoleta($event)">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Certificado de Nacimiento</label>
+            <div class="col-sm-4">
+              <input type="file" class="form-control" (change)="onFileChangeCertificado($event)">
+            </div>
+            <label for="nombre" class="col-sm-2 col-form-label">Diploma o Libreta Colegio</label>
+            <div class="col-sm-4">
+              <input type="file" class="form-control" (change)="onFileChangeDocColUni($event)">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-danger" (click)="validarEstudianteAgregacion()">AGREGAR ESTUDIANTE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper d-flex align-items-stretch">
+  <!-- ESTO ES EL CONTENIDO TODO -->
+  <div id="content" style="background: linear-gradient(-180deg, #aa0505, #ffffff); padding: 5px 20px;">
+
+    <strong>
+      <h2 class="text-center text-bold text-light"><b>GESTIONAR ESTUDIANTE</b></h2>
+    </strong>
+    <hr />
+    <button type="button" class="btn btn-danger btn-lg"  *ngIf="true" data-toggle="modal" data-target="#myModal" (click)="CargarEstadisticasdeInscripcion()" (click)="CargarAdministrativo()">
+      <img height="35px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFVUlEQVRoge1ZW2xURRj+/nO6W7YFailtuQgFaYFCisgKtNBYtl2EKtCtTU1NDLUJgUR8EYkoibHhwSgI8cUERAVNNFIS0xKjVHe5WIyAVhMTwr2AFoNYVmC33W139/w+lFN72e2enTkpD/I9zZn5b9+ZmX/+Mwd4gAf4f4PMNFZUVGSz2WwuIqpi5rkApgBI1ccVRXG43e5jZvpMMsuQw+GoIqJdAKYyc1SZSCTyJgBTCZgyA2VlZduY+Q2D4heYuVFRlF0ej+cvWd/SBBwOx+tE9JaAqo+ZXzh69OiXMv6lCJSWli4C8APEl2KEiMo9Hs93ojEooor38Dbk9pHKzB/a7XaLqAFhAk6n8zEADiOyOVlhrHX68NHLN7HW6Rs8PDUtLc0lGofw29M0rWK48ZysMErmBbBsXgA5WeG+/mnZPiRbGHu/GdtfvBzAQZE4hAkwcwnRwC2kB11SEMC07HAMTaCmxI/uEOFT9xgAABEViMYhs35nALHfdDzUOv+bCWbOFA1CmAARjQeAjzfdFDWBmhK/vpSECchkIZuE7mCkiCrKptH7DiEC3iP5Tz86vTtoVhALcoMBr2dmuYiu0B5g5t1bn/OO+uLYgFSI3Xv9IAI2rBsdVS/a+DNL/ahZ5rMx0R4AUxONRXgJKcR4ac2dAX29WTV2dRJtfOPquyBEr16NQKgW8npmljOUD9JHYzKRdEGoef18HRrWZzjPH05UWco5n559DsAsGRsgOksLz84RVZfMQtwipw9A4+9l1OUIkHJASh8AwA1SIUi7/2n2EbCxqjQKjtOic8tk/JtwkGnrAHQIKHqhqutkvUsToIUX2gCqAuGfBNS8YMVF9jOXpP3LGtDBJ/PzQuGuCxbr8CVSKBSAZdToPDOCB0y+F7r1lYUt1hRYk1ORZLVBIRUAoHEE4Z4AeoJ+hEIBZKwKEQBUN1RbvYE7lcRUwYQFYDx8L6p2YvwCoDE9ZWzjwWcP9owYASNyGatC5Ny/oopB2wF+JI74ZWJ61V13OOrtxYgT0ECo6XDsBPBKIrYJ9G7x1cIt9fX1Wv9+NcEYh8DV0mnvnOI4FMl76v38bF8419Y2bIG4zVsW+ZuxVMDVkt8farddabzs7t8pPAMVLV2LAdoJYGlrcwuuX7yGKZNt4V9L62ISONWdiZ2+6J+/7tqBZZDzk5XRjTBXeuq+bdQfE06j5V9z8pqWwB6AfgR63+S0glkAAX9cDyS9eH5bVL0wFLx3e1Gi7oaCaFd1Q7VVf0yIwJqT/mzrmOARAtaj3+xlTMpC7vx8AEDD6fEoPrEXBzoqcSM0ATdCE3CgoxLlv21FRA3IEwCm3+r09V3pGP6gqTx1N0PrUY8jRvU5Z4kdiqriYusZnLsSwsYrywEs7xufO/+kRMwDQYQK3LtHMkaAmbQTwc8wXOlMwOzC+ZiUl4NrZy6ho/0GAr4uAIBtTArGZXYNEB+85gdj2D1B/LjeNETAdSL4PAMrjMiOzUhHwRMLh/R3tn2OGL8NEgdjst6MuweqG1jVgHqTXJuFvrMgLoGeid0OAuKdlnFBSemyJvrAwJ9628AS0labcWCryTOghfr8Dsnzhs8BAAT+WW/HT6NMQxe0ANTUQjPM9ILQpDfjEyBMN8OnmroYimWiCZaobZwt7ZD+ZOQgM2XxEiUheVytCXZ4U//y2tRq1Aic+1fuYPBmEV1ivOOua36tf9+IX+4WXy3cAuIdAqrbi68VbR3cOeIzoKNs35MuItrBQO5wcgRcAmGzu7a5Kcb4/YN9j92SZs10EaGCwXZC7yclA+0EagVpjbeDt5paN7SGYtn4F3L2r0au8CFMAAAAAElFTkSuQmCC"/>
+      AGREGAR ESTUDIANTE
+    </button>
+    <button (click)="CargarEstudiante()" class="btn btn-success">REFRESCAR LISTA</button>
+
+
+    <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+      <div class="input-group">
+        <label class="font-weight-light font-weight-bold" style="color:cornsilk">BUSQUEDA: </label>
+        <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="filterpost" name="filterPost" oninput="this.value = this.value.toUpperCase()">
+      </div>
+    </form>
+    <br />
+    <br />
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover table-dark">
+        <thead class="bg-danger ">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Apellidos y Nombres</th>
+            <th scope="col">CI</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Observación</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <div style="position: absolute; top:20%;right: 50%;" id="spinnertabla" *ngIf="SpinnerTable">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <tbody *ngIf="!SpinnerTable" style="z-index: 30;">
+          <!-- ESTO SOLO ES COMO ESTABA PERO SIN EL FILTRAR -->
+          <!-- <tr *ngFor="let i= index;  let a of est | paginate: { itemsPerPage: 10, currentPage: page } " > -->
+            <!-- ESTE OTRO YA ES CON TODO, PAGINACION Y FILTRAR haciendo referencia al filterEstudiantes -->
+            <tr *ngFor="let i= index;  let a of est | filterEstudiantes:filterpost | paginate: { itemsPerPage: 10, currentPage: page }" >
+            <td>{{i+1}}</td>
+            <td class="">
+              <span>{{a.Ap_Paterno}} {{a.Ap_Materno}} {{a.Nombre}}</span>
+            </td>
+            <td class="">
+              <span >{{a.CI}}</span>
+            </td>
+
+            <td style="width: 50px;">
+              <span *ngIf="!a.Editando">{{a.Matricula}}</span>
+            </td>
+            <td style="width: 50px;">
+              <span *ngIf="!a.Editando">{{a.Categoria}}</span>
+            </td>
+            <td style="width: 50px;">
+              <span *ngIf="!a.Editando">{{a.Observacion}}</span>
+            </td>
+            <td style="width: 50px;">
+              <!-- <button id="{{a.id+'ESTADOBTN'}}" class="{{a.EstiloCss}} col-sm-12" (click)="onCambioEstado(a)" (click)="datosparaCalif=a">{{a.Estado}}</button> -->
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-info" (click)="SeleccionarEstudiante(a.id,'Mostrar')"
+               style="margin-right: 10px;"><i class="bi bi-eye"></i></button>
+              <button type="button" class="btn btn-warning" (click)="PreGuardadoEst(a)" (click)="CargarEstadisticasdeInscripcion()" (click)="CargarAdministrativo()"
+               (click)="SeleccionarEstudiante(a.id,'Editar')"  style="margin-right: 10px;"><i class="bi bi-pencil"></i></button>
+              <button type="button" id="BotonEditar" class="btn btn-warning" (click)="ModificarEstudiante(a)"
+                *ngIf="a.Editando" (click)="a.Editando=true;"><i class="bi bi-box-arrow-up"></i></button>
+              <button type="button" class="btn btn-danger" (click)="EliminarEstudiante(a)"><i
+                  class="bi bi-trash"></i></button>
+              <button type="button" class="invisible" style="position: absolute; top:100%" id="btnAddEstCalif" data-toggle="modal"
+                data-target="#ChangeEstado" (click)="SeleccionarEstudiante(a.id,'default')" #AbrirPanel style="width: 0px;"></button>
+              <button type="button" class="btn btn-secondary" (click)="SeleccionarEstudiante(a.id,'openPDF')" style="margin-right: 10px;"><i class="bi bi-file-earmark-text"></i></button>
+              <button type="button" class="btn btn-secondary" (click)="AccionCopiarMatriculaNomCompleto(a.Matricula,a.Ap_Paterno+' '+a.Ap_Materno+' '+a.Nombre)" class="btn btn-success ">
+                <i class="bi bi-clipboard" *ngIf="!copiadoMatriculaNombres"></i><i class="bi bi-check2" *ngIf="copiadoMatriculaNombres"></i></button>
+
+              <!-- PARA VOLVER ACTIVO INACTIVO -->
+              <button type="button" class="invisible" style="position: absolute; top:100%" id="{{a.id+'ACTIVAR'}}" (click)="a.Estado = 'ACTIVO'"></button>
+              <button type="button" class="invisible" style="position: absolute; top:100%" id="{{a.id}}" (click)="a.Estado = 'INACTIVO'"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <span>{{seleccionado | json}}</span> -->
+
+    </div>
+    <pagination-controls (pageChange)="page = $event"
+      maxSize="9"
+      directionLinks="true"
+      autoHide="false"
+      responsive="true"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+
+
+
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnOpenModalModEstudiante" data-toggle="modal"
+data-target="#ModalModificacionEstudiante" style="width: 0px;">Abrir Modal Modificacion</button>
+<button type="button" class="invisible" style="position: absolute; top:100%" id="btnOpenModalMosEstudiante" data-toggle="modal"
+data-target="#ModalVisualizacionEstudiante" style="width: 0px;">Abrir Modal Visualizacion</button>
+
+    <!-- MODAL de MODIFICACION -->
+    <div class="modal fade" id="ModalModificacionEstudiante" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-xl" role="document" style="width:100%;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">MODIFICAR ESTUDIANTE</h4>
+            <button type="button"  (click)="DevolverDataAnterior()" #CerrarBotonMod class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-4">
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-4 col-form-label">Ap. Paterno Materno y Nombres:</label>
+                <div class="col-sm-2">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Ap_Paterno">
+                </div>
+                <div class="col-sm-2">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Ap_Materno">
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Nombre">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-1 col-form-label">CI:</label>
+                <div class="col-sm-2">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CI">
+                </div>
+                <label for="nombre" class="col-sm-1 col-form-label">Celular:</label>
+                <div class="col-sm-2">
+                  <input type="number" class="form-control" [(ngModel)]="EstudianteSeleccionado.Celular">
+                </div>
+                <label for="nombre" class="col-sm-1 col-form-label">Telefono -> DOCENTE PRACTICA CONJUNTO:</label>
+                <div class="col-sm-2">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Telefono">
+                </div>
+                <label for="nombre" class="col-sm-1 col-form-label">Turno:</label>
+                <div class="col-sm-2">
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Turno">
+                    <optgroup label="Seleccione Curso">
+                      <option value="MAÑANA">MAÑANA </option>
+                      <option value="TARDE">TARDE </option>
+                      <option value="NOCHE">NOCHE </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Categoria:</label>
+                <div class="col-sm-4">
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Categoria">
+                    <optgroup label="Seleccione Curso">
+                      <option value="NUEVO">NUEVO </option>
+                      <option value="ANTIGUO">ANTIGUO </option>
+                      <!-- <option value="POSTULANTE">POSTULANTE</option>
+                      <option value="ANTIGUO (RESAGADO)">ANTIGUO (RESAGADO)</option>
+                      <option value="NUEVO (RESAGADO)">NUEVO (RESAGADO)</option>
+                      <option value="OTROS">OTROS</option> -->
+                    </optgroup>
+                  </select>
+                </div>
+                <label class="form-label text-right col-sm-2">Especialidad: </label>
+                <select class="custom-select col-sm-4" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Especialidad">
+                  <optgroup label="SELECCIONE Especialidad" >
+                    <option *ngFor="let i of instrumentosUnique" value="{{i.InstEspecialidad}}">{{i.InstEspecialidad}} - ESTADO: {{i.Estado}}</option>
+                  </optgroup>
+                  </select>
+              </div>
+              <div class="form-group row">
+
+                <label for="nombre" class="col-sm-2 col-form-label">Curso_Solicitado:</label>
+                  <div class="col-sm-4">
+                    <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Curso_Solicitado">
+                      <optgroup label="Seleccione Curso">
+                        <option *ngFor="let a of cursosApi" value="{{a.NivelCurso}}">{{a.NivelCurso}} - {{a.Para}}</option>
+                        <!-- <option value="TERCERO SUPERIOR">TERCERO SUPERIOR </option>
+                        <option value="SEGUNDO SUPERIOR">SEGUNDO SUPERIOR</option>
+                        <option value="PRIMERO SUPERIOR">PRIMERO SUPERIOR</option>
+                        <option value="TERCERO INTERMEDIO">TERCERO INTERMEDIO </option>
+                        <option value="SEGUNDO INTERMEDIO">SEGUNDO INTERMEDIO</option>
+                        <option value="PRIMERO INTERMEDIO">PRIMERO INTERMEDIO</option>
+                        <option value="TERCERO BASICO">TERCERO BASICO </option>
+                        <option value="SEGUNDO BASICO">SEGUNDO BASICO</option>
+                        <option value="PRIMERO BASICO">PRIMERO BASICO</option>
+                        <option value="TERCERO INICIACION">TERCERO INICIACION </option>
+                        <option value="SEGUNDO INICIACION">SEGUNDO INICIACION</option>
+                        <option value="PRIMERO INICIACION">PRIMERO INICIACION</option> -->
+                        <!-- <option value="NIVEL SUPERIOR (Diploma de Bachiller)">NIVEL SUPERIOR (Diploma de Bachiller)</option>
+                        <option value="NIVEL INTERMEDIO (15 a 17 años)">NIVEL INTERMEDIO (15 a 17 años)</option>
+                        <option value="NIVEL BASICO (12 a 14 años)">NIVEL BASICO (12 a 14 años)</option>
+                        <option value="NIVEL INICIACION (9 a 11 años)">NIVEL INICIACION (9 a 11 años)</option> -->
+                      </optgroup>
+                    </select>
+                    <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" formControlName="Curso_Solicitado" [(ngModel)]="EstudianteSeleccionado.Curso_Solicitado"> -->
+                  </div>
+                <label for="nombre" class="col-sm-1 col-form-label">Docente:</label>
+                <div class="col-sm-5">
+                  <select class="custom-select" name="Admin_id" type="text" oninput="this.value = this.value.toUpperCase()" id="Admin_id" [(ngModel)]="EstudianteSeleccionado.Admin_id">
+                    <optgroup label="Seleccione su Docente de Instrumento de Especialidad" >
+                        <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}} - (Tiene {{d.CantidadEstudiantesDocente}} Estudiantes)</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+
+
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-2 col-form-label">Fecha Nac.</label>
+              <div class="col-sm-3">
+                <input type="date" class="form-control sm-form-control" [(ngModel)]="EstudianteSeleccionado.FechNac">
+              </div>
+              <label for="nombre" class="col-sm-1 col-form-label">Edad:</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control sm-form-control" [(ngModel)]="EstudianteSeleccionado.Edad">
+              </div>
+              <label for="nombre" class="col-sm-1 col-form-label">Sexo:</label>
+              <div class="col-sm-3">
+                <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Sexo">
+                  <optgroup label="Seleccione Curso">
+                    <option value="MASCULINO">MASCULINO </option>
+                    <option value="FEMENINO">FEMENINO </option>
+                    <!-- <option value="OTRO">OTRO </option> -->
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-4 col-form-label">Nombre_Padre,Ocupación y Cel.</label>
+              <div class="col-sm-4">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Nombre_Padre">
+              </div>
+              <!-- OCUPACION -->
+              <div class="col-sm-2">
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.OcupacionP"> -->
+                <select class="custom-select" type="text" [(ngModel)]="EstudianteSeleccionado.OcupacionP">
+                  <optgroup label="SELECCIONE OCUPACION" >
+                    <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                    <option value="PROFESIONAL">PROFESIONAL</option>
+                  </optgroup>
+                 </select>
+              </div>
+              <!-- CELULAR -->
+              <div class="col-sm-2">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NumCelP">
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-4 col-form-label">Nombre_Madre,Ocupación y Cel.</label>
+              <div class="col-sm-4">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Nombre_Madre">
+              </div>
+              <!-- OCUPACION -->
+              <div class="col-sm-2">
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.OcupacionM"> -->
+                <select class="custom-select" type="text" [(ngModel)]="EstudianteSeleccionado.OcupacionM">
+                  <optgroup label="SELECCIONE OCUPACION" >
+                    <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+                    <option value="PROFESIONAL">PROFESIONAL</option>
+                  </optgroup>
+                 </select>
+              </div>
+              <!-- CELULAR -->
+              <div class="col-sm-2">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NumCelM">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-3 col-form-label">Nombre Colegio:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NColegio">
+              </div>
+              <label for="nombre" class="col-sm-3 col-form-label">Tipo de Colegio:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.TipoColegio">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-3 col-form-label">Grado en Colegio:</label>
+              <div class="col-sm-3">
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CGrado"> -->
+                <select class="custom-select" type="text" [(ngModel)]="EstudianteSeleccionado.CGrado">
+                  <optgroup label="Seleccione Grado">
+                    <!-- <option value="PRIMERO">PRIMERO </option>
+                    <option value="SEGUNDO">SEGUNDO </option>
+                    <option value="TERCERO">TERCERO </option>
+                    <option value="CUARTO">CUARTO</option>
+                    <option value="QUINTO">QUINTO</option>
+                    <option value="SEXTO">SEXTO</option> -->
+                    <option value="PRIMERO DE PRIMARIA">PRIMERO DE PRIMARIA</option>
+                    <option value="SEGUNDO DE PRIMARIA">SEGUNDO DE PRIMARIA</option>
+                    <option value="TERCERO DE PRIMARIA">TERCERO DE PRIMARIA</option>
+                    <option value="CUARTO DE PRIMARIA">CUARTO DE PRIMARIA</option>
+                    <option value="QUINTO DE PRIMARIA">QUINTO DE PRIMARIA</option>
+                    <option value="SEXTO DE PRIMARIA">SEXTO DE PRIMARIA</option>
+                    <option value=" "> NINGUNA</option>
+
+                    <option value="PRIMERO DE SECUNDARIA">PRIMERO DE SECUNDARIA</option>
+                    <option value="SEGUNDO DE SECUNDARIA">SEGUNDO DE SECUNDARIA</option>
+                    <option value="TERCERO DE SECUNDARIA">TERCERO DE SECUNDARIA</option>
+                    <option value="CUARTO DE SECUNDARIA">CUARTO DE SECUNDARIA</option>
+                    <option value="QUINTO DE SECUNDARIA">QUINTO DE SECUNDARIA</option>
+                    <option value="SEXTO DE SECUNDARIA">SEXTO DE SECUNDARIA</option>
+                  </optgroup>
+                </select>
+              </div>
+              <label for="nombre" class="col-sm-3 col-form-label">Nivel en Colegio:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CNivel">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-3 col-form-label">Correo:</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" [(ngModel)]="EstudianteSeleccionado.Correo">
+              </div>
+              <label for="nombre" class="col-sm-3 col-form-label">Contraseña:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Password">
+              </div>
+            </div>
+            <div class="form-group row">
+              <!-- <label for="nombre" class="col-sm-1 col-form-label">Area:</label>
+              <div class="col-sm-2">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Area">
+              </div> -->
+                <label class="form-label col-sm-2">Area/Carrera: </label>
+                <select class="custom-select col-sm-4" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Area">
+                  <optgroup label="SELECCIONE Area/Carrera" >
+                    <option *ngFor="let a of carrera" value="{{a.Carrera}}">{{a.Carrera}} - (Malla {{a.Malla}})</option>
+                  </optgroup>
+                 </select>
+
+              <label for="nombre" class="col-sm-1 col-form-label">Estudiante de Malla:</label>
+              <div class="col-sm-3">
+                <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Mension"> -->
+                <select class="form-control" type="text" [(ngModel)]="EstudianteSeleccionado.Mension">
+                  <optgroup label="Seleccione a que Malla pertenece el Est">
+                    <option value="NUEVA">NUEVA</option>
+                    <option value="ANTIGUA">ANTIGUA</option>
+                  </optgroup>
+                </select>
+              </div>
+              <!-- <label for="nombre" class="col-sm-2 col-form-label">Carrera:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Carrera">
+              </div> -->
+
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-2 col-form-label">Observación:</label>
+              <div class="col-sm-4">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Observacion">
+              </div>
+              <button class="btn btn-success col-sm-1" (click)="EstudianteSeleccionado.Observacion='NINGUNA'">NINGUNA</button>
+              <button class="btn btn-secondary col-sm-2" (click)="EstudianteSeleccionado.Observacion='CORREGIR LIBRETA DE CALIFICACIONES O DIPLOMA DE BACHILLER (CASO BACHILLERES)'">LIBRETA o DIPLOMA</button>
+              <button class="btn btn-warning col-sm-1" (click)="EstudianteSeleccionado.Observacion='CORREGIR CARNET DE IDENTIDAD'">CARNET</button>
+              <button class="btn btn-primary col-sm-1" (click)="EstudianteSeleccionado.Observacion='CORREGIR CERTIFICADO DE NACIMIENTO'">CERTIFICADO</button>
+              <button class="btn btn-danger col-sm-1" (click)="EstudianteSeleccionado.Observacion='CORREGIR TODOS SUS DOCUMENTOS'">TODOS</button>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-4 col-form-label">Matricula:</label>
+              <div class="col-sm-5">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Matricula">
+              </div>
+              <button class="btn btn-secondary col-sm-3" (click)="GenerarMatricula(EstudianteSeleccionado)">Generar Matrícula</button>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-3 col-form-label">Correo Institucional:</label>
+              <div class="col-sm-6">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Correo_Institucional">
+              </div>
+              <button class="btn btn-secondary col-sm-3" (click)="GenerarCorreo(EstudianteSeleccionado)">Generar Correo</button>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-3 col-form-label">Direccion o Estado:</label>
+              <div class="col-sm-3">
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Direccion">
+              </div>
+              <label for="nombre" class="col-sm-2 col-form-label">Foto</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control" (change)="onFileChange($event)" id="FOTO_IMG" #FOTO_IMG>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-2 col-form-label">Boleta de Depósito:</label>
+              <div class="col-sm-4">
+                  <input type="file" class="form-control" (change)="onFileChangeBoleta($event)" id="BOLETA_PDF" #BOLETA_PDF>
+              </div>
+              <label for="nombre" class="col-sm-2 col-form-label">CI_PDF:</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control" id="CI_PDF" #CI_PDF (change)="onFileChangeCIDoc($event)" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="nombre" class="col-sm-2 col-form-label">Certificado de Nacimiento</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control" (change)="onFileChangeCertificado($event)" id="CERTIFICADO_PDF" #CERTIFICADO_PDF>
+              </div>
+              <label for="nombre" class="col-sm-2 col-form-label">Diploma,Libreta Colegio</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control" (change)="onFileChangeDocColUni($event)" id="LIBRETA_PDF" #LIBRETA_PDF>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="DevolverDataAnterior()">CANCELAR</button>
+            <button type="button" class="btn btn-danger" (click)="ModificarEstudiante(EstudianteSeleccionado)"  (click)="reiniciarEstudiantes()">GUARDAR</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- MODAL DE DATOS REQUERIDOS O VALIDACION -->
+<button id="btnModalValidacion" type="button" class="btn btn-primary position-absolute invisible" data-toggle="modal" data-target="#modalvalidacion">
+  Abrir Panel
+</button>
+
+<!-- ADVERTENCIA DATOS VALIDACION -->
+<div class="modal fade black" id="modalvalidacion" tabindex="-1" aria-labelledby="modalvalidacionLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(168, 4, 4);">
+        <h5 class="modal-title text-center text-bold" style="color: lightcyan; font-size: 25px; font-weight: bold;">¡ADVERTENCIA!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background-color: lightcoral;">
+            <h2 class="text-center" style=" font-weight: bold;">SE REQUIERE:</h2>
+            <label class="text-center" style="font-size: 15px; font-weight: bold;">NOMBRE COMPLETO*</label><br>
+            <label class="text-center" style="font-size: 15px; font-weight: bold;">ESPECIALIDAD*</label><br>
+            <label class="text-center" style="font-size: 15px; font-weight: bold;">CARNET*</label><br>
+            <label class="text-center" style="font-size: 15px; font-weight: bold;">CATEGORIA*</label><br>
+            <label class="text-center" style="font-size: 15px; font-weight: bold;">CURSO SOLICITADO*</label><br>
+      </div>
+      <div class="modal-footer" style="background-color: rgb(141, 12, 12);">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-warning" data-dismiss="modal" >ENTENDIDO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- MODAL de VISUALIZACION -->
+    <div class="modal fade" id="ModalVisualizacionEstudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title text-center col-sm-8" id="myModalLabel">INFORMACION DEL ESTUDIANTE</h4>
+            <button class="btn btn-success" *ngIf="esPostulante" (click)="ModificarEstudianteAprobar()" data-dismiss="modal">APROBAR</button>
+            <button type="button" (click)="DevolverDataAnterior()" #CerrarBotonMod class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+
+              <!-- <label for="nombre" class="form-label float-left">Foto:⠀⠀⠀⠀⠀⠀⠀⠀⠀</label>
+              <div><img [src]="ruta+EstudianteSeleccionado.Foto" width="200px" height="200px"></div>
+              <div></div> -->
+              <div class="form-group row">
+                <!-- <label class="col-sm-2 col-form-label">Foto de Perfil:</label> -->
+                <div class="col-sm-4">
+                  <img [src]="ruta+EstudianteSeleccionado.Foto" width="240px" height="220px" >
+                </div>
+                <div class="col-sm-8">
+                  <a class="btn btn-danger form-control" style="margin-top: 15px;" (click)="OpenPDF(EstudianteSeleccionado.Certificado)" >Abrir Certificado de Nacimiento</a>
+                <a class="btn btn-danger form-control" style="margin-top: 15px;" (click)="OpenPDF(EstudianteSeleccionado.DocColUni)" >Abrir Libreta de Colegio o Diploma Bachiller</a>
+                <!-- <label class="form-control">[(ngModel)]="'SOLICITO EL CURSO: '+ EstudianteSeleccionado.DocColUni"</label> -->
+                <!-- <label class="col-form-label">SOLICITO CURSO:</label>
+                <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.DocColUni" [(ngModel)]="EstudianteSeleccionado.DocColUni"> -->
+                <a class="btn btn-danger form-control" style="margin-top: 15px;" (click)="OpenPDF(EstudianteSeleccionado.CIDoc)" >Abrir Carnet de Identidad</a>
+                <a class="btn btn-danger form-control" style="margin-top: 15px;" (click)="OpenPDF(EstudianteSeleccionado.Boleta)" >Abrir Boleta de Pago</a>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+                <!-- <div class="col-sm-8"> -->
+                  <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Ap_Paterno"> -->
+                  <label class="form-control col-sm-4">{{EstudianteSeleccionado.Ap_Paterno}} {{EstudianteSeleccionado.Ap_Materno}} {{EstudianteSeleccionado.Nombre}}</label>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Direccion o Estado:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Direccion">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Celular:</label>
+                <div class="col-sm-4">
+                  <!-- <input type="number" class="form-control" [(ngModel)]="EstudianteSeleccionado.Celular"> -->
+                  <a class="font-weight-bold text-light" href="https://api.whatsapp.com/send?phone=591{{EstudianteSeleccionado.Celular}}" target="_blank" rel="noopener noreferrer">{{EstudianteSeleccionado.Celular}}</a>
+                </div>
+                <label for="nombre" class="col-sm-2 col-form-label">Especialidad:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Especialidad">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">CI:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CI">
+                </div>
+                <label for="nombre" class="col-sm-2 col-form-label">Categoria:</label>
+                <div class="col-sm-4">
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Categoria">
+                    <optgroup label="Seleccione Curso">
+                      <option value="NUEVO">NUEVO </option>
+                      <option value="ANTIGUO">ANTIGUO </option>
+                      <option value="POSTULANTE">POSTULANTE</option>
+                      <option value="ANTIGUO (RESAGADO)">ANTIGUO (RESAGADO)</option>
+                      <option value="NUEVO (RESAGADO)">NUEVO (RESAGADO)</option>
+                      <option value="OTROS">OTROS</option>
+
+                    </optgroup>
+                  </select>
+                </div>
+                <!-- <label for="nombre" class="col-sm-2 col-form-label">Telefono:</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" [(ngModel)]="EstudianteSeleccionado.Telefono">
+                </div> -->
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Observacion:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Observacion">
+                </div>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Curso Solicitado:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Curso_Solicitado">
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-1 col-form-label">Matricula:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Matricula">
+                </div>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Docente:</label>
+                <div class="col-sm-6">
+                  <div class="col-sm-12">
+                    <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Admin_id"> -->
+                    <select class="custom-select" name="Admin_id" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Admin_id" id="Admin_id" [(ngModel)]="EstudianteSeleccionado.Admin_id">
+                      <optgroup label="Docente de Instrumento de Especialidad" >
+                          <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}}</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+
+                <label for="nombre" class="col-sm-3 col-form-label">Correo Institucional:</label>
+                <div class="col-sm-9">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Correo_Institucional">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Area:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Area">
+                </div>
+                <label for="nombre" class="col-sm-2 col-form-label">Correo:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Correo">
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Correo Institucional:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Correo_Institucional">
+                </div>
+              </div>
+              <div class="form-group row">
+                <!-- <label for="nombre" class="col-sm-2 col-form-label">Direccion:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Direccion">
+                </div> -->
+                <label for="nombre" class="col-sm-2 col-form-label">Sexo:</label>
+                <div class="col-sm-4">
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Sexo">
+                    <optgroup label="Seleccione Curso">
+                      <option value="MASCULINO">MASCULINO </option>
+                      <option value="FEMENINO">FEMENINO </option>
+                      <option value="NINGUNO">NINGUNO </option>
+                    </optgroup>
+                  </select>
+                </div>
+                <label for="nombre" class="col-sm-2 col-form-label">Mension:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Mension">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control sm-form-control" [(ngModel)]="EstudianteSeleccionado.FechNac">
+                </div>
+                <label for="nombre" class="col-sm-2 col-form-label">Edad:</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control sm-form-control" [(ngModel)]="EstudianteSeleccionado.Edad">
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Nombre Padre:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Nombre_Padre">
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Nombre Madre:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Nombre_Madre">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Ocupacion Padre: </label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.OcupacionP">
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Ocupacion Madre:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.OcupacionM">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Celular Padre: </label>
+                <div class="col-sm-3">
+                  <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NumCelP"> -->
+                  <a class="font-weight-bold text-light" href="https://api.whatsapp.com/send?phone=591{{EstudianteSeleccionado.NumCelP}}" target="_blank" rel="noopener noreferrer">{{EstudianteSeleccionado.NumCelP}}</a>
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Celular Madre:</label>
+                <div class="col-sm-3">
+                  <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NumCelM"> -->
+                  <a class="font-weight-bold text-light" href="https://api.whatsapp.com/send?phone=591{{EstudianteSeleccionado.NumCelM}}" target="_blank" rel="noopener noreferrer">{{EstudianteSeleccionado.NumCelM}}</a>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Nombre Colegio:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.NColegio">
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Tipo de Colegio:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.TipoColegio">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Grado en Colegio:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CGrado">
+                </div>
+                <label for="nombre" class="col-sm-3 col-form-label">Nivel en Colegio:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.CNivel">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-3 col-form-label">Carrera:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Carrera">
+                </div>
+
+                <label for="nombre" class="col-sm-3 col-form-label">Contraseña:</label>
+                <div class="col-sm-3">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="nombre" class="col-sm-2 col-form-label">Telefono -> DOCENTE DE PRACTICA CONJUNTO:</label>
+                <div class="col-sm-4">
+                  <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" [(ngModel)]="EstudianteSeleccionado.Telefono">
+                </div>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Turno:</label>
+                <div class="col-sm-4">
+                  <select class="custom-select" type="text" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="EstudianteSeleccionado.Turno">
+                    <optgroup label="Seleccione Curso">
+                      <option value="MAÑANA">MAÑANA </option>
+                      <option value="TARDE">TARDE </option>
+                      <option value="NOCHE">NOCHE </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DevolverDataAnterior()">OK</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- MODAL DE AGREGADO CAMPO DE CALIFICACIONES -->
+    <div class="modal" tabindex="-1" id="ChangeEstado" data-backdrop="static" data-keyboard="false" style="height: 80%;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <label class="modal-title col-sm-12" style="color: cornsilk;">LISTA DE CURSOS DEL ESTUDIANTE: {{NombreSeleccionado}} y Solicita: <b> {{CSolicitadoSeleccionado}}</b></label>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CargarEstudiante()" (click)="DevolverDataAnterior()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label for="" class="col-sm-12 text-bold" style="color: cornsilk;">CURSO ACTUAL:</label>
+            <select [(ngModel)]="opcionSeleccionado" #cmbCurso style="background-color: cornflowerblue;" class="form-control col-sm-12" name="Curso_id" type="text" oninput="this.value = this.value.toUpperCase()" id="Curso_idModal"
+              (change)="onCambioNivel($event)">
+              <optgroup label="Seleccione Curso">
+                <option value="NINGUNO" selected>NINGUN CURSO ASIGNADO</option>
+                <option *ngFor="let c of cursoUnique">{{c.NivelCurso}}</option>
+              </optgroup>
+            </select>
+            <br>
+            <!-- ACA SE CARGAN LAS MATERIAS DEL CURSO SELECCIONADO -->
+            <select class="custom-select" style="background-color: cornflowerblue; height:200px;" multiple aria-label="multiple select example">
+              <option *ngFor="let c of curso">{{c.NombreCurso}} - {{c.NivelCurso}}</option>
+            </select>
+            <div class="mb-3" [formGroup]="newEstudiante"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              (click)="reiniciarCurso()" (click)="opcionSeleccionado=''">Cancelar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" *ngIf="!ModoActivo"
+              (click)="CrearEspacioCalificacion(EstudianteSeleccionado)" (click)="opcionSeleccionado=''">Guardar Cambios</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" *ngIf="ModoActivo"
+            (click)="EliminarEstudianteDelCurso(EstudianteSeleccionado)" (click)="opcionSeleccionado=''">Eliminar del Curso</button>
+            <!-- ALTERNATIVA -->
+            <!-- <button type="button" class="btn btn-danger" (click)="ModificarEstudiante(datosparaCalif)">Guardar
+              Cambios</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav id="sidebar" class="order-last active" >
+    <div class="custom-menu">
+      <button type="button" id="sidebarCollapse" class="btn btn-primary" (click)="openNav()">
+      </button>
+    </div>
+    <div class="">
+      <h1><a class="logo text-center">Acciones <span>Se pueden realizar las Siguientes Acciones para los Estudiantes</span></a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a routerLink="/estudiantes"><span class="fa fa-home mr-3"></span> INICIO</a>
+        </li>
+        <!-- <li>
+          <a routerLink="/estudiantes"><span class="fa fa-user mr-3"></span> About</a>
+        </li> -->
+        <li>
+          <a routerLink="/TarjPDF" ><span class="fa fa-cogs mr-3"></span> GENERADORES</a>
+        </li>
+        <li>
+          <a routerLink="/ListaNuevos" ><span class="bi bi-file-earmark-text"></span> LISTA NUEVOS</a>
+        </li>
+        <li>
+          <a routerLink="/ListaAntiguos" ><span class="bi bi-file-earmark-text"></span> LISTA ANTIGUOS</a>
+        </li>
+        <li>
+          <a routerLink="/ListaPostulantes" ><span class="bi bi-file-earmark-text"></span> LISTA POSTULANTES</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('PRIMERO SUPERIOR')"><span class="bi bi-file-earmark-text"></span> PRIMERO SUPERIOR</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('SEGUNDO SUPERIOR')"><span class="bi bi-file-earmark-text"></span> SEGUNDO SUPERIOR</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('TERCERO SUPERIOR')"><span class="bi bi-file-earmark-text"></span> TERCERO SUPERIOR</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('PRIMERO INTERMEDIO')"><span class="bi bi-file-earmark-text"></span> PRIMERO INTERMEDIO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('SEGUNDO INTERMEDIO')"><span class="bi bi-file-earmark-text"></span>SEGUNDO INTERMEDIO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('TERCERO INTERMEDIO')"><span class="bi bi-file-earmark-text"></span> TERCERO INTERMEDIO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('PRIMERO BASICO')"><span class="bi bi-file-earmark-text"></span> PRIMERO BASICO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('SEGUNDO BASICO')"><span class="bi bi-file-earmark-text"></span> SEGUNDO BASICO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('TERCERO BASICO')"><span class="bi bi-file-earmark-text"></span> TERCERO BASICO</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('PRIMERO INICIACION')"><span class="bi bi-file-earmark-text"></span> PRIMERO INICIACION</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('SEGUNDO INICIACION')"><span class="bi bi-file-earmark-text"></span> SEGUNDO INICIACION</a>
+        </li>
+        <li>
+          <a routerLink="/estudiantes" (click)="OpenTabla('TERCERO INICIACION')"><span class="bi bi-file-earmark-text"></span> TERCERO INICIACION</a>
+        </li>
+      </ul>
+      <div class="mb-5 px-4">
+        <h3 class="h6 mb-3 font-weight-bold">Cualquier consulta comuníquese con Nosotros</h3>
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="subscribe-form">
+          <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" placeholder="Name" name="name" ngModel required #name="ngModel">
+            <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" placeholder="Escriba su Nombre" ngModel required #name="ngModel"> -->
+          </div>
+          <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <!-- <input type="text" oninput="this.value = this.value.toUpperCase()" class="form-control" placeholder="Escriba su consulta aquí" ngModel required #messages="ngModel"> -->
+            <textarea class="form-control" placeholder="Messages" name="messages" ngModel required #messages="ngModel"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" class=" btn btn-primary float-right" value="ENVIAR CONSULTA">
+            <label class="text-danger" *ngIf="Send">SU MENSAJE FUE ENVIADO CORRECTAMENTE</label>
+            <label class="text-danger" *ngIf="NotSend">MENSAJE NO ENVIADO</label>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </nav>
+</div>

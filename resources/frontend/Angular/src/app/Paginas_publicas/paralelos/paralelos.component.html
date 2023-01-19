@@ -1,0 +1,106 @@
+<div>
+  <h2 class="text-danger text-center font-weight-bold">LISTA DE ESTUDIANTES DEL {{cursoTittle}} - GESTION 2022</h2>
+  <hr>
+  <label class="col-sm-8 float-left text-center font-weight-bold text-danger">SI TIENE ALGUNA OBSERVACIÓN EN SU
+    DOCUMENTACIÓN, POR FAVOR CORREGIR ENVIANDO FOTO DEL MISMO AL NUMERO <a
+      href="https://api.whatsapp.com/send?phone=59161822011" target="_blank"
+      rel="noopener noreferrer">61822011</a></label>
+  <form method="GET" action="" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+    <div class="input-group">
+      <label class="font-weight-light font-weight-bold" style="color:rgb(109, 87, 1)">BUSQUEDA: </label>
+      <input type="text" class="form-control" [(ngModel)]="filterpost" name="filterPost"
+        oninput="this.value = this.value.toUpperCase()">
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <button (click)="AccionCopiarNombres()" *ngIf="esAdmin" class="btn button-transparent ">
+      <i class="bi bi-clipboard" *ngIf="!copiadoNombres"></i><i class="bi bi-check2" *ngIf="copiadoNombres"></i>Copiar Nombres Completos</button>
+    <button (click)="AccionCopiarCarnets()" *ngIf="esAdmin" class="btn button-transparent ">
+      <i class="bi bi-clipboard" *ngIf="!copiadoCarnets"></i><i class="bi bi-check2" *ngIf="copiadoCarnets"></i>Copiar Carnets</button>
+
+    <button (click)="AccionCopiarEspecialidades()" *ngIf="esAdmin" class="btn button-transparent ">
+      <i class="bi bi-clipboard" *ngIf="!copiadoEspecialidades"></i><i class="bi bi-check2" *ngIf="copiadoEspecialidades"></i>Copiar Especialidades</button>
+
+    <button (click)="AccionCopiarSexos()" *ngIf="esAdmin" class="btn button-transparent ">
+      <i class="bi bi-clipboard" *ngIf="!copiadoSexos"></i><i class="bi bi-check2" *ngIf="copiadoSexos"></i>Copiar Sexos</button>
+
+    <button (click)="AccionCopiarTodos()" *ngIf="esAdmin" class="btn button-transparent ">
+      <i class="bi bi-clipboard" *ngIf="!copiadoTodos"></i><i class="bi bi-check2" *ngIf="copiadoTodos"></i>Copiar nombre,ci,sexo,especialidad</button>
+    <table #tabla class="table table-bordered table-striped table-hover table-danger">
+      <thead class="bg-danger ">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Apellidos y Nombres</th>
+          <th scope="col">CI</th>
+          <th scope="col">Turno</th>
+          <th scope="col" *ngIf="esAdmin">Categoria</th>
+          <th scope="col" *ngIf="esAdmin">Sexo</th>
+          <th scope="col" *ngIf="esAdmin">Celular</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Docente de Instrumento</th>
+          <th scope="col">Observacion</th>
+          <th scope="col" *ngIf="esSuperUsuario">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody style="z-index: 30;">
+        <!-- ESTO SOLO ES COMO ESTABA PERO SIN EL FILTRAR -->
+        <!-- <tr *ngFor="let i= index;  let a of est | paginate: { itemsPerPage: 10, currentPage: page } " > -->
+        <!-- ESTE OTRO YA ES CON TODO, PAGINACION Y FILTRAR haciendo referencia al filterEstudiantes -->
+        <tr *ngFor="let i= index;  let a of est | filterEstCi:filterpost">
+          <td>{{i+1}}</td>
+          <td class="">
+            <!-- <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Ap_Paterno"> -->
+            <span *ngIf="!a.Editando">{{a.Nombre_Completo}}⠀</span>
+
+          </td>
+          <td class="">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.CI">
+            <span *ngIf="!a.Editando">{{a.CI}}</span>
+          </td>
+          <td class="">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Turno">
+            <span *ngIf="!a.Editando">{{a.Turno}}</span>
+          </td>
+
+          <td class="" *ngIf="esAdmin">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Categoria">
+            <span *ngIf="!a.Editando">{{a.Categoria}}</span>
+          </td>
+          <td class="" *ngIf="esAdmin">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Sexo">
+            <span *ngIf="!a.Editando">{{a.Sexo}}</span>
+          </td>
+          <td class="" *ngIf="esAdmin">
+            <a href="https://api.whatsapp.com/send?phone=591{{a.Celular}}" target="_blank">{{a.Celular}}</a>
+            <!-- <span *ngIf="!a.Editando">{{a.Celular}}</span> -->
+          </td>
+          <td class="">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Especialidad">
+            <span *ngIf="!a.Editando">{{a.Especialidad}}</span>
+          </td>
+
+          <td>
+            <select class="form-control" style="width: 400px;" type="text" [(ngModel)]="a.Admin_id" disabled>
+              <optgroup label="Seleccione su Docente de Instrumento de Especialidad">
+                <option *ngFor="let d of admin" value="{{d.id}}">{{d.Ap_Paterno}} {{d.Ap_Materno}} {{d.Nombre}}</option>
+              </optgroup>
+            </select>
+
+          </td>
+          <td style="width: 50px;">
+            <input type="text" *ngIf="a.Editando" [(ngModel)]="a.Observacion">
+            <span *ngIf="!a.Editando">{{a.Observacion}}</span>
+          </td>
+          <td style="width: 50px;" *ngIf="esSuperUsuario">
+            <button class="btn btn-success" (click)="NombreCompleto = a.Ap_Paterno +' '+ a.Ap_Materno +' '+ a.Nombre"
+              (click)="CargarCursosEst(a.id)">Boleta</button>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

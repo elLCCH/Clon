@@ -1,0 +1,346 @@
+#banner {
+    width: 100%;
+    height: 100%;
+    /* background: #00529c url("/documents/135903/136030/cepies.jpg/cba87699-4a39-19f7-9444-ffb4259694d8?t=1544645105844"); */
+    background-repeat: no-repeat;
+    background-position: top left;
+    border-bottom: 3px solid #bb2026;
+    padding: 20px;
+    padding-bottom: 60px
+  }
+
+  #portlet_com_liferay_portal_search_web_portlet_SearchPortlet {
+    display: none
+  }
+
+  #banner #navigationCollapse .navbar-blank>li>a {
+    color: #fff
+  }
+
+  #banner #navigationCollapse .navbar-blank>li:hover>a,
+  #banner #navigationCollapse .navbar-blank>li.hover>a,
+  #banner #navigationCollapse .navbar-blank>li.active>a,
+  #banner #navigationCollapse .navbar-blank>li .dropdown-menu .active>a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline
+  }
+
+  #banner #navigationCollapse .navbar-blank>li .dropdown-menu .active>a {
+    text-decoration: none;
+    background-color: #0051a0
+  }
+
+  .dropdown-menu>.active>a,
+  .dropdown-menu>.active>a:hover,
+  .dropdown-menu>.active>a:focus {
+    background-color: #0051a0
+  }
+
+  #banner #heading .site-name {
+    color: #fff;
+    display: none
+  }
+
+  #banner .row {
+    margin-left: 0
+  }
+
+  #footer {
+    background: #4d7f71;
+    display: none
+  }
+
+  .container-fluid-1280 {
+    background-image: url(/documents/135903/136030/fondo-cepies.png/38dd90f9-5d07-e2cb-3627-80be5dbbe80a?t=1554753709862);
+    background-size: 500px
+  }
+
+  .enca-titulo {
+    background: #0051a0;
+    color: #fff;
+    font-size: 16.5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 10px 2% 10px 2%;
+    font-weight: bold
+  }
+
+  .portlet-title-text {
+    display: block;
+    text-align: center;
+    color: #32639e;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 3px solid #bb2026;
+    max-width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em
+  }
+
+  .encabezado_carrera {
+    background: #0051a0;
+    color: #fff;
+    font-size: 16.5px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    font-weight: bold;
+    border-bottom: 5px solid #bb2026;
+    margin-top: 10px
+  }
+
+  .subtitulo_carrera {
+    color: #bb2026;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: bold
+  }
+
+  .contenido {
+    text-align: justify;
+    padding: 0 15px
+  }
+
+  @media(min-width:768px) {
+    .navbar-collapse {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0
+    }
+
+    .navbar-form {
+      padding-bottom: 0;
+      padding-top: 0
+    }
+
+    .logo img {
+      height: 100% !important
+    }
+
+    .navbar-right {
+      margin-right: 0
+    }
+  }
+
+  @media(max-width:767px) {
+    #banner {
+      background: #00529c;
+      border-bottom: 3px solid #bb2026;
+      padding: 20px;
+      padding-bottom: 20px;
+      background: #00529c url(/documents/63818/63900/UMSA-la-mejor-responsive.png/2f041516-d4cd-a9b4-2f13-cd37387bfed7?t=1537969690149);
+      background-repeat: no-repeat;
+      background-size: cover
+    }
+
+    #banner #heading .site-name {
+      display: inline
+    }
+
+    .navbar-toggle .icon-bar {
+      background-color: #fff
+    }
+
+    #banner .user-personal-bar .sign-in>a {
+      display: none
+    }
+  }
+
+  @media(max-width:480px) {
+    .enca-titulo {
+      font-size: 14.5px
+    }
+  }
+
+  /*ESTA PARTE HACE Q FUNCIONE EL LISTADO CORRECTO DE LOS DOCENTES*/
+  .container-post {
+    display: inline-table;
+    width: 32%
+  }
+
+  .cont-post {
+    display: block;
+    width: 100;
+    padding-left: 1%;
+  }
+
+  .containerimg-post {
+    margin-top: 20px;
+  }
+
+  
+  .div-imgpost {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .div-imgpost .imgpost {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+  }
+
+  .div-imgpost .text {
+    font-family: 'Open Sans';
+    display: block;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: bold;
+    width: 100%;
+    transform: translate(0px);
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    opacity: 0;
+    transition: transfom opacity 1.5s;
+    color: #32639e;
+  }
+
+  .div-imgpost:hover .imgpost {
+    transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+
+  .div-imgpost:hover .text {
+    transform: translate(0px, -20px);
+    opacity: 1;
+  }
+
+  .titulo-post {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #32639e;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 60px;
+  }
+
+  .titulo-postas {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .titulo-post {
+    color: #32639e;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .titulo-posta {
+    color: #bb2026;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .titulo-post2 {
+    font-size: 15px;
+    color: #26292e;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: none;
+  }
+
+  .text-2 {
+    display: block;
+    color: #32639e;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center
+  }
+
+  .imgumsa {
+    width: 50px
+  }
+
+  .div-descripcion {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /*PARA CELULARES*/
+    .container-agenda {
+      display: inline-block;
+      width: 300%;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    /*PARA PC*/
+    .container-agenda {
+      display: inline-block;
+      width: 100%;
+    }
+    
+  }
+  
+
+  @media all and (min-width:899px) {
+    .text-2 {
+      display: none
+    }
+  }
+
+  @media all and (max-width:900px) {
+    .container-post {
+      display: block
+    }
+
+    .cont-post {
+      width: 100%;
+      border-bottom: 2px solid #be1f24;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+
+    .imgumsa img {
+      width: 100%
+    }
+
+    .div-descripcion {
+      line-height: 1.5;
+    }
+
+    .text-2 {
+      display: block
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .container-agenda {
+      display: block
+    }
+  }

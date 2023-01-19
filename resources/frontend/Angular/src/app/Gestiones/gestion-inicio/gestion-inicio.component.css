@@ -1,0 +1,103 @@
+
+
+.linea{
+    background:#4682B4;
+    height: 2px;
+    width: 100%;
+    display: block;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    /*PARA CELULARES*/
+    .galeria {
+        display: grid;
+        width: 95%;
+        margin: auto;
+        grid-gap: 10px;
+        padding: 20px 10px;
+        overflow: hidden;
+        background: linear-gradient(-0deg, #e99898, #750202);
+        color: aliceblue;
+        border-radius: 30px;
+    }
+    .galeria img{
+        width: 100%;
+        vertical-align: top;
+        height: 150px;
+        object-fit: cover;
+        transition: transform 0.5s;
+        border-radius: 15px;
+        
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    /*PARA PC*/
+    .galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+        width: 95%;
+        margin: auto;
+        grid-gap: 10px;
+        padding: 20px 10px;
+        overflow: hidden;
+        background: linear-gradient(-0deg, #e99898, #750202);
+        color: aliceblue;
+        border-radius: 30px;
+    }
+    .galeria img{
+        width: 100%;
+        vertical-align: top;
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.5s;
+        border-radius: 30px;
+    }
+    
+  }
+
+.galeria a:hover img{
+    /*filter: blur(2px);*/
+    transform: rotate(0.5deg) scale(1.1);
+}
+
+
+/*ajustes para el modal*/
+
+/* .boton1 {
+background-color: #228B22;
+color: #ffffff;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+border-radius: 8%;
+   }
+.boton2 {
+background-color: #E74C3C ;
+color: #ffffff;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+border-radius: 8%;
+   } */
+
+
+.featurette-divider{
+color:#154360;
+background:#4682B4;
+ height: 1px;
+ width: 100%;
+}
+/* GENERAL */
+.modal-content {
+    /* background: linear-gradient(1deg, #138acf, #1c20e6); */
+    background: linear-gradient(-80deg, #e99898, #750202);
+    color: aliceblue;
+}
+.modal-body .form-control {
+    /* background: linear-gradient(150deg, #1c20e6, #138acf); */
+    background: linear-gradient(150deg, #ac1905, #ec9696);
+    color: aliceblue;
+}

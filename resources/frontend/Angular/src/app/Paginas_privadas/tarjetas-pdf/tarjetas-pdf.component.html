@@ -1,0 +1,361 @@
+<div class="container">
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2 class="font-weight-bold">CENTRALIZADOR FINAL - 2022</h2>
+      <p>Generacion del Centralizador Final Institucional</p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor Introducir No. Libro y Seleccionar Curso:</p>
+      <input type="text" class="float-left" style="margin-left: 10px; width: 60px;" placeholder="Numero de Libro"
+        [(ngModel)]="numLibro">
+      <select [(ngModel)]="CursoSeleccionado" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal" (change)="btnCentralizador=false" (change)="ListarForCentralizadorFinal(CursoSeleccionado)">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN CURSO ASIGNADO</option>
+          <option *ngFor="let c of cursoUnique">{{c.NivelCurso}}</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="openCentralizadorFinal()" [disabled]="!btnCentralizador">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>
+  <div *ngIf="btnCentralizador">
+    <label class="text-center">ESTADISTICAS - {{CursoSeleccionado}}</label>
+    <style>
+      .demo {
+        border:1px sólido #C0C0C0;
+        border-collapse:colapso;
+        padding:5px;
+      }
+      .demo th {
+        border:1px sólido #C0C0C0;
+        padding:5px;
+        background:#F0F0F0;
+      }
+      .demo td {
+        border:1px sólido #C0C0C0;
+        padding:5px;
+      }
+    </style>
+    <table class="demo">
+      <thead>
+      <tr>
+        <th class="text-center font-weight-bold" colspan="3">INSCRITOS</th>
+        <th class="text-center font-weight-bold" colspan="3">RETIRADOS</th>
+        <th class="text-center font-weight-bold" colspan="3">EFECTIVOS</th>
+        <th class="text-center font-weight-bold" colspan="3">REPROBADOS</th>
+        <th class="text-center font-weight-bold" colspan="3">APROBADOS</th>
+      </tr>
+      <tr>
+        <th>V</th>
+        <th>M</th>
+        <th>T</th>
+        <th>V</th>
+        <th>M</th>
+        <th>T</th>
+        <th>V</th>
+        <th>M</th>
+        <th>T</th>
+        <th>V</th>
+        <th>M</th>
+        <th>T</th>
+        <th>V</th>
+        <th>M</th>
+        <th>T</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{cantidadVaronesInscritos}}</td>
+        <td>{{cantidadMujeresInscritos}}</td>
+        <td>{{cantidadVaronesInscritos+cantidadMujeresInscritos}}</td>
+        <td>{{cantidadVaronesRetirados}}</td>
+        <td>{{cantidadMujeresRetirados}}</td>
+        <td>{{cantidadVaronesRetirados + cantidadMujeresRetirados}}</td>
+        <td>{{cantidadVaronesEfectivos}}</td>
+        <td>{{cantidadMujeresEfectivos}}</td>
+        <td>{{cantidadVaronesEfectivos + cantidadMujeresEfectivos}}</td>
+        <td>{{cantidadVaronesReprobados}}</td>
+        <td>{{cantidadMujeresReprobados}}</td>
+        <td>{{cantidadVaronesReprobados + cantidadMujeresReprobados}}</td>
+        <td>{{cantidadVaronesAprobados}}</td>
+        <td>{{cantidadMujeresAprobados}}</td>
+        <td>{{cantidadVaronesAprobados+ cantidadMujeresAprobados}}</td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2 class="font-weight-bold">LISTAS DE SEGUNDA INSTANCIA 2022</h2>
+      <p>Generacion del Centralizador Final Institucional</p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor Introducir No. Libro y Seleccionar Curso:</p>
+      <input type="text" class="float-left" style="margin-left: 10px; width: 60px;" placeholder="Numero de Libro"
+        [(ngModel)]="numLibro">
+      <select [(ngModel)]="CursoSeleccionado" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal" (change)="btnCentralizador=false" (change)="ListarForCentralizadorFinal(CursoSeleccionado)">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN CURSO ASIGNADO</option>
+          <option *ngFor="let c of cursoUnique">{{c.NivelCurso}}</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="openListaSegundaInstancia()" [disabled]="!btnCentralizador">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>
+  <div class="box">
+    <span></span>
+    <div class="content">
+      <h2 class="font-weight-bold">CUADRO DE INSCRIPCIONES DE ALUMNOS - GENERAL</h2>
+      <p>Acá obtendremos la lista del Cuadro de Inscripciones de Alumnos Nuevos y Antiguos de la Institución.
+      </p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor introducir Numero de
+        Paginacion Inicial:</p>
+      <input type="number" class="float-left" style="margin-left: 10px; width: 60px;" placeholder="NUMERO PAGINA"
+        [(ngModel)]="numeroPaginaCuadro">
+      <select [(ngModel)]="SizePaginaCuadro" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal">
+        <optgroup label="Seleccione Tamañó">
+          <option value="" selected>NINGUN TAMAÑO</option>
+          <option value="CARTA">CARTA</option>
+          <option value="OFICIO">OFICIO</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="ConsultarForCuadro()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Generar
+    </button>
+  </div>
+  <div class="box">
+    <span></span>
+    <div class="content">
+      <h2 class="font-weight-bold">CUADRO DE INSCRIPCIONES DE ALUMNOS - NIVEL CAPACITACIÓN O TÉCNICO SUPERIOR</h2>
+      <p>Acá obtendremos la lista del Cuadro de Inscripciones de Nivel Capacitación o Técnico Superior.
+      </p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor introducir Numero de
+        Paginacion Inicial:</p>
+      <input type="number" class="float-left" style="margin-left: 10px;  width: 60px;" placeholder="NUMERO PAGINA"
+        [(ngModel)]="numeroPaginaCuadro">
+      <select [(ngModel)]="TipoPaginaCuadroCTS" style="background-color: rgb(223, 118, 118);  width: 160px;"
+        class="form-control col-sm-3 float-left" name="Curso_id" type="text" id="Curso_idModal">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN NIVEL SELECCIONADO</option>
+          <option value="SUPERIOR">TECNICO SUPERIOR</option>
+          <option value="CAPACITACION">CAPACITACION</option>
+        </optgroup>
+      </select>
+      <select [(ngModel)]="SizePaginaCuadroCTS" style="background-color: rgb(223, 118, 118); width: 180px;"
+        class="form-control col-sm-3 " name="Curso_id" type="text" id="Curso_idModal">
+        <optgroup label="Seleccione Tamañó">
+          <option value="" selected>NINGUN TAMAÑO DE PAGINA SELECCIONADO</option>
+          <option value="CARTA">CARTA</option>
+          <option value="OFICIO">OFICIO</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="ConsultarForCuadroCTS(TipoPaginaCuadroCTS)">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Generar
+    </button>
+  </div>
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2 class="font-weight-bold">LISTA DE ESTUDIANTES POR CURSO</h2>
+      <p>Acá obtendremos la lista de estudiantes por Curso.</p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor introducir Numero de
+        Paginacion Inicial:</p>
+      <input type="number" class="float-left" style="margin-left: 10px;  width: 60px;" placeholder="NUMERO PAGINA"
+        [(ngModel)]="numeroPaginaCurso">
+      <select [(ngModel)]="CursoListar" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal" (change)="CargarListadoEstudiantes()">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN CURSO ASIGNADO</option>
+          <option *ngFor="let c of cursoUnique">{{c.NivelCurso}}</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="openListaAlumnos()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2 class="font-weight-bold">LISTAR DE ESTUDIANTES POSTULANTES</h2>
+      <p>Acá obtendremos la lista de estudiantes por Curso.</p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por favor Selecciones el Nivel de Curso
+        para listar a los postulantes del nivel:</p>
+      <!-- <input type="text" class="float-left" style="margin-left: 10px;" placeholder="ESCRIBA CURSO" [(ngModel)]="CursoListar"> -->
+      <select [(ngModel)]="CursoNivel" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN CURSO ASIGNADO</option>
+          <option *ngFor="let c of nivelUnique">{{c.NivelCurso}}</option>
+        </optgroup>
+      </select>
+    </div>
+    <button type="button" class="btn btn-success" (click)="openListaAlumnos()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>
+  <div class="box">
+    <span></span>
+    <div class="content">
+      <h2 class="font-weight-bold">GENERAR CENTRALIZADOR FINAL - GESTION 2022</h2>
+      <p>Se generará el Centralizador Final de la Gestion 2022
+      </p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor introducir Numero de
+        Paginacion Inicial:</p>
+      <input type="number" class="float-left" style="margin-left: 10px;  width: 60px;" placeholder="NUMERO PAGINA"
+        [(ngModel)]="numeroPaginaCuadro">
+        <select [(ngModel)]="CursoListar" style="background-color: rgb(223, 118, 118);" class="form-control col-sm-3"
+        name="Curso_id" type="text" id="Curso_idModal" (change)="CargarListadoEstudiantes()">
+        <optgroup label="Seleccione Curso">
+          <option value="" selected>NINGUN CURSO ASIGNADO</option>
+          <option *ngFor="let c of cursoUnique">{{c.NivelCurso}}</option>
+        </optgroup>
+      </select>
+      <!-- <select [(ngModel)]="SizePaginaCuadroCTS" style="background-color: rgb(223, 118, 118); width: 180px;"
+        class="form-control col-sm-3 " name="Curso_id" type="text" id="Curso_idModal">
+        <optgroup label="Seleccione Tamañó">
+          <option value="" selected>NINGUN TAMAÑO DE PAGINA SELECCIONADO</option>
+          <option value="CARTA">CARTA</option>
+          <option value="OFICIO">OFICIO</option>
+        </optgroup>
+      </select> -->
+    </div>
+    <button type="button" class="btn btn-success" (click)="GenerarCentralizadorFinal(CursoListar)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Generar
+    </button>
+  </div>
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2 class="font-weight-bold">LISTA DE RESUMEN ESTADISTICO</h2>
+      <p>Acá obtendremos la lista del resumen Estadistico de Inicio de Gestion.</p>
+      <p class="float-left font-weight-bold font-italic" style="color: yellow;">Por Favor introducir Numero de
+        Paginacion Inicial:</p>
+      <input type="number" class="float-left" style="margin-left: 10px;" placeholder="Numero de Paginacion Inicial">
+
+    </div>
+    <button type="button" class="btn btn-success" (click)="AbrirEstadistico()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>
+  <div class="box">
+    <span></span>
+    <a routerLink="#" *ngIf="false">DD</a>
+    <div class="content">
+      <h2>Documento Institucional Instituto Institucional Institucional Instituto</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Laboriosam odio perferendis
+        ut recusandae, maiores reiciendis temporibus.
+        m ipsum dolor sit amet consectetur adipisicing
+        elit. Laboriosam odio perferendis
+        ut recusandae, maiores reiciendis tempor
+        m ipsum dolor sit amet consectetur adipisicing
+        elit. Laboriosam odio perferendis
+        ut recusandae, maiores reiciendis tempor</p>
+    </div>
+    <button type="button" class="btn btn-success">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z">
+        </path>
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z">
+        </path>
+      </svg>
+      Descargar
+    </button>
+
+  </div>

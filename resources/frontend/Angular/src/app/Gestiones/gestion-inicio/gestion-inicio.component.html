@@ -1,0 +1,198 @@
+<div style="background: linear-gradient(-180deg, #aa0505, #ffffff); padding: 5px 0px;">
+
+
+  <!-- GESTIONAR AVISOS -->
+  <strong>
+    <h2 class="text-center text-bold text-light"><b>GESTIONAR AVISOS</b></h2>
+  </strong>
+  <hr />
+  <div class="col-md-12">
+    <div class="card text-white bg-transparent border-0 mb-3">
+      <!-- <div class=" text-center text-white"><b>GESTIONAR CURSOS</b></div> -->
+      <div class="card-body">
+        <a class="btn btn-danger btn-sm" title="Add New Estudiante" data-toggle="modal"
+          data-target="#staticBackdrop">
+          <i class="bi bi-plus-circle"></i> AGREGAR NUEVO AVISO
+        </a>
+
+
+        <!-- <input type="text" class="form-control" [(ngModel)]="filterpost" name="filterPost"> -->
+        <br />
+        <br />
+
+        <div class="table-responsive  ">
+          <table class="table table-bordered table-striped table-hover table-dark">
+            <thead class="bg-danger">
+              <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Enlace</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of avisos; let i= index">
+                <td>{{i+1}}</td>
+                <td>
+                  <input class="col-12" type="text" *ngIf="a.Editando" [(ngModel)]="a.Titulo">
+                  <span *ngIf="!a.Editando">{{a.Titulo}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" *ngIf="a.Editando" [(ngModel)]="a.Descripcion">
+                  <span *ngIf="!a.Editando">{{a.Descripcion}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="text" *ngIf="a.Editando" [(ngModel)]="a.Enlace">
+                  <span *ngIf="!a.Editando">{{a.Enlace}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="date" *ngIf="a.Editando" [(ngModel)]="a.Fecha">
+                  <span *ngIf="!a.Editando">{{a.Fecha}}</span>
+                </td>
+                <td>
+                  <input class="col-12" type="date" *ngIf="a.Editando" [(ngModel)]="a.Tipo">
+                  <span *ngIf="!a.Editando">{{a.Tipo}}</span>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger col-6" (click)="EliminarAviso(a)"><i
+                      class="bi bi-trash"></i></button>
+                  <!-- <button type="button" class="btn btn-primary" (click)="seleccionado=a;">select</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--Diseño galeria-->
+  <div class="text-primary text-center">
+    <h3 class="text-white"> <em><strong>GESTIONAR CARROUSELES</strong></em></h3>
+  </div>
+
+  <span class="linea"></span>
+  <br>
+
+  <button type="button" class="boton1 btn btn-danger" data-toggle="modal" data-target="#agregarimagen" *ngIf="esAdmin">
+    AGREGAR CARROUSEL
+  </button>
+
+
+  <section class="galeria">
+    <div *ngFor="let item of carrousel">
+      <h4 class="display-5 text-center"><strong>{{item.Titulo}}</strong></h4>
+      <a> <img [src]="ruta+item.File" alt="Card image cap" alt="First slide"> </a>
+      <!-- <hr class="featurette-divider"> -->
+
+      <p class="card-text font-italic font-family">{{item.Descripcion}}</p>
+      <p class="card-text font-italic font-family">Fecha de Publicacion: {{item.Fecha}}</p>
+      <div class="text-center">
+        <!-- <button type="button" class="boton2 btn btn-danger" (click)='ModificarPublicacion(item);' *ngIf="esAdmin">MODIFICAR</button> -->
+        <button type="button" class="boton2 btn btn-danger" (click)='EliminarCarrousel(item);'
+          *ngIf="esAdmin">ELIMINAR</button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!--Diseño galeria-->
+  <!-- Modal -->
+  <div class="modal fade" id="agregarimagen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">AGREGAR IMAGEN</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" #CerrarBoton>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="newPublicacion" (ngSubmit)="AgregarCarrousel()">
+            <div class="form-group">
+              <label for="full_name_id" class="control-label">Titulo:</label>
+              <input type="text" class="form-control" id="titulo" name="titulo" formControlName="Titulo">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descripcion:</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3"
+                formControlName="Descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Fecha de Publicacion:</label>
+              <input type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha">
+            </div>
+
+            <div class="form-group">
+              <label for="state_id" class="control-label">File:</label>
+              <input type="file" id="imagen" name="imagen" class="form-control" (change)="onFileChange($event)">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Enlace:</label>
+              <input type="text" class="form-control" id="Enlace" name="Enlace" formControlName="Enlace">
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-danger">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- MODAL AGREGAR AVISO -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Agregar Aviso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #cerrarBtnAviso>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3" [formGroup]="newPublicacion">
+          <label for="nombre" class="form-label">Titulo : </label>
+          <input type="text" class="form-control" formControlName="Titulo">
+
+          <label for="apellido" class="form-label">Descripcion: </label>
+          <input type="text" class="form-control" formControlName="Descripcion">
+
+          <label for="apellido" class="form-label">Fecha: </label>
+          <input type="date" class="form-control" formControlName="Fecha">
+
+          <label for="apellido" class="form-label">Enlace: </label>
+          <input type="text" class="form-control" formControlName="Enlace">
+
+          <!-- <label for="apellido" class="form-label">Tipo: </label>
+          <select class="form-control" type="text" formControlName="Tipo">
+            <optgroup label="Seleccione Tipo" >
+                <option value="Video">VIDEO</option>    
+                <option value="Aviso">AVISO</option>    
+            </optgroup>
+          </select> -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-danger" (click)="AgregarAviso()">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
